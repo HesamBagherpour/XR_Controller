@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Samples/XR Interaction Toolkit/2.5.4/XR Device Simulator/Hand Expression Captures/Pinch Expression Capture.asset.meta
 guid: d6e15a52475c2564ca7d2977fdece24a
+========
+guid: 3861c298d39c60c44b16920421444875
+>>>>>>>> 013fe07 ([add] Gun Controller):Assets/Samples/XR Interaction Toolkit/2.5.4/XR Device Simulator/Hand Expression Captures/Grab Expression Capture.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
