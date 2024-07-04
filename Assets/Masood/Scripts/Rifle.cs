@@ -22,15 +22,12 @@ public class Rifle : Gun
 
     private void Update()
     {
-        //if (Fire.ReadValue<float>() > 0)
-        //    DoAction();
         if (Fire.IsPressed())
         {
-            //Debug.Log("IsPressed");
             DoAction();
         }
 
-            if (Time.time > _lastShootTime + _durationBetweenShoot)
+        if (Time.time > _lastShootTime + _durationBetweenShoot)
             _readyToShoot = true;
     }
 }

@@ -16,7 +16,6 @@ public abstract class Gun : MonoBehaviour
     public LayerMask ValidLayers;
     public GunType GunType;
     protected InputAction Fire;
-    //public float riflevalue;
 
     [SerializeField] private GameObject _shooptStartPosition;
     [SerializeField] private Magazine _currentMagazine;
