@@ -1,4 +1,4 @@
-namespace AS.Ekbatan_Showdown.Xr_Wrapper.Player
+namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
 {
     public enum PlayerHand
     {

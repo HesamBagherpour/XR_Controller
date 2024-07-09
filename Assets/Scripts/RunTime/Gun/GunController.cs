@@ -1,25 +1,33 @@
 using System.Collections.Generic;
-using AS.Ekbatan_Showdown.Xr_Wrapper.Gun.GunState;
-using AS.Ekbatan_Showdown.Xr_Wrapper.Gun.HandsOnGunControl;
-using AS.Ekbatan_Showdown.Xr_Wrapper.Player;
+using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun.GunStates;
+using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Transformers;
 
-namespace AS.Ekbatan_Showdown.Xr_Wrapper.Gun
+namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 {
     public class GunController : MonoBehaviour
     {
-        [SerializeField] XRGrabInteractable xRGrabInteractable;
-        [SerializeField] GameObject SecondAttachColider;
-        List<GameObject> firstAttachColliders = new List<GameObject>();
+        [SerializeField] HandsOnGunControl handOnGun;
+        [SerializeField] TriggerControl triggerControlRight;
+        [SerializeField] TriggerControl triggerControlLeft;
 
-        PlayerHand firstSelectingHand;
-        HandOnGunControl handOnGun;
+        [SerializeField] XRGrabInteractable xRGrabInteractable;
+        [SerializeField] XRGeneralGrabTransformer grabTransformer;
+
+        List<GameObject> firstAttachColliders = new List<GameObject>();
+        [SerializeField] Collider secondAttachColider;
+        [SerializeField] Collider boltColider;
+
+        [SerializeField] Transform secondAttachPoint;
 
         IGunState gunState;
         Idle idle = new Idle();
         OneHandGrab oneHandGrab = new OneHandGrab();
         TwoHandGrab twoHandGrab = new TwoHandGrab();
+
+        PlayerHand firstSelectingHand;
 
         void Start()
         {
@@ -28,10 +36,9 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.Gun
             xRGrabInteractable.selectExited.AddListener(OnSelectExited);
 
             GetFirstAttachColiders();
-            handOnGun = GetComponent<HandOnGunControl>();
-
             MoveToState(idle);
         }
+    
         void OnDestroy()
         {
             xRGrabInteractable.firstSelectEntered.RemoveListener(OnFirstSelectEntered);
@@ -42,12 +49,15 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.Gun
         void GetFirstAttachColiders()
         {
             foreach (var colider in xRGrabInteractable.colliders)
-                if(colider != SecondAttachColider)
+                if(colider != secondAttachColider && colider != boltColider)
                     firstAttachColliders.Add(colider.gameObject);
         }
 
         void MoveToState(IGunState state)
         {
+            if(gunState != null)
+                gunState.Exit();
+
             gunState = state;
             gunState.init(this, handOnGun);
             gunState.Enter();
@@ -73,27 +83,43 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.Gun
             }
         }
 
-        void OnFirstSelectEntered(SelectEnterEventArgs args)
+        public bool IsInTwoHandGrab()
         {
-            var playerHandControl = GetFirstSelectingInteractor().transform.GetComponent<InteractorHandControl>();
-            firstSelectingHand = playerHandControl.Hand;
+            return gunState == twoHandGrab;
         }
 
-        //cancels all interactors selection if first interactor exit
-        void CancelOnFirstSelectExited(SelectExitEventArgs args)
+        public void SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode rotationMode)
         {
-            if(!GetFirstSelectingInteractor().hasSelection)
-                GetInteractionManager().CancelInteractableSelection(args.interactableObject);
+            grabTransformer.allowTwoHandedRotation = rotationMode;
         }
 
-        void OnSelectEntered(SelectEnterEventArgs args)
+        public void SetSecondaryAttachTransform(Transform transform)
         {
-            ChangeSelection();
+            xRGrabInteractable.secondaryAttachTransform = transform;
         }
-        void OnSelectExited(SelectExitEventArgs args)
+        public void SetDefaultSecondaryAttachTransform()
         {
-            CancelOnFirstSelectExited(args);
-            ChangeSelection();
+            xRGrabInteractable.secondaryAttachTransform = secondAttachPoint;
+        }
+
+        public void TriggerStay(float value, PlayerHand hand)
+        {
+            if(firstSelectingHand == hand)
+                gunState.TriggerStay(value, GetFirstActiveHand());
+        }
+        public void TriggerCancel(PlayerHand hand)
+        {
+            if(firstSelectingHand == hand)
+                gunState.TriggerCancel(GetFirstActiveHand());
+        }
+
+        internal TriggerControl GetFirstActiveHand()
+        {
+            if(triggerControlRight.gameObject.activeSelf)
+                return triggerControlRight;
+            else if(triggerControlLeft.gameObject.activeSelf)
+                return triggerControlLeft;
+            else return null;
         }
 
         internal void FirstAttachColidersSetActive(bool value)
@@ -104,22 +130,41 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.Gun
         }
         internal void SecondAttachColiderSetActive(bool value)
         {
-            if (SecondAttachColider.activeSelf != value)
-                SecondAttachColider.SetActive(value);
+            if (secondAttachColider.gameObject.activeSelf != value)
+                secondAttachColider.gameObject.SetActive(value);
         }
-
-        internal void TriggerEnter(Collider other)
+        internal void BoltColiderSetActive(bool value)
         {
-            gunState.TriggerEnter(other);
-        }
-        internal void TriggerExit(Collider other)
-        {
-            gunState.TriggerExit(other);
+            if (boltColider.enabled != value)
+                boltColider.enabled = value;
         }
 
         internal PlayerHand GetFirstSelectedHand()
         {
             return firstSelectingHand;
+        }
+
+        void OnFirstSelectEntered(SelectEnterEventArgs eventArgs)
+        {
+            var playerHandController = GetFirstSelectingInteractor().transform.GetComponent<PlayerHandController>();
+            firstSelectingHand = playerHandController.Hand;
+        }
+
+        void OnSelectEntered(SelectEnterEventArgs eventArgs)
+        {
+            ChangeSelection();
+        }
+
+        void OnSelectExited(SelectExitEventArgs eventArgs)
+        {
+            CancelOnFirstSelectExited(eventArgs);
+            ChangeSelection();
+        }
+
+        void CancelOnFirstSelectExited(SelectExitEventArgs args)
+        {
+            if(!GetFirstSelectingInteractor().hasSelection)
+                GetInteractionManager().CancelInteractableSelection(args.interactableObject);
         }
     }
 }
