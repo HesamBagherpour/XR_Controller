@@ -1,0 +1,17 @@
+{
+    "name": "AS.Ekbatan_Showdown.Xr_Wrapper",
+    "rootNamespace": "AS.Ekbatan_Showdown.Xr_Wrapper",
+    "references": [
+        "Unity.XR.Interaction.Toolkit",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
