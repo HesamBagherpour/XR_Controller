@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun.GunStates;
 using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player;
@@ -36,7 +37,13 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
             xRGrabInteractable.selectExited.AddListener(OnSelectExited);
 
             GetFirstAttachColiders();
-            MoveToState(idle);
+            MoveToState(idle);           
+        }
+
+        public void AddGunReactionsToTrigger(Action shoot)
+        {
+            triggerControlLeft.OnTrigger=shoot;
+            triggerControlRight.OnTrigger=shoot;
         }
     
         void OnDestroy()
