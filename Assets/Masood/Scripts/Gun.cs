@@ -1,3 +1,4 @@
+using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ public abstract class Gun : MonoBehaviour
 
     [SerializeField] private GameObject _shooptStartPosition;
     [SerializeField] protected Magazine _currentMagazine;
+    [SerializeField] protected GunController _gunController;
 
     protected abstract void Initialize();
     public abstract void DoAction();

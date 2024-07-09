@@ -8,10 +8,14 @@ public class Rifle : Gun
 
     public override void DoAction()
     {
+        //Debug.Log("Rifle Do Action");
         if (!_readyToShoot)
             return;
         if (!_currentMagazine.HasBullet())
+        {
+            Debug.Log("Rifle magazine is empty");
             return;
+        }
         Shoot();
         _readyToShoot = false;
         _lastShootTime = Time.time;
@@ -20,14 +24,15 @@ public class Rifle : Gun
     protected override void Initialize()
     {
         GunType = GunType.Rifle;
+        _gunController.AddGunReactionsToTrigger(DoAction);
     }
 
     private void Update()
     {
-        if (Fire.IsPressed())
-        {
-            DoAction();
-        }
+        //if (Fire.IsPressed())
+        //{
+        //    DoAction();
+        //}
 
         if (Time.time > _lastShootTime + _durationBetweenShoot)
             _readyToShoot = true;
