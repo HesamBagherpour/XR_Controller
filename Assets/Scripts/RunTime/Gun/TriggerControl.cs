@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,8 +6,9 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 {
     public class TriggerControl : MonoBehaviour
     {
-        [SerializeField, Range(0f, 1)] float returnSpeed = 0.05f; 
+        [SerializeField, Range(0f, 1)] float returnSpeed = 0.05f;
         Animator animator;
+        public Action OnTrigger;
 
         void Start()
         {
@@ -15,15 +17,17 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 
         public void OnActionStay(float value)
         {
+            Debug.Log("OnActionStay");
             animator.SetFloat("TriggerValue", value);
 
             if (value > 0.6)
             {
                 //First Check
-                    //if Magazine Entered
-                    //if Bolt Pulled
-                    
+                //if Magazine Entered
+                //if Bolt Pulled
+
                 //SHOOT START
+                OnTrigger?.Invoke();
             }
         }
 
