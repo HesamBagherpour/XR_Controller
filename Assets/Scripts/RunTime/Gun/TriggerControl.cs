@@ -5,6 +5,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 {
     public class TriggerControl : MonoBehaviour
     {
+        [SerializeField, Range(0f, 1)] float returnSpeed = 0.05f; 
         Animator animator;
 
         void Start()
@@ -14,18 +15,20 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 
         public void OnActionStay(float value)
         {
-            Debug.Log("OnActionStay");
             animator.SetFloat("TriggerValue", value);
 
             if (value > 0.6)
             {
+                //First Check
+                    //if Magazine Entered
+                    //if Bolt Pulled
+                    
                 //SHOOT START
             }
         }
 
         public void OnActionCancle()
         {
-            Debug.Log("OnActionCancle");
             //SHOOT STOP
             StartCoroutine(ReturnTodefault());
         }
@@ -36,7 +39,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
             while (animationValue > 0)
             {
                 yield return new WaitForEndOfFrame();
-                animationValue -= 0.02f;
+                animationValue -= returnSpeed;
             }
             animator.SetFloat("TriggerValue", 0);
         }

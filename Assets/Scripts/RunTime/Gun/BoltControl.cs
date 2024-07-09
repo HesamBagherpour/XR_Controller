@@ -10,6 +10,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
         [SerializeField] GunController gunController;
         [SerializeField] Transform boltAttachPoint;
         [SerializeField] Animator animator;
+        [SerializeField, Range(0, 1)] float returnSpeed = 0.1f;
 
         void OnTriggerStay(Collider other)
         {
@@ -30,9 +31,19 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 
         public void MoveBolt(float _value)
         {
-            var value = animator.GetFloat("Blend");
+            var value = GetAnimatorValue();
             value += _value;
-            animator.SetFloat("Blend", value);
+            SetAnimatorValue(value);
+
+            if(value >= 0.9)
+            {
+                Pull(true);
+            }
+        }
+
+        public void Pull(bool value)
+        {
+            //Bolt Pulled;
         }
 
         public void LeaveBolt()
@@ -42,14 +53,23 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 
         IEnumerator ReturnToDefault()
         {
-            var value = animator.GetFloat("Blend");
+            var value = GetAnimatorValue();
             while(value > 0)
             {
-                value -= 0.1f;
-                animator.SetFloat("Blend", value);
+                value -= returnSpeed;
+                SetAnimatorValue(value);
                 yield return new WaitForEndOfFrame();
             }
-            animator.SetFloat("Blend", 0);
+            SetAnimatorValue(0);
+        }
+
+        float GetAnimatorValue()
+        {
+            return animator.GetFloat("Blend");
+        }
+        void SetAnimatorValue(float value)
+        {
+            animator.SetFloat("Blend", value);
         }
     }
 }
