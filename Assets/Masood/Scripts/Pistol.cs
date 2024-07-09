@@ -2,8 +2,6 @@
 
 public class Pistol : Gun
 {
-    [SerializeField] private bool _readyToShoot;
-
     public override void DoAction()
     {
         Shoot();

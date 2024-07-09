@@ -10,6 +10,8 @@ public class Rifle : Gun
     {
         if (!_readyToShoot)
             return;
+        if (!_currentMagazine.HasBullet())
+            return;
         Shoot();
         _readyToShoot = false;
         _lastShootTime = Time.time;

@@ -1,4 +1,6 @@
-﻿public interface Idamageable
+﻿using UnityEngine;
+
+public interface Idamageable
 {
-    void ReceiveDamage(float damageAmount);
+    void ReceiveDamage(RaycastHit hit,float damageAmount);
 }

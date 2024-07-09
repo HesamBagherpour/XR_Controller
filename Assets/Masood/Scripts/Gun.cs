@@ -15,10 +15,13 @@ public abstract class Gun : MonoBehaviour
     public PlayerInputActions PlayerControls;
     public LayerMask ValidLayers;
     public GunType GunType;
+    public Action<bool> onShoot;
+
+
     protected InputAction Fire;
 
     [SerializeField] private GameObject _shooptStartPosition;
-    [SerializeField] private Magazine _currentMagazine;
+    [SerializeField] protected Magazine _currentMagazine;
 
     protected abstract void Initialize();
     public abstract void DoAction();
@@ -31,6 +34,7 @@ public abstract class Gun : MonoBehaviour
     protected void Start()
     {
         Initialize();
+        ImpactHandler.Initialize();
     }
 
 
@@ -38,10 +42,8 @@ public abstract class Gun : MonoBehaviour
     {
         Fire = PlayerControls.Player.Fire;
         Fire.Enable();
-        
+
     }
-
-
 
     private void OnDisable()
     {
@@ -54,23 +56,28 @@ public abstract class Gun : MonoBehaviour
         var currentBullet = _currentMagazine.GetBullet();
         if (currentBullet == null)
         {
+            onShoot?.Invoke(false);
             return;
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(_shooptStartPosition.transform.position,
+        if (Physics.Raycast(_shooptStartPosition.transform.position + UnityEngine.Random.onUnitSphere * 0.1f,
              transform.forward, out hit, currentBullet.Range,
              ValidLayers, QueryTriggerInteraction.Ignore))
             OnRaycastHit(hit, currentBullet.Damage);
+        onShoot?.Invoke(true);
     }
 
-    private void OnRaycastHit(RaycastHit hit, float damage)
+    protected virtual void OnRaycastHit(RaycastHit hit, float damage)
     {
         Debug.Log(hit.collider.gameObject.name);
         var damageable = hit.collider.GetComponent<Idamageable>();
         if (damageable != null)
-            damageable.ReceiveDamage(damage);
+            damageable.ReceiveDamage(hit, damage);
     }
+
+
+
 }
 
 

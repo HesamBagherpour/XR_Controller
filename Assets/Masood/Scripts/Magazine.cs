@@ -28,4 +28,9 @@ public class Magazine : MonoBehaviour
         }
         return null;
     }
+
+    public bool HasBullet()
+    {
+        return _bulletAmount > 0;
+    }
 }
