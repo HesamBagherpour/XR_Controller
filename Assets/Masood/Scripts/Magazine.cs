@@ -16,7 +16,11 @@ public class Magazine : MonoBehaviour
 
     private void Start()
     {
-        _bulletAmount = bulletRefrence.MaxBulletAmount;
+#if UnlimitedAmmo
+        _bulletAmount = 9999999;
+#endif
+
+
     }
 
     public BulletScriptableObject GetBullet()
