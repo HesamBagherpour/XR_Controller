@@ -63,7 +63,7 @@ public abstract class Gun : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(_shooptStartPosition.transform.position + UnityEngine.Random.onUnitSphere * 0.1f,
+        if (Physics.Raycast(_shooptStartPosition.transform.position, //+ UnityEngine.Random.onUnitSphere * 0.1f,
              transform.forward, out hit, currentBullet.Range,
              ValidLayers, QueryTriggerInteraction.Ignore))
             OnRaycastHit(hit, currentBullet.Damage);
