@@ -9,6 +9,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
         [SerializeField, Range(0f, 1)] float returnSpeed = 0.05f;
         Animator animator;
         public Action OnTrigger;
+        private bool _actionKeepDoing = false;
 
         void Start()
         {
@@ -27,7 +28,10 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
                 //if Bolt Pulled
 
                 //SHOOT START
-                OnTrigger?.Invoke();
+                
+                //OnTrigger?.Invoke();
+                _actionKeepDoing = true;
+                StartCoroutine(SimulateOnKey());
             }
         }
 
@@ -35,6 +39,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
         {
             //SHOOT STOP
             StartCoroutine(ReturnTodefault());
+            _actionKeepDoing = false;
         }
 
         IEnumerator ReturnTodefault()
@@ -46,6 +51,17 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
                 animationValue -= returnSpeed;
             }
             animator.SetFloat("TriggerValue", 0);
+        }
+
+
+     
+        IEnumerator SimulateOnKey()
+        {
+            while(_actionKeepDoing )
+            {
+                yield return new WaitForEndOfFrame();
+                OnTrigger?.Invoke();
+            }
         }
     }
 }
