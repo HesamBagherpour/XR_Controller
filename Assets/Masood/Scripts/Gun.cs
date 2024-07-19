@@ -64,22 +64,60 @@ public abstract class Gun : MonoBehaviour
 
         RaycastHit hit;
         if (Physics.Raycast(_shooptStartPosition.transform.position, //+ UnityEngine.Random.onUnitSphere * 0.1f,
-             transform.forward, out hit, currentBullet.Range,
+             transform.forward, out hit, currentBullet.MaxDistance,
              ValidLayers, QueryTriggerInteraction.Ignore))
-            OnRaycastHit(hit, currentBullet.Damage);
+        {//OnRaycastHit(hit, currentBullet.Damage,currentBullet.PhysicForceOnHit);
+
+            var hitData = new HitData()
+            {
+                collide = hit.collider.gameObject,
+                DamageAmount = currentBullet.Damage,
+                HitForce = currentBullet.PhysicForceOnHit,
+                HitPoint = hit.point,
+                normal = hit.normal,
+                DistanceFactor = GetDistanceFactor(_shooptStartPosition.transform.position, hit.collider.gameObject.transform.position)
+            };
+            OnRaycastHit(hitData);
+         }
         onShoot?.Invoke(true);
     }
 
-    protected virtual void OnRaycastHit(RaycastHit hit, float damage)
+
+    private float GetDistanceFactor(Vector3 startPoint, Vector3 endPoint)
     {
-        Debug.Log(hit.collider.gameObject.name);
-        var damageable = hit.collider.GetComponent<Idamageable>();
+        Vector3.Distance(startPoint, endPoint);
+
+        return 0;
+
+           
+    }
+
+    //protected virtual void OnRaycastHit(RaycastHit hit, float damage)
+    //{
+    //    Debug.Log(hit.collider.gameObject.name);
+    //    var damageable = hit.collider.GetComponent<Idamageable>();
+    //    if (damageable != null)
+    //        damageable.ReceiveDamage(hit, damage);
+    //} 
+    protected virtual void OnRaycastHit(HitData data)
+    {
+        Debug.Log(data.collide.name);
+        var damageable = data.collide.GetComponent<Idamageable>();
         if (damageable != null)
-            damageable.ReceiveDamage(hit, damage);
+            damageable.ReceiveDamage(data);
     }
 
 
-
+    public class HitData
+    {
+        public Vector3 normal;
+        public float DamageAmount;
+        //public Vector3 HitPosition;
+        public Vector3 HitPoint;
+        public float HitForce;
+        public float DistanceFactor;
+        public GameObject collide;
+    }
 }
 
 

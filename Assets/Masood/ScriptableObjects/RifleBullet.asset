@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RifleBullet
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 0}
-  Range: 100
-  MaxBulletAmount: 30
   Damage: 10
+  MaxDistance: 100
+  PhysicForceOnHit: 100
   GunType: 2

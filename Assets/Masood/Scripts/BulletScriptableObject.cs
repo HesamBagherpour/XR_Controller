@@ -4,10 +4,10 @@
 public class BulletScriptableObject : ScriptableObject
 {
     public GameObject BulletPrefab;
-    public float Range;
     public float Damage;
+    public float MaxDistance;
     [Header("PhysicForceOnHit based on distance for 1 meter")] 
-    [Header("it will multiply by disance")] 
+    //todo: [Header("it will multiply by disance")] 
     public float PhysicForceOnHit;
     public GunType GunType;
 }

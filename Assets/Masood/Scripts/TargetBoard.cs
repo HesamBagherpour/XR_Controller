@@ -5,28 +5,42 @@ using UnityEngine;
 public class TargetBoard : MonoBehaviour, Idamageable
 {
 
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _currentHealth;
-    [SerializeField] private TMP_Text _UIhealth;
+    [SerializeField] protected float _maxHealth;
+    [SerializeField] protected float _currentHealth;
+    [SerializeField] protected TMP_Text _UIhealth;
 
-    public void ReceiveDamage(RaycastHit hit, float damageAmount)
+
+
+    //public virtual void ReceiveDamage(RaycastHit hit, float damageAmount)
+    //{
+    //    ImpactHandler.GenerateHitImpact(hit);
+    //    _currentHealth -= damageAmount;
+    //    if (_UIhealth != null)
+    //        _UIhealth.text = $"{_currentHealth}/{_maxHealth}";
+    //    if (_currentHealth <= 0)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    public virtual void ReceiveDamage(Gun.HitData data)
     {
-        ImpactHandler.GenerateHitImpact(hit);
-        _currentHealth -= damageAmount;
-        _UIhealth.text = $"{_currentHealth}/{_maxHealth}";
+        ImpactHandler.GenerateHitImpact(data);
+        _currentHealth -= data.DamageAmount;
+        if (_UIhealth != null)
+            _UIhealth.text = $"{_currentHealth}/{_maxHealth}";
         if (_currentHealth <= 0)
         {
             Destroy(gameObject);
         }
     }
 
-
-
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         _currentHealth = _maxHealth;
-        _UIhealth.text = $"{_currentHealth}/{_maxHealth}";
+        if (_UIhealth != null)
+            _UIhealth.text = $"{_currentHealth}/{_maxHealth}";
     }
 
 }
