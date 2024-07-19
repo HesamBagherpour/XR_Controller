@@ -10,19 +10,6 @@ public class TargetBoard : MonoBehaviour, Idamageable
     [SerializeField] protected TMP_Text _UIhealth;
 
 
-
-    //public virtual void ReceiveDamage(RaycastHit hit, float damageAmount)
-    //{
-    //    ImpactHandler.GenerateHitImpact(hit);
-    //    _currentHealth -= damageAmount;
-    //    if (_UIhealth != null)
-    //        _UIhealth.text = $"{_currentHealth}/{_maxHealth}";
-    //    if (_currentHealth <= 0)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
-
     public virtual void ReceiveDamage(Gun.HitData data)
     {
         ImpactHandler.GenerateHitImpact(data);
@@ -35,7 +22,6 @@ public class TargetBoard : MonoBehaviour, Idamageable
         }
     }
 
-    // Start is called before the first frame update
     public virtual void Start()
     {
         _currentHealth = _maxHealth;

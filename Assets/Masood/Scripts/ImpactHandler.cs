@@ -41,18 +41,7 @@ public class ImpactHandler
         _instance.impactlist = Resources.Load<ImpactList>("Impact");
     }
 
-    //public static void GenerateHitImpact(RaycastHit hit)
-    //{
-    //    if (_instance == null)
-    //        _instance = new ImpactHandler();
-
-    //    if (_instance.impactlist != null)
-    //    {
-    //        _instance.MakeBulletHole(hit);
-    //        _instance.MakeImpactVFX(hit);
-    //    }
-    //}  
-    
+   
     public static void GenerateHitImpact(HitData data)
     {
         if (_instance == null)
@@ -87,13 +76,6 @@ public class ImpactHandler
         return Poolmanager[poolManagerLastIndex];
     }
 
-    //private void MakeBulletHole(RaycastHit hit)
-    //{
-    //    GameObject CurrentBulletImpact = GetBulletFromPool();// Poolmanager[poolManagerLastIndex];
-    //    CurrentBulletImpact.transform.SetParent(hit.collider.gameObject.transform);
-    //    CurrentBulletImpact.transform.position = hit.point;// +Vector3.forward*0.1f;
-    //    CurrentBulletImpact.transform.rotation = Quaternion.LookRotation(hit.normal);
-    //}   
     private void MakeBulletHole(HitData data)
     {
         GameObject CurrentBulletImpact = GetBulletFromPool();// Poolmanager[poolManagerLastIndex];
@@ -102,19 +84,6 @@ public class ImpactHandler
         CurrentBulletImpact.transform.rotation = Quaternion.LookRotation(data.normal);
     }
 
-    //private void MakeImpactVFX(RaycastHit hit)
-    //{
-    //    var bulletimpact = _BulletImpactpool.Get();
-    //    bulletimpact.transform.SetParent(_root.transform);
-    //    bulletimpact.transform.position = hit.point;
-    //    bulletimpact.transform.rotation = Quaternion.LookRotation(hit.normal);
-
-    //    bulletimpact.GetComponent<DisableObject>().Initialize(0.5f,
-    //        () =>
-    //        {
-    //            _BulletImpactpool.Release(bulletimpact);
-    //        });
-    //} 
     private void MakeImpactVFX(HitData data)
     {
         var bulletimpact = _BulletImpactpool.Get();
