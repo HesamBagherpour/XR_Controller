@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,28 +10,28 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
     {
         [SerializeField] PlayerHand hand;
         public PlayerHand Hand { get { return hand; } }
-
         [SerializeField] GameObject handGameObject;
-        [SerializeField] PlayerHandAnimation handAnimation;
+        [SerializeField] Transform controller;
 
-        [Space]
+        [Space(20)]
         [SerializeField] InputActionReference selectInput;
         [SerializeField, Range(0, 1)] float pressureSensitivity = 0.5f;
         [SerializeField] InputActionReference gripInput;
-
-        [Space]
         [SerializeField] InputActionReference handPosInput;
 
         XRDirectInteractor interactor;
+        PlayerHandAnimation handAnimation;
         Vector3 OldHandPosition;
         float handPositionFloat;
 
+        //PlayerHandAnimation handAnimation;
         GunController gunController;
         BoltControl boltControl;
 
         void Start()
         {
             interactor = GetComponent<XRDirectInteractor>();
+            handAnimation = gameObject.GetComponent<PlayerHandAnimation>();
 
             interactor.selectEntered.AddListener(OnSelectEntered);
             interactor.selectExited.AddListener(OnSelectExited);
@@ -44,8 +45,8 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
         }
         void OnDestroy()
         {
-            interactor.selectEntered.AddListener(OnSelectEntered);
-            interactor.selectExited.AddListener(OnSelectExited);
+            interactor.selectEntered.RemoveListener(OnSelectEntered);
+            interactor.selectExited.RemoveListener(OnSelectExited);
 
             selectInput.action.started -= TakeAction;
             selectInput.action.canceled -= ReleaseAction;
@@ -68,15 +69,34 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
 
         void OnSelectEntered(SelectEnterEventArgs eventArgs)
         {
+            SetDeActiveHandAnimation();
+            SetHandActive(false);
             handGameObject.SetActive(false);
 
             if(SelectedInteractable().tag == "Gun")
                 SetGunController(SelectedInteractable().GetComponent<GunController>());
         }
+
+        async void SetHandActive(bool value)
+        {
+            await Task.Delay(10);
+            handGameObject.SetActive(value);
+        }
+
         void OnSelectExited(SelectExitEventArgs eventArgs)
         {
-            handGameObject.SetActive(true);
+            SetHandActive(true);
+            SetActiveHandAnimation();
             SetGunController(null);
+        }
+
+        void SetActiveHandAnimation()
+        {
+            handAnimation.Active();
+        }
+        void SetDeActiveHandAnimation()
+        {
+            handAnimation.Deactive();
         }
 
         void SetGunController(GunController _gunController)
@@ -88,7 +108,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
             return gunController;
         }
 
-        bool InteractorHasSelection()
+        public bool InteractorHasSelection()
         {
             return interactor.hasSelection;
         }
@@ -105,10 +125,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
 
         void TakeAction(InputAction.CallbackContext callback)
         {
-            if(boltControl != null && callback.ReadValue<float>() > pressureSensitivity)
-            {
-                OldHandPosition = transform.localPosition;
-            }
+            OldHandPosition = controller.localPosition;
         }
 
         void ReleaseAction(InputAction.CallbackContext callback)
@@ -140,18 +157,18 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
         {
             if(boltControl != null && InteractorHasSelection())
             {
-                var distance = transform.localPosition - OldHandPosition;
+                var distance = controller.localPosition - OldHandPosition;
 
                 int direction = 0;
                 var angle = Quaternion.Angle(Quaternion.LookRotation(distance), SelectedInteractable().rotation);
 
-                if (angle > 130)
+                if (angle > 120)
                     direction = 1;
-                else if (angle < 50)
+                else if (angle < 60)
                     direction = -1;
 
-                handPositionFloat = distance.magnitude * direction * 6;
-                OldHandPosition = transform.localPosition;
+                handPositionFloat = distance.magnitude * direction * 10;
+                OldHandPosition = controller.localPosition;
                 boltControl.MoveBolt(handPositionFloat);
             }
         }
