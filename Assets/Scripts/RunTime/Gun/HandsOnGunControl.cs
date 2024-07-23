@@ -55,7 +55,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
         public void SetToDoubleGrab(PlayerHand firstEnteredHand)
         {
             PlayerHand secondEnteredHand;
-            if(firstEnteredHand == PlayerHand.Left)
+            if (firstEnteredHand == PlayerHand.Left)
                 secondEnteredHand = PlayerHand.Right;
             else
                 secondEnteredHand = PlayerHand.Left;
@@ -79,7 +79,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
         {
             foreach (var hand in hands)
             {
-                if(hand == hands[(int)grabHand])
+                if (hand == hands[(int)grabHand])
                     hand.SetActive(true);
                 else
                     hand.SetActive(false);
@@ -89,7 +89,7 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
         void SetDeactive(GameObject[] hands)
         {
             foreach (var hand in hands)
-                if(hand.activeSelf != false)
+                if (hand.activeSelf != false)
                     hand.SetActive(false);
         }
     }

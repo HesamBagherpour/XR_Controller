@@ -122,11 +122,16 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun
 
         internal TriggerControl GetFirstActiveHand()
         {
-            if(triggerControlRight.gameObject.activeSelf)
+            if (triggerControlRight.gameObject.activeSelf)
                 return triggerControlRight;
-            else if(triggerControlLeft.gameObject.activeSelf)
+            else if (triggerControlLeft.gameObject.activeSelf)
                 return triggerControlLeft;
-            else return null;
+            else
+            {
+                Debug.LogError("CannotFind Active Hand");
+                return null;
+
+            }
         }
 
         internal void FirstAttachColidersSetActive(bool value)

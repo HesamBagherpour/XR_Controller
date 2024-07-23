@@ -11,7 +11,7 @@ public class Rifle : Gun
         //Debug.Log("Rifle Do Action");
         if (!_readyToShoot)
             return;
-        if (!_currentMagazine.HasBullet())
+        if (_currentMagazine!=null && !_currentMagazine.HasBullet())
         {
             Debug.Log("Rifle magazine is empty");
             return;

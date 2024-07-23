@@ -55,6 +55,8 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
+        if (_currentMagazine == null)
+            return;
         var currentBullet = _currentMagazine.GetBullet();
         if (currentBullet == null)
         {
@@ -101,7 +103,7 @@ public abstract class Gun : MonoBehaviour
     //} 
     protected virtual void OnRaycastHit(HitData data)
     {
-        Debug.Log(data.collide.name);
+        //Debug.Log(data.collide.name);
         var damageable = data.collide.GetComponent<Idamageable>();
         if (damageable != null)
             damageable.ReceiveDamage(data);
