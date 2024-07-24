@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun;
 using UnityEngine;
@@ -8,169 +9,200 @@ namespace AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Player
 {
     public class PlayerHandController : MonoBehaviour
     {
-        [SerializeField] PlayerHand hand;
-        public PlayerHand Hand { get { return hand; } }
-        [SerializeField] GameObject handGameObject;
-        [SerializeField] Transform controller;
+    [SerializeField] PlayerHand hand;
+    public PlayerHand Hand { get { return hand; } }
+    [SerializeField] GameObject handGameObject;
+    [SerializeField] Transform controller;
 
-        [Space(20)]
-        [SerializeField] InputActionReference selectInput;
-        [SerializeField, Range(0, 1)] float pressureSensitivity = 0.5f;
-        [SerializeField] InputActionReference gripInput;
-        [SerializeField] InputActionReference handPosInput;
+    [Header("Inputs")]
+    [SerializeField, Range(0, 1)] float pressureSensitivity = 0.5f;
+    [SerializeField] InputActionReference gripInput;
+    [SerializeField] InputActionReference selectInput;
+    [SerializeField] InputActionReference primaryButtonInput;
+    [SerializeField] InputActionReference secondaryButtonInput;
+    [SerializeField] InputActionReference handPosInput;
 
-        XRDirectInteractor interactor;
-        PlayerHandAnimation handAnimation;
-        Vector3 OldHandPosition;
-        float handPositionFloat;
+    XRDirectInteractor interactor;
+    PlayerHandAnimation handAnimation;
+    Vector3 OldHandPosition;
+    float handPositionFloat;
 
-        //PlayerHandAnimation handAnimation;
-        GunController gunController;
-        BoltControl boltControl;
+    //PlayerHandAnimation handAnimation;
+    GunController gunController;
+    BoltControl boltControl;
 
-        void Start()
+    public event Action OnSelectChange;
+
+    void Start()
+    {
+        interactor = GetComponent<XRDirectInteractor>();
+        handAnimation = gameObject.GetComponent<PlayerHandAnimation>();
+
+        interactor.selectEntered.AddListener(OnSelectEntered);
+        interactor.selectExited.AddListener(OnSelectExited);
+
+        selectInput.action.started += TakeAction;
+        selectInput.action.canceled += ReleaseAction;
+        gripInput.action.performed += TriggerStay;
+        gripInput.action.canceled += TriggerCancel;
+        primaryButtonInput.action.started += PrimaryButtonPressed;
+        secondaryButtonInput.action.started += SecondaryButtonPressed;
+
+        handPosInput.action.performed += HandPositionInput;
+    }
+    void OnDestroy()
+    {
+        interactor.selectEntered.RemoveListener(OnSelectEntered);
+        interactor.selectExited.RemoveListener(OnSelectExited);
+
+        selectInput.action.started -= TakeAction;
+        selectInput.action.canceled -= ReleaseAction;
+        gripInput.action.performed -= TriggerStay;
+        gripInput.action.canceled -= TriggerCancel;
+        primaryButtonInput.action.started -= PrimaryButtonPressed;
+        secondaryButtonInput.action.started -= SecondaryButtonPressed;
+
+        handPosInput.action.performed -= HandPositionInput;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if( ! HasSelection() && other.transform.tag == "Bolt")
+            SetBoltScript(other.GetComponent<BoltControl>());
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if( ! HasSelection() && other.transform.tag == "Bolt")
+            SetBoltScript(null);
+    }
+
+    void OnSelectEntered(SelectEnterEventArgs eventArgs)
+    {
+        SetDeActiveHandAnimation();
+
+        if(SelectedInteractable().tag == "Gun")
         {
-            interactor = GetComponent<XRDirectInteractor>();
-            handAnimation = gameObject.GetComponent<PlayerHandAnimation>();
-
-            interactor.selectEntered.AddListener(OnSelectEntered);
-            interactor.selectExited.AddListener(OnSelectExited);
-
-            selectInput.action.started += TakeAction;
-            selectInput.action.canceled += ReleaseAction;
-            gripInput.action.performed += triggerStay;
-            gripInput.action.canceled += triggerCancel;
-
-            handPosInput.action.performed += HandPositionInput;
-        }
-        void OnDestroy()
-        {
-            interactor.selectEntered.RemoveListener(OnSelectEntered);
-            interactor.selectExited.RemoveListener(OnSelectExited);
-
-            selectInput.action.started -= TakeAction;
-            selectInput.action.canceled -= ReleaseAction;
-            gripInput.action.performed -= triggerStay;
-            gripInput.action.canceled -= triggerCancel;
-
-            handPosInput.action.performed -= HandPositionInput;
-        }
-
-        void OnTriggerStay(Collider other)
-        {
-            if( ! InteractorHasSelection() && other.transform.tag == "Bolt")
-                SetBoltScript(other.GetComponent<BoltControl>());
-        }
-        void OnTriggerExit(Collider other)
-        {
-            if( ! InteractorHasSelection() && other.transform.tag == "Bolt")
-                SetBoltScript(null);
-        }
-
-        void OnSelectEntered(SelectEnterEventArgs eventArgs)
-        {
-            SetDeActiveHandAnimation();
+            SetGunController(SelectedInteractable().GetComponent<GunController>());
             SetHandActive(false);
-            handGameObject.SetActive(false);
+        }
+        
+        OnSelectChange?.Invoke();
+    }
 
-            if(SelectedInteractable().tag == "Gun")
-                SetGunController(SelectedInteractable().GetComponent<GunController>());
-        }
+    async void SetHandActive(bool value)
+    {
+        await Task.Delay(10);
+        handGameObject.SetActive(value);
+    }
 
-        async void SetHandActive(bool value)
-        {
-            await Task.Delay(10);
-            handGameObject.SetActive(value);
-        }
+    void OnSelectExited(SelectExitEventArgs eventArgs)
+    {
+        SetHandActive(true);
+        SetActiveHandAnimation();
+        SetGunController(null);
 
-        void OnSelectExited(SelectExitEventArgs eventArgs)
-        {
-            SetHandActive(true);
-            SetActiveHandAnimation();
-            SetGunController(null);
-        }
+        OnSelectChange?.Invoke();
+    }
 
-        void SetActiveHandAnimation()
-        {
-            handAnimation.Active();
-        }
-        void SetDeActiveHandAnimation()
-        {
-            handAnimation.Deactive();
-        }
+    void SetActiveHandAnimation()
+    {
+        handAnimation.Active();
+    }
+    void SetDeActiveHandAnimation()
+    {
+        handAnimation.Deactive();
+    }
 
-        void SetGunController(GunController _gunController)
-        {
-            gunController = _gunController;
-        }
-        GunController GetGunController()
-        {
-            return gunController;
-        }
+    void SetGunController(GunController _gunController)
+    {
+        gunController = _gunController;
+    }
+    GunController GetGunController()
+    {
+        return gunController;
+    }
 
-        public bool InteractorHasSelection()
-        {
-            return interactor.hasSelection;
-        }
+    public bool HasSelection()
+    {
+        return interactor.hasSelection;
+    }
 
-        Transform SelectedInteractable()
-        {
-            return interactor.interactablesSelected[0].transform;
-        }
+    Transform SelectedInteractable()
+    {
+        return interactor.interactablesSelected[0].transform;
+    }
 
-        void SetBoltScript(BoltControl _boltControl)
-        {
-            boltControl = _boltControl;
-        }
+    void SetBoltScript(BoltControl _boltControl)
+    {
+        boltControl = _boltControl;
+    }
 
-        void TakeAction(InputAction.CallbackContext callback)
+    void TakeAction(InputAction.CallbackContext callback)
+    {
+        OldHandPosition = controller.localPosition;
+    }
+
+    void ReleaseAction(InputAction.CallbackContext callback)
+    {
+        if(boltControl != null && callback.ReadValue<float>() < pressureSensitivity)
         {
+            boltControl.LeaveBolt();
+            SetBoltScript(null);
+        }
+    }
+
+    void TriggerStay(InputAction.CallbackContext context)
+    {
+        if(GetGunController() != null)
+        {
+            var pressure = context.ReadValue<float>();
+            GetGunController().TriggerStay(pressure, hand);
+        }
+    }
+    void TriggerCancel(InputAction.CallbackContext context)
+    {
+        if(GetGunController() != null)
+        {
+            GetGunController().TriggerCancel(hand);
+        }
+    }
+
+    void PrimaryButtonPressed(InputAction.CallbackContext context)
+    {
+        Debug.Log("uuu");
+        if(GetGunController() != null)
+        {
+            GetGunController().ChangeShootingMode(hand, ChangeModeDirection.down);
+        }
+    }
+
+    void SecondaryButtonPressed(InputAction.CallbackContext context)
+    {
+        Debug.Log("ddd");
+        if(GetGunController() != null)
+        {
+            GetGunController().ChangeShootingMode(hand, ChangeModeDirection.up);
+        }
+    }
+
+    void HandPositionInput(InputAction.CallbackContext context)
+    {
+        if(boltControl != null && HasSelection())
+        {
+            var distance = controller.localPosition - OldHandPosition;
+
+            int direction = 0;
+            var angle = Quaternion.Angle(Quaternion.LookRotation(distance), SelectedInteractable().rotation);
+
+            if (angle > 120)
+                direction = 1;
+            else if (angle < 60)
+                direction = -1;
+
+            handPositionFloat = distance.magnitude * direction * 10;
             OldHandPosition = controller.localPosition;
+            boltControl.MoveBolt(handPositionFloat);
         }
-
-        void ReleaseAction(InputAction.CallbackContext callback)
-        {
-            if(boltControl != null && callback.ReadValue<float>() < pressureSensitivity)
-            {
-                boltControl.LeaveBolt();
-                SetBoltScript(null);
-            }
-        }
-
-        void triggerStay(InputAction.CallbackContext context)
-        {
-            if(GetGunController() != null)
-            {
-                var pressure = context.ReadValue<float>();
-                GetGunController().TriggerStay(pressure, hand);
-            }
-        }
-        void triggerCancel(InputAction.CallbackContext context)
-        {
-            if(GetGunController() != null)
-            {
-                GetGunController().TriggerCancel(hand);
-            }
-        }
-
-        void HandPositionInput(InputAction.CallbackContext context)
-        {
-            if(boltControl != null && InteractorHasSelection())
-            {
-                var distance = controller.localPosition - OldHandPosition;
-
-                int direction = 0;
-                var angle = Quaternion.Angle(Quaternion.LookRotation(distance), SelectedInteractable().rotation);
-
-                if (angle > 120)
-                    direction = 1;
-                else if (angle < 60)
-                    direction = -1;
-
-                handPositionFloat = distance.magnitude * direction * 10;
-                OldHandPosition = controller.localPosition;
-                boltControl.MoveBolt(handPositionFloat);
-            }
-        }
+    }
     }
 }
