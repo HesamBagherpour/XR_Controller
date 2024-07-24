@@ -50,7 +50,7 @@ public class PlayerEyeTrack : MonoBehaviour
 
     void ControllerSetActive(PlayerHandController handController, GameObject rayInteractor)
     {
-        if (handController.InteractorHasSelection() == false)
+        if (handController.HasSelection() == false)
             if(rayInteractor.activeSelf != true)
                 rayInteractor.SetActive(true);
     }
