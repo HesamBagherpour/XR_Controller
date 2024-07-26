@@ -1,10 +1,8 @@
-using AS.Ekbatan_Showdown.Xr_Wrapper.RunTime.Gun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 
 public enum GunType
 {
@@ -18,7 +16,6 @@ public abstract class Gun : MonoBehaviour
     public GunType GunType;
     public Action<bool> onShoot;
 
-
     protected InputAction Fire;
 
     [SerializeField] private GameObject _shooptStartPosition;
@@ -27,7 +24,6 @@ public abstract class Gun : MonoBehaviour
 
     protected abstract void Initialize();
     public abstract void DoAction();
-
 
     private void Awake()
     {
@@ -38,7 +34,6 @@ public abstract class Gun : MonoBehaviour
         Initialize();
         ImpactHandler.Initialize();
     }
-
 
     private void OnEnable()
     {
@@ -51,7 +46,6 @@ public abstract class Gun : MonoBehaviour
     {
         Fire.Disable();
     }
-
 
     protected void Shoot()
     {
@@ -81,7 +75,6 @@ public abstract class Gun : MonoBehaviour
          }
         onShoot?.Invoke(true);
     }
-
 
     private float GetDistanceFactor(Vector3 startPoint, Vector3 endPoint)
     {
@@ -119,7 +112,3 @@ public abstract class Gun : MonoBehaviour
         public GameObject collide;
     }
 }
-
-
-
-
