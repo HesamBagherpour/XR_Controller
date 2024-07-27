@@ -41,8 +41,12 @@ public class BoltControl : MonoBehaviour
     public void MoveBolt(float _value)
     {
         var value = GetAnimatorValue();
-        value += _value;
-        SetAnimatorValue(value);
+
+        if(value + _value >= -0.1f && value + _value <= 1.05)
+        {
+            value += _value;
+            SetAnimatorValue(value);
+        }
 
         if(value >= 0.9)
         {
