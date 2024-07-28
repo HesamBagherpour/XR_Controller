@@ -92,7 +92,7 @@ public abstract class Gun : MonoBehaviour
 
     public int GetBulletCountInMagazine()
     {
-        _currentMagazine.cou
+        return _currentMagazine.GetBulletAmount();
     }
 
     //protected virtual void OnRaycastHit(RaycastHit hit, float damage)
