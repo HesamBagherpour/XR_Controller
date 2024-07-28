@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class OnGunClipController : MonoBehaviour
 {
@@ -10,11 +12,47 @@ public class OnGunClipController : MonoBehaviour
     [SerializeField] GameObject clipObjectOnGun;
 
     [Header("Receiver Animator")]
-    [SerializeField] Animator receiverAnimator;
+    [SerializeField] XRSocketInteractor xRSocketInteractor;
+    [SerializeField] Animator animator;
+    [SerializeField] Collider _colider;
 
     bool isthereAnyClipInGun = false;
 
-    void OnTriggerStay(Collider other)
+    public event Action OnMagazineSelectEnter;
+    public event Action OnMagazineSelectExit;
+
+    void Start()
+    {
+        xRSocketInteractor.selectEntered.AddListener(MagazineSelectEnter);
+        xRSocketInteractor.selectExited.AddListener(MagazineSelectExit);
+    }
+
+    void MagazineSelectEnter(SelectEnterEventArgs args)
+    {
+        OnMagazineSelectEnter?.Invoke();
+    }
+
+    void MagazineSelectExit(SelectExitEventArgs args)
+    {
+        OnMagazineSelectExit?.Invoke();
+    }
+
+    void OnGunUngrabbed()
+    {
+        ColiderSetActive(false);
+    }
+
+    void OnGunGrabbed()
+    {
+        ColiderSetActive(true);
+    }
+
+    void ColiderSetActive(bool value)
+    {
+        _colider.enabled = value;
+    }
+
+    /*void OnTriggerStay(Collider other)
     {
         if(other.transform.tag == "Clip" && isthereAnyClipInGun == false)
         {
@@ -26,9 +64,9 @@ public class OnGunClipController : MonoBehaviour
 
             //Adds Magazine To Gun
         }
-    }
+    }*/
 
-    public void TakeMagazine()
+    /*public void TakeMagazine()
     {
         if(isthereAnyClipInGun == true)
         {
@@ -39,7 +77,7 @@ public class OnGunClipController : MonoBehaviour
 
             //Take Magazine From Gun
         }
-    }
+    }*/
 
     void ChangeMagazineState(bool value)
     {
