@@ -19,8 +19,6 @@ public class Magazine : MonoBehaviour
 #if UnlimitedAmmo
         _bulletAmount = 9999999;
 #endif
-
-
     }
 
     public BulletScriptableObject GetBullet()
@@ -36,5 +34,10 @@ public class Magazine : MonoBehaviour
     public bool HasBullet()
     {
         return _bulletAmount > 0;
+    }
+
+    public int GetBulletAmount()
+    {
+        return (int)_bulletAmount;
     }
 }

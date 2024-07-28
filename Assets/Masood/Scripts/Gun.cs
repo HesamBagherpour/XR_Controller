@@ -15,6 +15,7 @@ public abstract class Gun : MonoBehaviour
     public LayerMask ValidLayers;
     public GunType GunType;
     public Action<bool> onShoot;
+    public BulletScriptableObject CurrentBullet;//bullet  in gun
 
     protected InputAction Fire;
 
@@ -24,6 +25,7 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] protected ShootingMode _shootingMode;
 
     [SerializeField] private ShootingModeControl _shootingModeControl;
+
 
 
     protected abstract void Initialize();
@@ -54,8 +56,8 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
-        var currentBullet = _currentMagazine.GetBullet();
-        if (currentBullet == null)
+        CurrentBullet = _currentMagazine.GetBullet();
+        if (CurrentBullet == null)
         {
             onShoot?.Invoke(false);
             return;
@@ -63,15 +65,15 @@ public abstract class Gun : MonoBehaviour
 
         RaycastHit hit;
         if (Physics.Raycast(_shooptStartPosition.transform.position, //+ UnityEngine.Random.onUnitSphere * 0.1f,
-             transform.forward, out hit, currentBullet.MaxDistance,
+             transform.forward, out hit, CurrentBullet.MaxDistance,
              ValidLayers, QueryTriggerInteraction.Ignore))
         {//OnRaycastHit(hit, currentBullet.Damage,currentBullet.PhysicForceOnHit);
 
             var hitData = new HitData()
             {
                 collide = hit.collider.gameObject,
-                DamageAmount = currentBullet.Damage,
-                HitForce = currentBullet.PhysicForceOnHit,
+                DamageAmount = CurrentBullet.Damage,
+                HitForce = CurrentBullet.PhysicForceOnHit,
                 HitPoint = hit.point,
                 normal = hit.normal,
                 DistanceFactor = GetDistanceFactor(_shooptStartPosition.transform.position, hit.collider.gameObject.transform.position)
@@ -85,9 +87,12 @@ public abstract class Gun : MonoBehaviour
     {
         Vector3.Distance(startPoint, endPoint);
 
-        return 0;
+        return 0;           
+    }
 
-           
+    public int GetBulletCountInMagazine()
+    {
+        _currentMagazine.cou
     }
 
     //protected virtual void OnRaycastHit(RaycastHit hit, float damage)
