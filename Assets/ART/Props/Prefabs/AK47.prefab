@@ -1619,6 +1619,8 @@ MonoBehaviour:
   _shooptStartPosition: {fileID: 3736574836359898261}
   _currentMagazine: {fileID: 0}
   _gunController: {fileID: 266431219584813791}
+  _shootingMode: 0
+  _shootingModeControl: {fileID: 2552246567244301341}
   _durationBetweenShoot: 0.2
   _readyToShoot: 0
 --- !u!114 &6530034223797425593

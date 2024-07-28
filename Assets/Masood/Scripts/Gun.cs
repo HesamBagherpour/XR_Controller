@@ -21,6 +21,10 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] private GameObject _shooptStartPosition;
     [SerializeField] protected Magazine _currentMagazine;
     [SerializeField] protected GunController _gunController;
+    [SerializeField] protected ShootingMode _shootingMode;
+
+    [SerializeField] private ShootingModeControl _shootingModeControl;
+
 
     protected abstract void Initialize();
     public abstract void DoAction();
@@ -33,6 +37,7 @@ public abstract class Gun : MonoBehaviour
     {
         Initialize();
         ImpactHandler.Initialize();
+        _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
     }
 
     private void OnEnable()

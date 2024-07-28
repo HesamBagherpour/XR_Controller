@@ -4,6 +4,9 @@ public class Pistol : Gun
 {
     public override void DoAction()
     {
+        if ( _shootingMode == ShootingMode.safety)
+            return;
+
         Shoot();
     }
 
