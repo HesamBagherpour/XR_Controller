@@ -323,6 +323,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 775198689199313435, guid: b1fdcaca611f5ef4b9d39e37289e3350,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5075216287759268881, guid: b1fdcaca611f5ef4b9d39e37289e3350,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2261,19 +2266,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
         type: 3}
-      propertyPath: _shootingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
-        type: 3}
       propertyPath: _currentMagazine
       value: 
       objectReference: {fileID: 2013911481}
-    - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
-        type: 3}
-      propertyPath: _shootingModeControl
-      value: 
-      objectReference: {fileID: 658892047}
     - target: {fileID: 4232942737252272351, guid: ab560e393273e824aab58075749a3211,
         type: 3}
       propertyPath: m_Name
@@ -2334,18 +2329,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab560e393273e824aab58075749a3211, type: 3}
---- !u!114 &658892047 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8047576390933802154, guid: ab560e393273e824aab58075749a3211,
-    type: 3}
-  m_PrefabInstance: {fileID: 658892046}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4893dc425cb674c8f530a5e3222647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &676107965
 GameObject:
   m_ObjectHideFlags: 0
@@ -16067,6 +16050,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK47Magazine
       objectReference: {fileID: 0}
+    - target: {fileID: 9019854837417160952, guid: a39b0dedf67a84749a796c0168b8297b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16205,6 +16193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AK47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017076913689632316, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
