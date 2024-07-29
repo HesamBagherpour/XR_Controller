@@ -2269,6 +2269,11 @@ PrefabInstance:
       propertyPath: _currentMagazine
       value: 
       objectReference: {fileID: 2013911481}
+    - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
+        type: 3}
+      propertyPath: _shootingModeControl
+      value: 
+      objectReference: {fileID: 1983963454}
     - target: {fileID: 4232942737252272351, guid: ab560e393273e824aab58075749a3211,
         type: 3}
       propertyPath: m_Name
@@ -15774,6 +15779,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 721d4a90de5ac8b4db479f32ec2e4fa2, type: 3}
+--- !u!114 &1983963454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8047576390933802154, guid: ab560e393273e824aab58075749a3211,
+    type: 3}
+  m_PrefabInstance: {fileID: 658892046}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4893dc425cb674c8f530a5e3222647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2013911481 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4727713208466645123, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
