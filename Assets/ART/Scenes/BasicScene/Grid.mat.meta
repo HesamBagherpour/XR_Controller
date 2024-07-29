@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ART/Scenes/BasicScene/Grid.mat.meta
+guid: 40d5f39ae0668b14f9d71f56c2981be7
+NativeFormatImporter:
+========
+guid: d17e33931f968d1488b0db1d63a0c4e5
+AssemblyDefinitionImporter:
+>>>>>>>> 6f07b8f ([add] setup project):Assets/Scripts/RunTime/GunWrapper.asmdef.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

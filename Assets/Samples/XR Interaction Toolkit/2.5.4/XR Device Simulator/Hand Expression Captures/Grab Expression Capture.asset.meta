@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Samples/XR Interaction Toolkit/2.5.4/XR Device Simulator/Hand Expression Captures/Grab Expression Capture.asset.meta
+guid: 3861c298d39c60c44b16920421444875
+========
+guid: 05293ab353dc8a747a36ed129311686d
+>>>>>>>> 013fe07 ([add] Gun Controller):Assets/Samples/XR Interaction Toolkit/2.5.4/XR Device Simulator/Hand Expression Captures/Open Expression Capture.asset.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
