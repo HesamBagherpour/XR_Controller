@@ -6,17 +6,21 @@ using UnityEngine.XR.Interaction.Toolkit.Transformers;
 
 public class GunController : MonoBehaviour
 {
+    [Header("Gun Components")]
     [SerializeField] HandsOnGunControl handOnGun;
     [SerializeField] TriggerControl triggerControlRight;
     [SerializeField] TriggerControl triggerControlLeft;
 
+    [Header("Xr Components")]
     [SerializeField] XRGrabInteractable xRGrabInteractable;
     [SerializeField] XRGeneralGrabTransformer grabTransformer;
 
     List<GameObject> firstAttachColliders = new List<GameObject>();
+    [Header("Coliders")]
     [SerializeField] Collider secondAttachColider;
     [SerializeField] Collider boltColider;
 
+    [Header("AttachPoints")]
     [SerializeField] Transform secondAttachPoint;
 
     IGunState gunState;

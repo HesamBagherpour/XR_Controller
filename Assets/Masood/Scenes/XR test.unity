@@ -2201,11 +2201,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MP5PrefabX
       objectReference: {fileID: 0}
-    - target: {fileID: 5156343972763467060, guid: ab560e393273e824aab58075749a3211,
-        type: 3}
-      propertyPath: m_TwoHandedRotationMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7734360974724316428, guid: ab560e393273e824aab58075749a3211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16190,6 +16185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438813177367765975, guid: 55eb82d5c3e477a4f83e891f8532040a,
+        type: 3}
+      propertyPath: m_TwoHandedRotationMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4939898629812306756, guid: 55eb82d5c3e477a4f83e891f8532040a,
         type: 3}
