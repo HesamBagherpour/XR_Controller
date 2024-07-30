@@ -9,6 +9,12 @@ public enum ShootingMode
     fullAuto,
 }
 
+public enum ModeType
+{
+    pistol = 1,
+    rifle = 3,
+}
+
 public enum ChangeModeDirection
 {
     up = 1,
@@ -17,22 +23,26 @@ public enum ChangeModeDirection
 
 public class ShootingModeControl : MonoBehaviour
 {
+    [SerializeField] ModeType type;
+    
     Animator animator;
     ShootingMode mode;
+    int allowedModes;
 
     public Action<ShootingMode> OnShootingModeChange;
     
     void Start()
     {
         animator = GetComponent<Animator>();   
-        mode = ShootingMode.semi; 
+        mode = ShootingMode.semi;
+        allowedModes = (int)type;
     }
 
     public void ChangeMode(ChangeModeDirection direction)
     {
         var modeId = (int)mode + (int)direction;
 
-        if(modeId <= 3 && modeId >= 0)
+        if(modeId <= allowedModes && modeId >= 0)
         {
             mode = (ShootingMode)modeId;
             PlayChangingModeAnimation(mode.ToString());
