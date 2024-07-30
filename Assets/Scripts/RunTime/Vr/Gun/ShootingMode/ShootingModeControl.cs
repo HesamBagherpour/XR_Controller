@@ -34,7 +34,7 @@ public class ShootingModeControl : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();   
-        mode = ShootingMode.semi;
+        mode = ShootingMode.safety;
         allowedModes = (int)type;
     }
 
