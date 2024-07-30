@@ -2193,9 +2193,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
         type: 3}
-      propertyPath: _currentMagazine
-      value: 
-      objectReference: {fileID: 2013911481}
+      propertyPath: _durationBetweenShoot
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4232942737252272351, guid: ab560e393273e824aab58075749a3211,
         type: 3}
       propertyPath: m_Name
@@ -15628,91 +15628,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4616165199286953325}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!1001 &1976962783
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7097126346431589234, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_Name
-      value: Magazine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7097126346431589234, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.26559997
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.416
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0661
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914148463864195891, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 721d4a90de5ac8b4db479f32ec2e4fa2, type: 3}
---- !u!114 &2013911481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4727713208466645123, guid: 721d4a90de5ac8b4db479f32ec2e4fa2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1976962783}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b591bd276832d27478ae300ece95a865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2041642882
 GameObject:
   m_ObjectHideFlags: 0
@@ -16060,7 +15975,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _currentMagazine
       value: 
-      objectReference: {fileID: 2013911481}
+      objectReference: {fileID: 0}
     - target: {fileID: 3060540524194434615, guid: e03ac326de353ee4480a3deb2f5505f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16245,7 +16160,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _currentMagazine
       value: 
-      objectReference: {fileID: 2013911481}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16894,7 +16809,6 @@ SceneRoots:
   - {fileID: 584924012}
   - {fileID: 1235179344}
   - {fileID: 5526829057820088974}
-  - {fileID: 1976962783}
   - {fileID: 520616965}
   - {fileID: 1190993993}
   - {fileID: 4616165199286953325}

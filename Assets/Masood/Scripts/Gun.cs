@@ -16,16 +16,18 @@ public abstract class Gun : MonoBehaviour
     public GunType GunType;
     public Action<bool> onShoot;
     private BulletScriptableObject CurrentBullet;//bullet  in gun
+    private bool clipReady;
 
     protected InputAction Fire;
 
     [SerializeField] private GameObject _shooptStartPosition;
-    [SerializeField] protected Magazine _currentMagazine;
+    //[SerializeField] protected Magazine _currentMagazine;
+    [SerializeField] protected Clip _currentMagazine;
     [SerializeField] protected GunController _gunController;
     [SerializeField] protected ShootingMode _shootingMode;
     [SerializeField] protected BoltControl _boltControl;
-    
-    
+    [SerializeField] protected OnGunClipController _gunClipController;
+
 
     [SerializeField] private ShootingModeControl _shootingModeControl;
 
@@ -46,6 +48,8 @@ public abstract class Gun : MonoBehaviour
         ImpactHandler.Initialize();
         _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         _boltControl.OnBoltPull = BoltPuller;
+        _gunClipController.OnMagazineSelectEnter += () => { clipReady = true; };
+        _gunClipController.OnMagazineSelectExit += () => { clipReady = false; };
     }
 
     private void BoltPuller(bool pull)
@@ -95,7 +99,8 @@ public abstract class Gun : MonoBehaviour
             OnRaycastHit(hitData);
          }
         onShoot?.Invoke(true);
-        CurrentBullet = _currentMagazine.GetBullet();
+        
+        CurrentBullet = clipReady? _currentMagazine.GetBullet():null;
     }
 
     private float GetDistanceFactor(Vector3 startPoint, Vector3 endPoint)

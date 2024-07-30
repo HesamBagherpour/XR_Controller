@@ -951,6 +951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce41a85ab2cc7864db015eef60763a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullets: 30
+  bulletRefrence: {fileID: 11400000, guid: 5ed25e3dc0de1bb4da2b31c0a313ae22, type: 2}
 --- !u!1 &4232942737252272351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,10 +1259,11 @@ MonoBehaviour:
     m_Bits: 4294967295
   GunType: 2
   _shooptStartPosition: {fileID: 2358293047441432524}
-  _currentMagazine: {fileID: 0}
+  _currentMagazine: {fileID: 9095515033040482430}
   _gunController: {fileID: 6956737170500205025}
   _shootingMode: 0
   _boltControl: {fileID: 2515367598039366804}
+  _gunClipController: {fileID: 4217881121798468014}
   _shootingModeControl: {fileID: 8047576390933802154}
   _durationBetweenShoot: 0.2
 --- !u!114 &5870152473220282348
