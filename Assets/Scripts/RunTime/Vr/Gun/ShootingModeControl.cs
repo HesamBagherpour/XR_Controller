@@ -17,7 +17,6 @@ public enum ChangeModeDirection
 
 public class ShootingModeControl : MonoBehaviour
 {
-    [SerializeField] Rifle rifle;
     Animator animator;
     ShootingMode mode;
 
