@@ -16111,6 +16111,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3187070337369074575, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bolt
+      objectReference: {fileID: 0}
     - target: {fileID: 5017076913689632316, guid: e03ac326de353ee4480a3deb2f5505f2,
         type: 3}
       propertyPath: m_Name
