@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6277879513188539703}
   - component: {fileID: 5626517953499818199}
   - component: {fileID: 1086292047692975020}
-  - component: {fileID: 8006797270777094463}
+  - component: {fileID: 7180525550038131145}
   m_Layer: 0
   m_Name: MagazineReceiver
   m_TagString: Untagged
@@ -216,15 +216,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143ae291a63ae0f4c828c147312e8ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boltControl: {fileID: 0}
+  boltControl: {fileID: 5494371126686761233}
   clipOnGun: {fileID: 5396791272695199991}
   clipPrefab: {fileID: 1954557869769621056, guid: b061e4c2aefd2884e87f1a73a3b0be4d,
     type: 3}
   clipObjectOnGun: {fileID: 2979794145391853487}
-  xRSocketInteractor: {fileID: 8006797270777094463}
+  xRSocketInteractor: {fileID: 7180525550038131145}
   animator: {fileID: 2335086761834850144}
   _colider: {fileID: 5626517953499818199}
---- !u!114 &8006797270777094463
+--- !u!114 &7180525550038131145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2641251875072595969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3857e1620768c9e43a706b7c813ae905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}

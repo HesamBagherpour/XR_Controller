@@ -11,6 +11,8 @@ TagManager:
   - Clip
   - Anchor
   - Hand
+  - interactor
+  - ak47mag
   layers:
   - Default
   - TransparentFX

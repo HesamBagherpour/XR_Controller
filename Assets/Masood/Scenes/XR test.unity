@@ -1049,6 +1049,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &345757497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5494371126686761233, guid: e03ac326de353ee4480a3deb2f5505f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1973787871524610076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fd6b66893a2f64bb7a59a1469313a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &409367927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,6 +2212,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MP5PrefabX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232942737252272351, guid: ab560e393273e824aab58075749a3211,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870152473220282348, guid: ab560e393273e824aab58075749a3211,
+        type: 3}
+      propertyPath: _destroyTime
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 7734360974724316428, guid: ab560e393273e824aab58075749a3211,
         type: 3}
@@ -15977,6 +15999,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK47Magazine
       objectReference: {fileID: 0}
+    - target: {fileID: 9019854837417160952, guid: a39b0dedf67a84749a796c0168b8297b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16058,6 +16085,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1992518285066002232, guid: e03ac326de353ee4480a3deb2f5505f2,
         type: 3}
+      propertyPath: _boltControl
+      value: 
+      objectReference: {fileID: 345757497}
+    - target: {fileID: 1992518285066002232, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
       propertyPath: _currentMagazine
       value: 
       objectReference: {fileID: 2013911481}
@@ -16111,15 +16143,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3187070337369074575, guid: e03ac326de353ee4480a3deb2f5505f2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Bolt
-      objectReference: {fileID: 0}
     - target: {fileID: 5017076913689632316, guid: e03ac326de353ee4480a3deb2f5505f2,
         type: 3}
       propertyPath: m_Name
       value: AK47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017076913689632316, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530034223797425593, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: _destroyTime
+      value: 0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16191,15 +16228,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 1239013955253054587, guid: 55eb82d5c3e477a4f83e891f8532040a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4939898629812306756, guid: 55eb82d5c3e477a4f83e891f8532040a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.456
+      value: 0.285
       objectReference: {fileID: 0}
     - target: {fileID: 4939898629812306756, guid: 55eb82d5c3e477a4f83e891f8532040a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.571
+      value: 1.037
       objectReference: {fileID: 0}
     - target: {fileID: 4939898629812306756, guid: 55eb82d5c3e477a4f83e891f8532040a,
         type: 3}
