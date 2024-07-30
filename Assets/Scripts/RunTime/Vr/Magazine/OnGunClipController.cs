@@ -11,8 +11,8 @@ public class OnGunClipController : MonoBehaviour
     [SerializeField] GameObject clipPrefab;
     [SerializeField] GameObject clipObjectOnGun;
 
-    [Header("Receiver Animator")]
-    [SerializeField] XRSocketInteractor xRSocketInteractor;
+    [Header("Receiver")]
+    [SerializeField] SocketTagChecker xRSocketInteractor;
     [SerializeField] Animator animator;
     [SerializeField] Collider _colider;
 
@@ -25,6 +25,7 @@ public class OnGunClipController : MonoBehaviour
     {
         xRSocketInteractor.selectEntered.AddListener(MagazineSelectEnter);
         xRSocketInteractor.selectExited.AddListener(MagazineSelectExit);
+        xRSocketInteractor.Tag = "ak47mag";
     }
 
     void MagazineSelectEnter(SelectEnterEventArgs args)
