@@ -1256,14 +1256,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   GunType: 2
-  CurrentBullet: {fileID: 0}
   _shooptStartPosition: {fileID: 2358293047441432524}
   _currentMagazine: {fileID: 0}
   _gunController: {fileID: 6956737170500205025}
   _shootingMode: 0
+  _boltControl: {fileID: 2515367598039366804}
   _shootingModeControl: {fileID: 8047576390933802154}
   _durationBetweenShoot: 0.2
-  _readyToShoot: 0
 --- !u!114 &5870152473220282348
 MonoBehaviour:
   m_ObjectHideFlags: 0

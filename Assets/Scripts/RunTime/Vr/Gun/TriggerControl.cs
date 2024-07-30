@@ -8,7 +8,8 @@ public class TriggerControl : MonoBehaviour
     [SerializeField] ShootingModeControl shootingMode;
     Animator handFingerAnimator;
 
-    public Action OnTrigger;
+    public Action OnTriggerStart;
+    public Action OnTriggerEnd;
 
     void Start()
     {
@@ -18,15 +19,17 @@ public class TriggerControl : MonoBehaviour
     public void OnActionStay(float value)
     {
         handFingerAnimator.SetFloat("TriggerValue", value);
-
+        Debug.Log("OnActionStay");
         if (value > 0.6)
         {
-            OnTrigger?.Invoke();
+            OnTriggerStart?.Invoke();
         }
     }
 
     public void OnActionCancle()
     {
+        Debug.Log("OnActionCancle");
+        OnTriggerEnd?.Invoke();
         StartCoroutine(ReturnTodefault());
     }
 

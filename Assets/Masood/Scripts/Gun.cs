@@ -15,7 +15,7 @@ public abstract class Gun : MonoBehaviour
     public LayerMask ValidLayers;
     public GunType GunType;
     public Action<bool> onShoot;
-    public BulletScriptableObject CurrentBullet;//bullet  in gun
+    private BulletScriptableObject CurrentBullet;//bullet  in gun
 
     protected InputAction Fire;
 
@@ -23,12 +23,17 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] protected Magazine _currentMagazine;
     [SerializeField] protected GunController _gunController;
     [SerializeField] protected ShootingMode _shootingMode;
+    [SerializeField] protected BoltControl _boltControl;
+    
+    
 
     [SerializeField] private ShootingModeControl _shootingModeControl;
 
 
 
     protected abstract void Initialize();
+    protected abstract void TriggerStarted();
+    protected abstract void TriggerEnded();
     public abstract void DoAction();
 
     private void Awake()
@@ -40,7 +45,17 @@ public abstract class Gun : MonoBehaviour
         Initialize();
         ImpactHandler.Initialize();
         _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
+        _boltControl.OnBoltPull = BoltPuller;
     }
+
+    private void BoltPuller(bool pull)
+    {
+        if (pull)
+        {
+            CurrentBullet = _currentMagazine.GetBullet();
+        }
+    }
+
 
     private void OnEnable()
     {
@@ -55,8 +70,7 @@ public abstract class Gun : MonoBehaviour
     }
 
     protected void Shoot()
-    {
-        CurrentBullet = _currentMagazine.GetBullet();
+    {       
         if (CurrentBullet == null)
         {
             onShoot?.Invoke(false);
@@ -81,6 +95,7 @@ public abstract class Gun : MonoBehaviour
             OnRaycastHit(hitData);
          }
         onShoot?.Invoke(true);
+        CurrentBullet = _currentMagazine.GetBullet();
     }
 
     private float GetDistanceFactor(Vector3 startPoint, Vector3 endPoint)

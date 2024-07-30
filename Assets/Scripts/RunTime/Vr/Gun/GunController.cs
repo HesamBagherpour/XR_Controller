@@ -40,10 +40,12 @@ public class GunController : MonoBehaviour
         MoveToState(idle);           
     }
 
-    public void AddGunReactionsToTrigger(Action shoot)
+    public void AddGunReactionsToTrigger(Action startTrigger,Action endTrigger)
     {
-        triggerControlLeft.OnTrigger = shoot;
-        triggerControlRight.OnTrigger = shoot;
+        triggerControlLeft.OnTriggerStart = startTrigger;
+        triggerControlRight.OnTriggerStart = startTrigger; 
+        triggerControlLeft.OnTriggerEnd = endTrigger;
+        triggerControlRight.OnTriggerEnd = endTrigger;
     }
 
     void OnDestroy()
