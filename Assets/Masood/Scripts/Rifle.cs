@@ -3,14 +3,14 @@
 public class Rifle : Gun
 {
     [SerializeField] private float _durationBetweenShoot = .2f;
-    private bool _readyToShoot;
+    [SerializeField] private bool _readyToShoot;
     private float _lastShootTime;
-    private bool GunTriggered;
-    private int brustshotingCount = 0;
+    [SerializeField] private bool GunTriggered;
+    //private int brustshotingCount = 0;
 
     public override void DoAction()
     {
-        Debug.Log("DoAction");
+        //Debug.Log("DoAction");
         if (!_readyToShoot || _shootingMode == ShootingMode.safety)
             return;
 
@@ -21,7 +21,7 @@ public class Rifle : Gun
             return;
         }
         Shoot();
-        brustshotingCount++;
+        //brustshotingCount++;
         _readyToShoot = false;
         _lastShootTime = Time.time;
     }
@@ -45,27 +45,27 @@ public class Rifle : Gun
 
         if (_shootingMode == ShootingMode.fullAuto)
         {
-            Debug.Log("fullAuto");
+            //Debug.Log("fullAuto");
             if (Time.time > _lastShootTime + _durationBetweenShoot)
                 _readyToShoot = true;
         }
 
-        if (_shootingMode == ShootingMode.burst)
-        {
-            Debug.Log("burst");
-            if (Time.time > _lastShootTime + _durationBetweenShoot && brustshotingCount < 3)
-            {
-                _readyToShoot = true;
-            }
-            //if (!Fire.IsPressed())
-            //    brustshotingCount = 0;
-        }
+        //if (_shootingMode == ShootingMode.burst)
+        //{
+        //    Debug.Log("burst");
+        //    if (Time.time > _lastShootTime + _durationBetweenShoot && brustshotingCount < 3)
+        //    {
+        //        _readyToShoot = true;
+        //    }
+        //    //if (!Fire.IsPressed())
+        //    //    brustshotingCount = 0;
+        //}
     }
 
     protected override void TriggerStarted()
     {
         GunTriggered = true;
-        Debug.Log("TriggerStarted");
+        //Debug.Log("TriggerStarted");
         if (_shootingMode == ShootingMode.semi)
         {
             _readyToShoot = true;
@@ -76,7 +76,7 @@ public class Rifle : Gun
     protected override void TriggerEnded()
     {
         GunTriggered = false;
-        brustshotingCount = 0;
+        //brustshotingCount = 0;
     }
 }
 

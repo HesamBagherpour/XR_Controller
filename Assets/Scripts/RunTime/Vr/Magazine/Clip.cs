@@ -45,6 +45,7 @@ public class Clip : MonoBehaviour
             bullets--;
             return bulletRefrence;
         }
+        Debug.Log("No  bullet in clip");
         return null;
     }
 
