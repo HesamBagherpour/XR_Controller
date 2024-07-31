@@ -13,6 +13,7 @@ TagManager:
   - Hand
   - interactor
   - ak47mag
+  - mp5mag
   layers:
   - Default
   - TransparentFX
