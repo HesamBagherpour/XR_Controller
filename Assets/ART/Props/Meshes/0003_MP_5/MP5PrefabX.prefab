@@ -943,7 +943,6 @@ MonoBehaviour:
   - {fileID: 7041847841471699554}
   - {fileID: 3119251289370338973}
   - {fileID: 147910213628105049}
-  - {fileID: 0}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295

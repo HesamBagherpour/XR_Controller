@@ -34,6 +34,7 @@ public class OnGunClipController : MonoBehaviour
     void MagazineSelectEnter(SelectEnterEventArgs args)
     {
         OnMagazineSelectEnter?.Invoke(args.interactableObject.transform);
+        Debug.Log(args.interactableObject.transform.tag);
     }
 
     void MagazineSelectExit(SelectExitEventArgs args)
