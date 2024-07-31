@@ -1894,7 +1894,7 @@ GameObject:
   - component: {fileID: 1460927489056881104}
   - component: {fileID: 8359924150262096494}
   - component: {fileID: 4217881121798468014}
-  - component: {fileID: 1961629267035792028}
+  - component: {fileID: 2133981733164304901}
   m_Layer: 0
   m_Name: MagazineReceiver
   m_TagString: Untagged
@@ -1956,10 +1956,11 @@ MonoBehaviour:
   clipPrefab: {fileID: 1954557869769621056, guid: b061e4c2aefd2884e87f1a73a3b0be4d,
     type: 3}
   clipObjectOnGun: {fileID: 4225767316275373530}
-  xRSocketInteractor: {fileID: 1961629267035792028}
+  magazineType: 1
+  xRSocketInteractor: {fileID: 2133981733164304901}
   animator: {fileID: 1424654094181060201}
   _colider: {fileID: 8359924150262096494}
---- !u!114 &1961629267035792028
+--- !u!114 &2133981733164304901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1968,7 +1969,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8868297877958846457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3857e1620768c9e43a706b7c813ae905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}

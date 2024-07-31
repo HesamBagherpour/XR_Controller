@@ -2,6 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+public enum MagazineType
+{
+    ak47mag,
+    mp5mag,
+}
+
 public class OnGunClipController : MonoBehaviour
 {
     [SerializeField] BoltControl boltControl;
@@ -12,6 +18,7 @@ public class OnGunClipController : MonoBehaviour
     [SerializeField] GameObject clipObjectOnGun;
 
     [Header("Receiver")]
+    [SerializeField] MagazineType magazineType;
     [SerializeField] SocketTagChecker xRSocketInteractor;
     [SerializeField] Animator animator;
     [SerializeField] Collider _colider;
@@ -25,7 +32,7 @@ public class OnGunClipController : MonoBehaviour
     {
         xRSocketInteractor.selectEntered.AddListener(MagazineSelectEnter);
         xRSocketInteractor.selectExited.AddListener(MagazineSelectExit);
-        xRSocketInteractor.Tag = "ak47mag";
+        xRSocketInteractor.Tag = magazineType.ToString();
     }
 
     void MagazineSelectEnter(SelectEnterEventArgs args)
