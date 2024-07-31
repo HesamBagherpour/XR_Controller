@@ -27,8 +27,6 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] protected ShootingMode _shootingMode;
     [SerializeField] protected BoltControl _boltControl;
     [SerializeField] protected OnGunClipController _gunClipController;
-
-
     [SerializeField] private ShootingModeControl _shootingModeControl;
 
 
@@ -48,18 +46,30 @@ public abstract class Gun : MonoBehaviour
         ImpactHandler.Initialize();
         _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         _boltControl.OnBoltPull = BoltPuller;
-        _gunClipController.OnMagazineSelectEnter += () => { clipReady = true; };
-        _gunClipController.OnMagazineSelectExit += () => { clipReady = false; };
+        _gunClipController.OnMagazineSelectEnter += (t) =>
+        {
+            _currentMagazine = t.GetComponent<Clip>();
+            if (_currentMagazine != null)
+            {
+                clipReady = true;
+            }
+        };
+        _gunClipController.OnMagazineSelectExit += () =>
+        {
+            clipReady = false;
+            _currentMagazine = null;
+        };
     }
 
     private void BoltPuller(bool pull)
     {
+        if (_currentMagazine == null)
+            Debug.LogWarning("Use bolt");
         if (pull)
         {
             CurrentBullet = _currentMagazine.GetBullet();
         }
     }
-
 
     private void OnEnable()
     {
@@ -74,9 +84,10 @@ public abstract class Gun : MonoBehaviour
     }
 
     protected void Shoot()
-    {       
+    {
         if (CurrentBullet == null)
         {
+            Debug.LogWarning("CurrentBullet == null");
             onShoot?.Invoke(false);
             return;
         }
@@ -97,17 +108,23 @@ public abstract class Gun : MonoBehaviour
                 DistanceFactor = GetDistanceFactor(_shooptStartPosition.transform.position, hit.collider.gameObject.transform.position)
             };
             OnRaycastHit(hitData);
-         }
+        }
         onShoot?.Invoke(true);
-        
-        CurrentBullet = clipReady? _currentMagazine.GetBullet():null;
+
+        if (!clipReady)
+            Debug.LogWarning("clip not ready");
+
+        if (_currentMagazine==null)
+            Debug.LogWarning("clip is null");
+
+        CurrentBullet = clipReady ? _currentMagazine?.GetBullet() : null;
     }
 
     private float GetDistanceFactor(Vector3 startPoint, Vector3 endPoint)
     {
         Vector3.Distance(startPoint, endPoint);
 
-        return 0;           
+        return 0;
     }
 
     public int GetBulletCountInMagazine()
