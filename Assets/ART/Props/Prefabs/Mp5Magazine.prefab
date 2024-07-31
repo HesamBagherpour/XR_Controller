@@ -355,7 +355,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2576067696921946193}
   - component: {fileID: 8799755581819333281}
-  - component: {fileID: 8586523750958868126}
   m_Layer: 0
   m_Name: Colider
   m_TagString: Clip
@@ -399,15 +398,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.03, y: 0.145, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8586523750958868126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3284792655301205299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133c7e571c43c204585bf2c46741cfa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -2191,6 +2191,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
+        type: 3}
+      propertyPath: _currentMagazine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 864856651171112027, guid: ab560e393273e824aab58075749a3211,
+        type: 3}
+      propertyPath: m_Colliders.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217881121798468014, guid: ab560e393273e824aab58075749a3211,
+        type: 3}
+      propertyPath: clipOnGun
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4232942737252272351, guid: ab560e393273e824aab58075749a3211,
         type: 3}
       propertyPath: m_Name
@@ -2247,7 +2262,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4225767316275373530, guid: ab560e393273e824aab58075749a3211, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab560e393273e824aab58075749a3211, type: 3}
@@ -15966,6 +15982,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1086292047692975020, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: clipOnGun
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992518285066002232, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: _currentMagazine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979794145391853487, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3060540524194434615, guid: e03ac326de353ee4480a3deb2f5505f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16021,8 +16052,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK47
       objectReference: {fileID: 0}
+    - target: {fileID: 6769454805560688504, guid: e03ac326de353ee4480a3deb2f5505f2,
+        type: 3}
+      propertyPath: m_Colliders.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2979794145391853487, guid: e03ac326de353ee4480a3deb2f5505f2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e03ac326de353ee4480a3deb2f5505f2, type: 3}

@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4080051902990415644
 Transform:
   m_ObjectHideFlags: 0
@@ -355,7 +355,6 @@ GameObject:
   m_Component:
   - component: {fileID: 350800920412680976}
   - component: {fileID: 1895139796152423265}
-  - component: {fileID: 8911334714907266211}
   m_Layer: 0
   m_Name: Colider
   m_TagString: Clip
@@ -399,15 +398,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.03, y: 0.15, z: 0.07}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8911334714907266211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9020708159097818965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133c7e571c43c204585bf2c46741cfa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

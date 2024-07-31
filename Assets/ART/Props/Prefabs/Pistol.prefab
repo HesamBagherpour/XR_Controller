@@ -6048,7 +6048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4939898629812306756
 Transform:
   m_ObjectHideFlags: 0
@@ -6327,14 +6327,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   GunType: 1
-  CurrentBullet: {fileID: 0}
   _shooptStartPosition: {fileID: 3281401083565806235}
   _currentMagazine: {fileID: 0}
   _gunController: {fileID: 7557340870034553131}
   _shootingMode: 0
+  _boltControl: {fileID: 0}
+  _gunClipController: {fileID: 0}
   _shootingModeControl: {fileID: 4864718018908776429}
   _durationBetweenShoot: 0.2
-  _readyToShoot: 0
 --- !u!114 &6661838663011699315
 MonoBehaviour:
   m_ObjectHideFlags: 0

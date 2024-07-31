@@ -13,10 +13,6 @@ public class OnGunClipController : MonoBehaviour
     [SerializeField] BoltControl boltControl;
     [SerializeField] Clip clipOnGun;
 
-    [Header("Clip")]
-    [SerializeField] GameObject clipPrefab;
-    [SerializeField] GameObject clipObjectOnGun;
-
     [Header("Receiver")]
     [SerializeField] MagazineType magazineType;
     [SerializeField] SocketTagChecker xRSocketInteractor;
@@ -25,7 +21,7 @@ public class OnGunClipController : MonoBehaviour
 
     bool isthereAnyClipInGun = false;
 
-    public event Action OnMagazineSelectEnter;
+    public event Action<Transform> OnMagazineSelectEnter;
     public event Action OnMagazineSelectExit;
 
     void Start()
@@ -37,7 +33,7 @@ public class OnGunClipController : MonoBehaviour
 
     void MagazineSelectEnter(SelectEnterEventArgs args)
     {
-        OnMagazineSelectEnter?.Invoke();
+        OnMagazineSelectEnter?.Invoke(args.interactableObject.transform);
     }
 
     void MagazineSelectExit(SelectExitEventArgs args)
