@@ -1061,6 +1061,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fd6b66893a2f64bb7a59a1469313a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &352395356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 996212338620884118, guid: b061e4c2aefd2884e87f1a73a3b0be4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868237495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce41a85ab2cc7864db015eef60763a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &409367927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,6 +2215,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
+        type: 3}
+      propertyPath: _currentMagazine
+      value: 
+      objectReference: {fileID: 352395356}
     - target: {fileID: 818143823042163195, guid: ab560e393273e824aab58075749a3211,
         type: 3}
       propertyPath: _durationBetweenShoot
@@ -10482,6 +10499,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 996212338620884118, guid: b061e4c2aefd2884e87f1a73a3b0be4d,
+        type: 3}
+      propertyPath: bullets
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 996212338620884118, guid: b061e4c2aefd2884e87f1a73a3b0be4d,
+        type: 3}
+      propertyPath: bulletRefrence
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ed25e3dc0de1bb4da2b31c0a313ae22,
+        type: 2}
     - target: {fileID: 1954557869769621056, guid: b061e4c2aefd2884e87f1a73a3b0be4d,
         type: 3}
       propertyPath: m_Name
