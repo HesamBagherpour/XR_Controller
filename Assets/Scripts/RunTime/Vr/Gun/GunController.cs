@@ -75,6 +75,11 @@ public class GunController : MonoBehaviour
         gunState.Enter();
     }
 
+    public bool IsGunReadyToShoot()
+    {
+        return gunState!= idle;
+    }
+
     List<IXRSelectInteractor> GetSelectingInteractors() { return xRGrabInteractable.interactorsSelecting; }
     IXRSelectInteractor GetFirstSelectingInteractor() { return xRGrabInteractable.firstInteractorSelecting; }
     XRInteractionManager GetInteractionManager() { return xRGrabInteractable.interactionManager; }

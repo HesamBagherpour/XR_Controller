@@ -90,6 +90,9 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
+        if (!_gunController.IsGunReadyToShoot())
+            return;
+
         if (CurrentBullet == null)
         {
             Debug.LogWarning("CurrentBullet == null");
