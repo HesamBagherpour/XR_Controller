@@ -17,6 +17,7 @@ public abstract class Gun : MonoBehaviour
     public Action<bool> onShoot;
     private BulletScriptableObject CurrentBullet;//bullet  in gun
     private bool clipReady;
+    private bool ReadyToPull;
 
     protected InputAction Fire;
 
@@ -28,8 +29,6 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] protected BoltControl _boltControl;
     [SerializeField] protected OnGunClipController _gunClipController;
     [SerializeField] private ShootingModeControl _shootingModeControl;
-
-
 
     protected abstract void Initialize();
     protected abstract void TriggerStarted();
@@ -46,6 +45,7 @@ public abstract class Gun : MonoBehaviour
         ImpactHandler.Initialize();
         _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         _boltControl.OnBoltPull = BoltPuller;
+        _boltControl.OnReadyToPull = () => ReadyToPull = true;
         _gunClipController.OnMagazineSelectEnter += (t) =>
         {
             _currentMagazine = t.GetComponent<Clip>();
@@ -65,9 +65,14 @@ public abstract class Gun : MonoBehaviour
     {
         if (_currentMagazine == null)
             Debug.LogWarning("Use bolt");
+
+        if (!ReadyToPull)
+            return;
+
         if (pull)
         {
             CurrentBullet = _currentMagazine.GetBullet();
+            ReadyToPull = false;
         }
     }
 
@@ -114,7 +119,7 @@ public abstract class Gun : MonoBehaviour
         if (!clipReady)
             Debug.LogWarning("clip not ready");
 
-        if (_currentMagazine==null)
+        if (_currentMagazine == null)
             Debug.LogWarning("clip is null");
 
         CurrentBullet = clipReady ? _currentMagazine?.GetBullet() : null;
