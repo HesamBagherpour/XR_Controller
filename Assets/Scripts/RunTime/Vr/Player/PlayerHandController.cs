@@ -19,8 +19,9 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField] InputActionReference secondaryButtonInput;
     [SerializeField] InputActionReference handPosInput;
 
-    XRDirectInteractor interactor;
     PlayerHandAnimation handAnimation;
+
+    XRDirectInteractor interactor;
     Vector3 OldHandPosition;
     float handPositionFloat;
 
@@ -78,6 +79,7 @@ public class PlayerHandController : MonoBehaviour
         if(SelectedInteractable().tag == "Gun")
         {
             SetGunController(SelectedInteractable().GetComponent<GunController>());
+            //SubscribeOnGun();
             SetDeActiveHandAnimation();
             SetHandActive(false);
         }
@@ -95,6 +97,7 @@ public class PlayerHandController : MonoBehaviour
     {
         SetHandActive(true);
         SetActiveHandAnimation();
+        //UnsubscribeOnGun();
         SetGunController(null);
 
         OnSelectChange?.Invoke();
@@ -116,6 +119,20 @@ public class PlayerHandController : MonoBehaviour
     GunController GetGunController()
     {
         return gunController;
+    }
+
+    void SubscribeOnGun()
+    {
+        //gunController.OnRecoil += HandRecoil;
+    }
+    void UnsubscribeOnGun()
+    {
+        //gunController.OnRecoil -= HandRecoil;
+    }
+
+    public void HandRecoil(PlayerHand _hand, int numberOfHands)
+    {
+        handAnimation.PlayRecoil();
     }
 
     public bool HasSelection()

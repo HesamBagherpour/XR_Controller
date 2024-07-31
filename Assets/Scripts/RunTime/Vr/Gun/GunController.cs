@@ -29,6 +29,9 @@ public class GunController : MonoBehaviour
     TwoHandGrab twoHandGrab = new TwoHandGrab();
 
     PlayerHand firstSelectingHand;
+    PlayerHandController firstSelectingHandd;
+
+    //public event Action<PlayerHand, int> OnRecoil;
 
     void Start()
     {
@@ -113,19 +116,31 @@ public class GunController : MonoBehaviour
 
     public void TriggerStay(float value, PlayerHand hand)
     {
-        if(firstSelectingHand == hand)
+        if(/*firstSelectingHand == hand*/firstSelectingHandd.Hand == hand)
             gunState.TriggerStay(value, GetFirstActiveHand());
     }
     public void TriggerCancel(PlayerHand hand)
     {
-        if(firstSelectingHand == hand)
+        if(/*firstSelectingHand == hand*/firstSelectingHandd.Hand == hand)
             gunState.TriggerCancel(GetFirstActiveHand());
     }
 
     public void ChangeShootingMode(PlayerHand hand, ChangeModeDirection direction)
     {
-        if(firstSelectingHand == hand)
+        if(/*firstSelectingHand == hand*/firstSelectingHandd.Hand == hand)
             GetFirstActiveHand().ChangeShootMode(direction);
+    }
+
+    public void Recoil()
+    {
+        int numberOfHands;
+
+        if(gunState != idle)
+        {
+            numberOfHands = gunState == oneHandGrab ? 1 : 2;
+            //OnRecoil.Invoke(firstSelectingHand, numberOfHands);
+            firstSelectingHandd.HandRecoil(firstSelectingHandd.Hand, numberOfHands);
+        }
     }
 
     internal TriggerControl GetFirstActiveHand()
@@ -156,13 +171,14 @@ public class GunController : MonoBehaviour
 
     internal PlayerHand GetFirstSelectedHand()
     {
-        return firstSelectingHand;
+        return /*firstSelectingHand*/firstSelectingHandd.Hand;
     }
 
     void OnFirstSelectEntered(SelectEnterEventArgs eventArgs)
     {
         var playerHandController = GetFirstSelectingInteractor().transform.GetComponent<PlayerHandController>();
-        firstSelectingHand = playerHandController.Hand;
+        firstSelectingHandd = playerHandController;
+        //firstSelectingHand = playerHandController.Hand;
     }
 
     void OnSelectEntered(SelectEnterEventArgs eventArgs)
