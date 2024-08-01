@@ -6048,7 +6048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4939898629812306756
 Transform:
   m_ObjectHideFlags: 0
@@ -6335,6 +6335,8 @@ MonoBehaviour:
   _gunClipController: {fileID: 0}
   _shootingModeControl: {fileID: 4864718018908776429}
   _durationBetweenShoot: 0.2
+  _readyToShoot: 0
+  GunTriggered: 0
 --- !u!114 &6661838663011699315
 MonoBehaviour:
   m_ObjectHideFlags: 0

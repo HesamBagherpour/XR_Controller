@@ -23,6 +23,9 @@ public class GunController : MonoBehaviour
     [Header("AttachPoints")]
     [SerializeField] Transform secondAttachPoint;
 
+    [Header("Animator")]
+    [SerializeField] Animator recoil;
+
     IGunState gunState;
     Idle idle = new Idle();
     OneHandGrab oneHandGrab = new OneHandGrab();
@@ -138,13 +141,11 @@ public class GunController : MonoBehaviour
 
     public void Recoil()
     {
-        int numberOfHands;
-
         if(gunState != idle)
         {
-            numberOfHands = gunState == oneHandGrab ? 1 : 2;
-            //OnRecoil.Invoke(firstSelectingHand, numberOfHands);
-            firstSelectingHandd.HandRecoil(firstSelectingHandd.Hand, numberOfHands);
+            string animation = gunState == oneHandGrab ? "onehand" : "twohand";
+            recoil.CrossFade(animation,0.2f);
+            //firstSelectingHandd.HandRecoil(firstSelectingHandd.Hand, numberOfHands);
         }
     }
 
