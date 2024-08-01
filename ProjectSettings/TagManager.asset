@@ -14,6 +14,7 @@ TagManager:
   - interactor
   - ak47mag
   - mp5mag
+  - pistolmag
   layers:
   - Default
   - TransparentFX

@@ -6,20 +6,15 @@ public enum MagazineType
 {
     ak47mag,
     mp5mag,
+    pistolmag,
 }
 
 public class OnGunClipController : MonoBehaviour
 {
-    [SerializeField] BoltControl boltControl;
-    [SerializeField] Clip clipOnGun;
-
     [Header("Receiver")]
     [SerializeField] MagazineType magazineType;
     [SerializeField] SocketTagChecker xRSocketInteractor;
     [SerializeField] Animator animator;
-    [SerializeField] Collider _colider;
-
-    bool isthereAnyClipInGun = false;
 
     public event Action<Transform> OnMagazineSelectEnter;
     public event Action OnMagazineSelectExit;
@@ -34,27 +29,11 @@ public class OnGunClipController : MonoBehaviour
     void MagazineSelectEnter(SelectEnterEventArgs args)
     {
         OnMagazineSelectEnter?.Invoke(args.interactableObject.transform);
-        Debug.Log(args.interactableObject.transform.tag);
     }
 
     void MagazineSelectExit(SelectExitEventArgs args)
     {
         OnMagazineSelectExit?.Invoke();
-    }
-
-    void OnGunUngrabbed()
-    {
-        ColiderSetActive(false);
-    }
-
-    void OnGunGrabbed()
-    {
-        ColiderSetActive(true);
-    }
-
-    void ColiderSetActive(bool value)
-    {
-        _colider.enabled = value;
     }
 
     /*void OnTriggerStay(Collider other)
@@ -83,14 +62,4 @@ public class OnGunClipController : MonoBehaviour
             //Take Magazine From Gun
         }
     }*/
-
-    void ChangeMagazineState(bool value)
-    {
-        isthereAnyClipInGun = value;
-    }
-
-    public bool IsthereAnyClipInGun()
-    {
-        return isthereAnyClipInGun;
-    }
 }

@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _muzzleObject: {fileID: 3338140944375080185}
-  _destroyTime: 0.08
+  _destroyTime: 0.2
 --- !u!114 &8152590649103851958
 MonoBehaviour:
   m_ObjectHideFlags: 0
