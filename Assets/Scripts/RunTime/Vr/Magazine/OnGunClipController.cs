@@ -16,6 +16,8 @@ public class OnGunClipController : MonoBehaviour
     [SerializeField] SocketTagChecker xRSocketInteractor;
     [SerializeField] Animator animator;
 
+    Clip magazine;
+
     public event Action<Transform> OnMagazineSelectEnter;
     public event Action OnMagazineSelectExit;
 
@@ -26,13 +28,22 @@ public class OnGunClipController : MonoBehaviour
         xRSocketInteractor.Tag = magazineType.ToString();
     }
 
+    void OnDestroy()
+    {
+        xRSocketInteractor.selectEntered.RemoveListener(MagazineSelectEnter);
+        xRSocketInteractor.selectExited.RemoveListener(MagazineSelectExit);
+    }
+
     void MagazineSelectEnter(SelectEnterEventArgs args)
     {
+        magazine = args.interactableObject.transform.GetComponent<Clip>();
+        magazine.OnSelectEnter();
         OnMagazineSelectEnter?.Invoke(args.interactableObject.transform);
     }
 
     void MagazineSelectExit(SelectExitEventArgs args)
     {
+        magazine.OnSelectExit();
         OnMagazineSelectExit?.Invoke();
     }
 

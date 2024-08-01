@@ -1,9 +1,12 @@
-using System;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Clip : MonoBehaviour
 {
    [SerializeField] private int bullets;
+   [SerializeField] private GameObject colider;
+   [SerializeField] private BulletScriptableObject bulletRefrence;
+
     //[Serializable]
     //public class BulletData
     //{
@@ -12,13 +15,30 @@ public class Clip : MonoBehaviour
     //}
 
     //[SerializeField] private float _bulletAmount;
-    [SerializeField] private BulletScriptableObject bulletRefrence;
+
     void Start()
     {
-        //bullets = 30;
+
 #if UnlimitedAmmo
         bullets = 9999999;
 #endif
+
+    }
+
+    public void OnSelectEnter()
+    {
+        ColiderSetActive(false);
+    }
+
+    public void OnSelectExit()
+    {
+        ColiderSetActive(true);
+    }
+
+    void ColiderSetActive(bool value)
+    {
+        if(colider != null)
+            colider.SetActive(value);
     }
 
     public void DecreaseBullet()
