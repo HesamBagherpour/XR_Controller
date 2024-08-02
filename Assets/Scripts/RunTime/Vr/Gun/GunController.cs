@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -32,6 +33,7 @@ public class GunController : MonoBehaviour
 
     [Header("Magazine Receiver")]
     [SerializeField] MagazineReceiver receiver;
+    //[SerializeField] XRDirectInteractor xRDirectInteractor;
 
     IGunState gunState;
     Idle idle = new Idle();
@@ -46,9 +48,16 @@ public class GunController : MonoBehaviour
         xRGrabInteractable.selectEntered.AddListener(OnSelectEntered);
         xRGrabInteractable.selectExited.AddListener(OnSelectExited);
 
+        //StartCoroutine(SelectEnterCoroutine());
         GetFirstAttachColiders();
-        MoveToState(idle);           
+        MoveToState(idle);
     }
+
+    /*IEnumerator SelectEnterCoroutine()
+    {
+        yield return new WaitForSeconds(5);
+        GetInteractionManager().SelectEnter(xRDirectInteractor, xRGrabInteractable);
+    }*/
 
     public void AddGunReactionsToTrigger(Action startTrigger,Action endTrigger)
     {
