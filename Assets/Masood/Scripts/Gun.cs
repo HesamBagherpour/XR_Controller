@@ -23,11 +23,11 @@ public abstract class Gun : MonoBehaviour
 
     [SerializeField] private GameObject _shooptStartPosition;
     //[SerializeField] protected Magazine _currentMagazine;
-    [SerializeField] protected Clip _currentMagazine;
+    [SerializeField] protected MagazineControl _currentMagazine;
     [SerializeField] protected GunController _gunController;
     [SerializeField] protected ShootingMode _shootingMode;
     [SerializeField] protected BoltControl _boltControl;
-    [SerializeField] protected OnGunClipController _gunClipController;
+    [SerializeField] protected MagazineReceiver _magazineReceiver;
     [SerializeField] private ShootingModeControl _shootingModeControl;
 
     protected abstract void Initialize();
@@ -46,15 +46,15 @@ public abstract class Gun : MonoBehaviour
         _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         _boltControl.OnBoltPull = BoltPuller;
         _boltControl.OnReadyToPull = () => ReadyToPull = true;
-        _gunClipController.OnMagazineSelectEnter += (t) =>
+        _magazineReceiver.OnMagazineSelectEnter += (t) =>
         {
-            _currentMagazine = t.GetComponent<Clip>();
+            _currentMagazine = t.GetComponent<MagazineControl>();
             if (_currentMagazine != null)
             {
                 clipReady = true;
             }
         };
-        _gunClipController.OnMagazineSelectExit += () =>
+        _magazineReceiver.OnMagazineSelectExit += () =>
         {
             clipReady = false;
             _currentMagazine = null;

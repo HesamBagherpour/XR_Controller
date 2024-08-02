@@ -6302,6 +6302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handOnGun: {fileID: 2706066809643969849}
+  shootingMode: {fileID: 4864718018908776429}
   triggerControlRight: {fileID: 2399926886942631449}
   triggerControlLeft: {fileID: 7227231390457300587}
   xRGrabInteractable: {fileID: 7558738285850036951}
@@ -6310,6 +6311,8 @@ MonoBehaviour:
   boltColider: {fileID: 4305949686336494266}
   secondAttachPoint: {fileID: 5078513509302555110}
   recoil: {fileID: 4607157569020426222}
+  gunType: 1
+  receiver: {fileID: 1839557543802053554}
 --- !u!114 &6827303454528581338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6331,7 +6334,7 @@ MonoBehaviour:
   _gunController: {fileID: 7557340870034553131}
   _shootingMode: 0
   _boltControl: {fileID: 1082420743825215922}
-  _gunClipController: {fileID: 1839557543802053554}
+  _magazineReceiver: {fileID: 1839557543802053554}
   _shootingModeControl: {fileID: 4864718018908776429}
   _durationBetweenShoot: 0.2
   _readyToShoot: 0
@@ -46871,7 +46874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7830086818390412023
 Transform:
   m_ObjectHideFlags: 0

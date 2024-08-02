@@ -19,7 +19,7 @@ public class TriggerControl : MonoBehaviour
     public void OnActionStay(float value)
     {
         handFingerAnimator.SetFloat("TriggerValue", value);
-        //Debug.Log("OnActionStay");
+        
         if (value > 0.6)
         {
             OnTriggerStart?.Invoke();

@@ -11,7 +11,7 @@ public enum ShootingMode
 public enum ModeType
 {
     pistol = 1,
-    rifle = 3,
+    rifle = 2,
 }
 
 public enum ChangeModeDirection
@@ -39,11 +39,22 @@ public class ShootingModeControl : MonoBehaviour
 
     public void ChangeMode(ChangeModeDirection direction)
     {
-        var modeId = (int)mode + (int)direction;
-
-        if(modeId <= allowedModes && modeId >= 0)
+        Debug.Log("Shooting mode Change Mode");
+        if(type == ModeType.rifle)
         {
-            mode = (ShootingMode)modeId;
+            Debug.Log("Rifle Change Mode");
+            var modeId = (int)mode + (int)direction;
+
+            if(modeId <= allowedModes && modeId >= 0)
+            {
+                mode = (ShootingMode)modeId;
+                PlayChangingModeAnimation(mode.ToString());
+                OnShootingModeChange?.Invoke(mode);
+            }
+        }
+        else if(type == ModeType.pistol)
+        {
+            mode = mode == ShootingMode.safety? ShootingMode.semi : ShootingMode.safety;
             PlayChangingModeAnimation(mode.ToString());
             OnShootingModeChange?.Invoke(mode);
         }

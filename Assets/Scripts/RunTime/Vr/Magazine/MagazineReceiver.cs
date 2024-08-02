@@ -9,14 +9,14 @@ public enum MagazineType
     pistolmag,
 }
 
-public class OnGunClipController : MonoBehaviour
+public class MagazineReceiver : MonoBehaviour
 {
     [Header("Receiver")]
     [SerializeField] MagazineType magazineType;
     [SerializeField] SocketTagChecker xRSocketInteractor;
     [SerializeField] Animator animator;
 
-    Clip magazine;
+    MagazineControl magazine;
 
     public event Action<Transform> OnMagazineSelectEnter;
     public event Action OnMagazineSelectExit;
@@ -25,6 +25,7 @@ public class OnGunClipController : MonoBehaviour
     {
         xRSocketInteractor.selectEntered.AddListener(MagazineSelectEnter);
         xRSocketInteractor.selectExited.AddListener(MagazineSelectExit);
+        xRSocketInteractor.hoverExited.AddListener(MagazineHoverExit);
         xRSocketInteractor.Tag = magazineType.ToString();
     }
 
@@ -32,11 +33,12 @@ public class OnGunClipController : MonoBehaviour
     {
         xRSocketInteractor.selectEntered.RemoveListener(MagazineSelectEnter);
         xRSocketInteractor.selectExited.RemoveListener(MagazineSelectExit);
+        xRSocketInteractor.hoverExited.RemoveListener(MagazineHoverExit);
     }
 
     void MagazineSelectEnter(SelectEnterEventArgs args)
     {
-        magazine = args.interactableObject.transform.GetComponent<Clip>();
+        magazine = args.interactableObject.transform.GetComponent<MagazineControl>();
         magazine.OnSelectEnter();
         OnMagazineSelectEnter?.Invoke(args.interactableObject.transform);
     }
@@ -44,7 +46,18 @@ public class OnGunClipController : MonoBehaviour
     void MagazineSelectExit(SelectExitEventArgs args)
     {
         magazine.OnSelectExit();
+        magazine = null;
         OnMagazineSelectExit?.Invoke();
+    }
+
+    void MagazineHoverExit(HoverExitEventArgs args)
+    {
+        xRSocketInteractor.allowSelect = true;
+    }
+
+    public void ForceRelease()
+    {
+        xRSocketInteractor.allowSelect = false;
     }
 
     /*void OnTriggerStay(Collider other)

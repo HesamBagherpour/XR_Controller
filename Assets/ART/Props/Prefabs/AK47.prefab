@@ -216,12 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143ae291a63ae0f4c828c147312e8ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boltControl: {fileID: 5494371126686761233}
-  clipOnGun: {fileID: 0}
   magazineType: 0
   xRSocketInteractor: {fileID: 7180525550038131145}
   animator: {fileID: 2335086761834850144}
-  _colider: {fileID: 5626517953499818199}
 --- !u!114 &7180525550038131145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,6 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handOnGun: {fileID: 7188899017766846510}
+  shootingMode: {fileID: 7675830721802429542}
   triggerControlRight: {fileID: 2684372071166943415}
   triggerControlLeft: {fileID: 7125822979020200510}
   xRGrabInteractable: {fileID: 6769454805560688504}
@@ -1180,6 +1178,8 @@ MonoBehaviour:
   boltColider: {fileID: 3484936019082894778}
   secondAttachPoint: {fileID: 3311106862082991474}
   recoil: {fileID: 3128064716349204969}
+  gunType: 2
+  receiver: {fileID: 1086292047692975020}
 --- !u!114 &1992518285066002232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   _gunController: {fileID: 266431219584813791}
   _shootingMode: 0
   _boltControl: {fileID: 5494371126686761233}
-  _gunClipController: {fileID: 1086292047692975020}
+  _magazineReceiver: {fileID: 1086292047692975020}
   _shootingModeControl: {fileID: 7675830721802429542}
   _durationBetweenShoot: 0.12
   _readyToShoot: 0
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4893dc425cb674c8f530a5e3222647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  type: 2
 --- !u!95 &7966770184263760033
 Animator:
   serializedVersion: 5

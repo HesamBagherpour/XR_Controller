@@ -8,6 +8,7 @@ public class GunController : MonoBehaviour
 {
     [Header("Gun Components")]
     [SerializeField] HandsOnGunControl handOnGun;
+    [SerializeField] ShootingModeControl shootingMode;
     [SerializeField] TriggerControl triggerControlRight;
     [SerializeField] TriggerControl triggerControlLeft;
 
@@ -25,6 +26,12 @@ public class GunController : MonoBehaviour
 
     [Header("Animator")]
     [SerializeField] Animator recoil;
+
+    [Header("GunType")]
+    [SerializeField] GunType gunType;
+
+    [Header("Magazine Receiver")]
+    [SerializeField] MagazineReceiver receiver;
 
     IGunState gunState;
     Idle idle = new Idle();
@@ -130,10 +137,29 @@ public class GunController : MonoBehaviour
             gunState.TriggerCancel(GetFirstActiveHand());
     }
 
-    public void ChangeShootingMode(PlayerHand hand, ChangeModeDirection direction)
+    /*public void ChangeShootingMode(PlayerHand hand, ChangeModeDirection direction)
     {
         if(firstSelectingHand.Hand == hand)
             GetFirstActiveHand().ChangeShootMode(direction);
+    }*/
+
+    public void PrimaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
+    {
+        if(firstSelectingHand.Hand == hand)
+            shootingMode.ChangeMode(direction);
+    }
+
+    public void SecondaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
+    {
+        if(gunType == GunType.Rifle)
+        {
+            if(firstSelectingHand.Hand == hand)
+                shootingMode.ChangeMode(direction);
+        }
+        else if(gunType == GunType.Pistol)
+        {
+            receiver.ForceRelease();
+        }
     }
 
     public void Recoil()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Clip : MonoBehaviour
+public class MagazineControl : MonoBehaviour
 {
    [SerializeField] private int bullets;
    [SerializeField] private GameObject colider;

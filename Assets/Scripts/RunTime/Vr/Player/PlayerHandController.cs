@@ -173,7 +173,8 @@ public class PlayerHandController : MonoBehaviour
     {
         if(GetGunController() != null)
         {
-            GetGunController().ChangeShootingMode(hand, ChangeModeDirection.down);
+            //GetGunController().ChangeShootingMode(hand, ChangeModeDirection.down);
+            GetGunController().PrimaryButtonPressed(hand, ChangeModeDirection.down);
         }
     }
 
@@ -181,7 +182,8 @@ public class PlayerHandController : MonoBehaviour
     {
         if(GetGunController() != null)
         {
-            GetGunController().ChangeShootingMode(hand, ChangeModeDirection.up);
+            //GetGunController().ChangeShootingMode(hand, ChangeModeDirection.up);
+            GetGunController().SecondaryButtonPressed(hand, ChangeModeDirection.up);
         }
     }
 
