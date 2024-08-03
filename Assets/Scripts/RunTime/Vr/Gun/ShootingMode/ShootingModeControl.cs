@@ -39,10 +39,8 @@ public class ShootingModeControl : MonoBehaviour
 
     public void ChangeMode(ChangeModeDirection direction)
     {
-        Debug.Log("Shooting mode Change Mode");
         if(type == ModeType.rifle)
         {
-            Debug.Log("Rifle Change Mode");
             var modeId = (int)mode + (int)direction;
 
             if(modeId <= allowedModes && modeId >= 0)

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -61,9 +60,17 @@ public class GunController : MonoBehaviour
     public void AddGunReactionsToTrigger(Action startTrigger,Action endTrigger)
     {
         triggerControlLeft.OnTriggerStart = startTrigger;
-        triggerControlRight.OnTriggerStart = startTrigger; 
+        triggerControlRight.OnTriggerStart = startTrigger;
         triggerControlLeft.OnTriggerEnd = endTrigger;
         triggerControlRight.OnTriggerEnd = endTrigger;
+    }
+
+    public void CancelShootOnGunReleased()
+    {
+        if(GetSelectingInteractors().Count <= 0)
+        {
+            GetFirstActiveHand().OnActionCancle();
+        }
     }
 
     void OnDestroy()
@@ -145,12 +152,6 @@ public class GunController : MonoBehaviour
             gunState.TriggerCancel(GetFirstActiveHand());
     }
 
-    /*public void ChangeShootingMode(PlayerHand hand, ChangeModeDirection direction)
-    {
-        if(firstSelectingHand.Hand == hand)
-            GetFirstActiveHand().ChangeShootMode(direction);
-    }*/
-
     public void PrimaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
     {
         if(firstSelectingHand.Hand == hand)
@@ -223,11 +224,12 @@ public class GunController : MonoBehaviour
 
     void OnSelectExited(SelectExitEventArgs eventArgs)
     {
-        CancelOnFirstSelectExited(eventArgs);
+        CancelShootOnGunReleased();
+        CancelSelectionsOnFirstSelectExit(eventArgs);
         ChangeSelection();
     }
 
-    void CancelOnFirstSelectExited(SelectExitEventArgs args)
+    void CancelSelectionsOnFirstSelectExit(SelectExitEventArgs args)
     {
         if(!GetFirstSelectingInteractor().hasSelection)
             GetInteractionManager().CancelInteractableSelection(args.interactableObject);

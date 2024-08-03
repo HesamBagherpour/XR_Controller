@@ -28,7 +28,6 @@ public class TriggerControl : MonoBehaviour
 
     public void OnActionCancle()
     {
-        Debug.Log("OnActionCancle");
         OnTriggerEnd?.Invoke();
         StartCoroutine(ReturnTodefault());
     }

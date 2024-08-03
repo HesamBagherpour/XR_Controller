@@ -88,8 +88,8 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
-        if (!_gunController.IsGunReadyToShoot())
-            return;
+        //if (!_gunController.IsGunReadyToShoot())
+            //return;
 
         if (CurrentBullet == null)
         {
