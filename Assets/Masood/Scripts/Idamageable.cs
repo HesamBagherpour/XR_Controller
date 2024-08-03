@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using static Gun;
+﻿using static Gun;
 
 public interface Idamageable
 {

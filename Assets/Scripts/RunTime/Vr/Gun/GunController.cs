@@ -12,6 +12,7 @@ public class GunController : MonoBehaviour
     [SerializeField] ShootingModeControl shootingMode;
     [SerializeField] TriggerControl triggerControlRight;
     [SerializeField] TriggerControl triggerControlLeft;
+    [SerializeField] MagazineReceiver magazineReceiver;
 
     [Header("Xr Components")]
     [SerializeField] XRGrabInteractable xRGrabInteractable;
@@ -31,8 +32,6 @@ public class GunController : MonoBehaviour
     [Header("GunType")]
     [SerializeField] GunType gunType;
 
-    [Header("Magazine Receiver")]
-    [SerializeField] MagazineReceiver receiver;
     //[SerializeField] XRDirectInteractor xRDirectInteractor;
 
     IGunState gunState;
@@ -167,7 +166,7 @@ public class GunController : MonoBehaviour
         }
         else if(gunType == GunType.Pistol)
         {
-            receiver.ForceRelease();
+            magazineReceiver.ForceRelease();
         }
     }
 

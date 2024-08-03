@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -118,6 +116,7 @@ public abstract class Gun : MonoBehaviour
             OnRaycastHit(hitData);
         }
         onShoot?.Invoke(true);
+        _gunController.Recoil();
 
         if (!clipReady)
             Debug.LogWarning("clip not ready");

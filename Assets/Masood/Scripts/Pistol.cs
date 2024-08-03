@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class Pistol : Gun
+﻿public class Pistol : Gun
 {
     public override void DoAction()
     {

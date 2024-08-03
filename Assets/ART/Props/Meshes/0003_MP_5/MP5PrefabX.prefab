@@ -1160,6 +1160,7 @@ MonoBehaviour:
   shootingMode: {fileID: 8047576390933802154}
   triggerControlRight: {fileID: 5444641547571944746}
   triggerControlLeft: {fileID: 2084277213452781916}
+  magazineReceiver: {fileID: 4217881121798468014}
   xRGrabInteractable: {fileID: 864856651171112027}
   grabTransformer: {fileID: 5156343972763467060}
   secondAttachColider: {fileID: 3022723391108662976}
@@ -1167,7 +1168,6 @@ MonoBehaviour:
   secondAttachPoint: {fileID: 2125232590437342876}
   recoil: {fileID: 4006553374359434751}
   gunType: 2
-  receiver: {fileID: 4217881121798468014}
 --- !u!114 &818143823042163195
 MonoBehaviour:
   m_ObjectHideFlags: 0

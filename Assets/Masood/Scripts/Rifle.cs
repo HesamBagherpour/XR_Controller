@@ -24,7 +24,6 @@ public class Rifle : Gun
         //brustshotingCount++;
         _readyToShoot = false;
         _lastShootTime = Time.time;
-        _gunController.Recoil();
     }
 
     protected override void Initialize()
