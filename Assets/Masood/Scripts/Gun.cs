@@ -67,7 +67,7 @@ public abstract class Gun : MonoBehaviour
         if (!ReadyToPull)
             return;
 
-        if (pull)
+        if (_currentMagazine != null && pull)
         {
             CurrentBullet = _currentMagazine.GetBullet();
             ReadyToPull = false;

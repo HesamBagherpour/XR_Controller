@@ -14,16 +14,18 @@ public class Rifle : Gun
         if (!_readyToShoot || _shootingMode == ShootingMode.safety)
             return;
 
-
-        if (!_currentMagazine.HasBullet())
+        if(_currentMagazine != null)
         {
-            Debug.Log("Rifle magazine is empty");
-            return;
-        }
-        Shoot();
+            if (!_currentMagazine.HasBullet())
+            {
+                Debug.Log("Rifle magazine is empty");
+                return;
+            }
+            Shoot();
         //brustshotingCount++;
-        _readyToShoot = false;
-        _lastShootTime = Time.time;
+            _readyToShoot = false;
+            _lastShootTime = Time.time;
+        }
     }
 
     protected override void Initialize()
