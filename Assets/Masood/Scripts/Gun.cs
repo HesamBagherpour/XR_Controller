@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,20 +13,24 @@ public abstract class Gun : MonoBehaviour
     public LayerMask ValidLayers;
     public GunType GunType;
     public Action<bool> onShoot;
-    public BulletScriptableObject CurrentBullet;//bullet  in gun
+    private BulletScriptableObject CurrentBullet;//bullet  in gun
+    private bool clipReady;
+    private bool ReadyToPull;
 
     protected InputAction Fire;
 
     [SerializeField] private GameObject _shooptStartPosition;
-    [SerializeField] protected Magazine _currentMagazine;
+    //[SerializeField] protected Magazine _currentMagazine;
+    [SerializeField] protected MagazineControl _currentMagazine;
     [SerializeField] protected GunController _gunController;
     [SerializeField] protected ShootingMode _shootingMode;
-
+    [SerializeField] protected BoltControl _boltControl;
+    [SerializeField] protected MagazineReceiver _magazineReceiver;
     [SerializeField] private ShootingModeControl _shootingModeControl;
 
-
-
     protected abstract void Initialize();
+    protected abstract void TriggerStarted();
+    protected abstract void TriggerEnded();
     public abstract void DoAction();
 
     private void Awake()
@@ -40,6 +42,36 @@ public abstract class Gun : MonoBehaviour
         Initialize();
         ImpactHandler.Initialize();
         _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
+        _boltControl.OnBoltPull = BoltPuller;
+        _boltControl.OnReadyToPull = () => ReadyToPull = true;
+        _magazineReceiver.OnMagazineSelectEnter += (t) =>
+        {
+            _currentMagazine = t.GetComponent<MagazineControl>();
+            if (_currentMagazine != null)
+            {
+                clipReady = true;
+            }
+        };
+        _magazineReceiver.OnMagazineSelectExit += () =>
+        {
+            clipReady = false;
+            _currentMagazine = null;
+        };
+    }
+
+    private void BoltPuller(bool pull)
+    {
+        if (_currentMagazine == null)
+            Debug.LogWarning("Use bolt");
+
+        if (!ReadyToPull)
+            return;
+
+        if (_currentMagazine != null && pull)
+        {
+            CurrentBullet = _currentMagazine.GetBullet();
+            ReadyToPull = false;
+        }
     }
 
     private void OnEnable()
@@ -56,9 +88,12 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
-        CurrentBullet = _currentMagazine.GetBullet();
+        //if (!_gunController.IsGunReadyToShoot())
+            //return;
+
         if (CurrentBullet == null)
         {
+            Debug.LogWarning("CurrentBullet == null");
             onShoot?.Invoke(false);
             return;
         }
@@ -79,15 +114,24 @@ public abstract class Gun : MonoBehaviour
                 DistanceFactor = GetDistanceFactor(_shooptStartPosition.transform.position, hit.collider.gameObject.transform.position)
             };
             OnRaycastHit(hitData);
-         }
+        }
         onShoot?.Invoke(true);
+        _gunController.Recoil();
+
+        if (!clipReady)
+            Debug.LogWarning("clip not ready");
+
+        if (_currentMagazine == null)
+            Debug.LogWarning("clip is null");
+
+        CurrentBullet = clipReady ? _currentMagazine?.GetBullet() : null;
     }
 
     private float GetDistanceFactor(Vector3 startPoint, Vector3 endPoint)
     {
         Vector3.Distance(startPoint, endPoint);
 
-        return 0;           
+        return 0;
     }
 
     public int GetBulletCountInMagazine()

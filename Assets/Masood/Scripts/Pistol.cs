@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class Pistol : Gun
+﻿public class Pistol : Gun
 {
     public override void DoAction()
     {
@@ -13,13 +11,23 @@ public class Pistol : Gun
     protected override void Initialize()
     {
         GunType = GunType.Pistol;
-        Fire.performed += Fire_performed;
+        //Fire.performed += Fire_performed;
     }
 
-    private void Fire_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    protected override void TriggerEnded()
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    protected override void TriggerStarted()
     {
         DoAction();
     }
+
+    //private void Fire_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    //{
+    //    DoAction();
+    //}
 
 }
 

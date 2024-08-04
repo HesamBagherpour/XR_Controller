@@ -13,6 +13,7 @@ public class BoltControl : MonoBehaviour
     [SerializeField, Range(0, 1)] float returnSpeed = 0.1f;
 
     public Action<bool> OnBoltPull;
+    public Action OnReadyToPull;
 
     void OnTriggerStay(Collider other)
     {
@@ -51,6 +52,11 @@ public class BoltControl : MonoBehaviour
         if(value >= 0.9)
         {
             Pull(true);
+        }
+
+        if(value <= 0.3f)
+        {
+            OnReadyToPull?.Invoke();
         }
     }
 

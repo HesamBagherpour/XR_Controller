@@ -1,14 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Magazine : MonoBehaviour
 {
-    [Serializable]
-    public class BulletData
-    {
-        public float Range;
-        public float Damage;
-    }
+    //[Serializable]
+    //public class BulletData
+    //{
+    //    public float Range;
+    //    public float Damage;
+    //}
 
     [SerializeField] private float _bulletAmount;
     [SerializeField] private BulletScriptableObject bulletRefrence;

@@ -6,25 +6,39 @@ using UnityEngine.XR.Interaction.Toolkit.Transformers;
 
 public class GunController : MonoBehaviour
 {
+    [Header("Gun Components")]
     [SerializeField] HandsOnGunControl handOnGun;
+    [SerializeField] ShootingModeControl shootingMode;
     [SerializeField] TriggerControl triggerControlRight;
     [SerializeField] TriggerControl triggerControlLeft;
+    [SerializeField] MagazineReceiver magazineReceiver;
 
+    [Header("Xr Components")]
     [SerializeField] XRGrabInteractable xRGrabInteractable;
     [SerializeField] XRGeneralGrabTransformer grabTransformer;
 
     List<GameObject> firstAttachColliders = new List<GameObject>();
+    [Header("Coliders")]
     [SerializeField] Collider secondAttachColider;
     [SerializeField] Collider boltColider;
 
+    [Header("AttachPoints")]
     [SerializeField] Transform secondAttachPoint;
+
+    [Header("Animator")]
+    [SerializeField] Animator recoil;
+
+    [Header("GunType")]
+    [SerializeField] GunType gunType;
+
+    //[SerializeField] XRDirectInteractor xRDirectInteractor;
 
     IGunState gunState;
     Idle idle = new Idle();
     OneHandGrab oneHandGrab = new OneHandGrab();
     TwoHandGrab twoHandGrab = new TwoHandGrab();
 
-    PlayerHand firstSelectingHand;
+    PlayerHandController firstSelectingHand;
 
     void Start()
     {
@@ -32,14 +46,31 @@ public class GunController : MonoBehaviour
         xRGrabInteractable.selectEntered.AddListener(OnSelectEntered);
         xRGrabInteractable.selectExited.AddListener(OnSelectExited);
 
+        //StartCoroutine(SelectEnterCoroutine());
         GetFirstAttachColiders();
-        MoveToState(idle);           
+        MoveToState(idle);
     }
 
-    public void AddGunReactionsToTrigger(Action shoot)
+    /*IEnumerator SelectEnterCoroutine()
     {
-        triggerControlLeft.OnTrigger = shoot;
-        triggerControlRight.OnTrigger = shoot;
+        yield return new WaitForSeconds(5);
+        GetInteractionManager().SelectEnter(xRDirectInteractor, xRGrabInteractable);
+    }*/
+
+    public void AddGunReactionsToTrigger(Action startTrigger,Action endTrigger)
+    {
+        triggerControlLeft.OnTriggerStart = startTrigger;
+        triggerControlRight.OnTriggerStart = startTrigger;
+        triggerControlLeft.OnTriggerEnd = endTrigger;
+        triggerControlRight.OnTriggerEnd = endTrigger;
+    }
+
+    public void CancelShootOnGunReleased()
+    {
+        if(GetSelectingInteractors().Count <= 0)
+        {
+            GetFirstActiveHand().OnActionCancle();
+        }
     }
 
     void OnDestroy()
@@ -64,6 +95,11 @@ public class GunController : MonoBehaviour
         gunState = state;
         gunState.init(this, handOnGun);
         gunState.Enter();
+    }
+
+    public bool IsGunReadyToShoot()
+    {
+        return gunState!= idle;
     }
 
     List<IXRSelectInteractor> GetSelectingInteractors() { return xRGrabInteractable.interactorsSelecting; }
@@ -107,19 +143,41 @@ public class GunController : MonoBehaviour
 
     public void TriggerStay(float value, PlayerHand hand)
     {
-        if(firstSelectingHand == hand)
+        if(firstSelectingHand.Hand == hand)
             gunState.TriggerStay(value, GetFirstActiveHand());
     }
     public void TriggerCancel(PlayerHand hand)
     {
-        if(firstSelectingHand == hand)
+        if(firstSelectingHand.Hand == hand)
             gunState.TriggerCancel(GetFirstActiveHand());
     }
 
-    public void ChangeShootingMode(PlayerHand hand, ChangeModeDirection direction)
+    public void PrimaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
     {
-        if(firstSelectingHand == hand)
-            GetFirstActiveHand().ChangeShootMode(direction);
+        if(firstSelectingHand.Hand == hand)
+            shootingMode.ChangeMode(direction);
+    }
+
+    public void SecondaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
+    {
+        if(gunType == GunType.Rifle)
+        {
+            if(firstSelectingHand.Hand == hand)
+                shootingMode.ChangeMode(direction);
+        }
+        else if(gunType == GunType.Pistol)
+        {
+            magazineReceiver.ForceRelease();
+        }
+    }
+
+    public void Recoil()
+    {
+        if(gunState != idle)
+        {
+            string animation = gunState == oneHandGrab ? "onehand" : "twohand";
+            recoil.CrossFade(animation,0.2f);
+        }
     }
 
     internal TriggerControl GetFirstActiveHand()
@@ -150,13 +208,13 @@ public class GunController : MonoBehaviour
 
     internal PlayerHand GetFirstSelectedHand()
     {
-        return firstSelectingHand;
+        return firstSelectingHand.Hand;
     }
 
     void OnFirstSelectEntered(SelectEnterEventArgs eventArgs)
     {
         var playerHandController = GetFirstSelectingInteractor().transform.GetComponent<PlayerHandController>();
-        firstSelectingHand = playerHandController.Hand;
+        firstSelectingHand = playerHandController;
     }
 
     void OnSelectEntered(SelectEnterEventArgs eventArgs)
@@ -166,11 +224,12 @@ public class GunController : MonoBehaviour
 
     void OnSelectExited(SelectExitEventArgs eventArgs)
     {
-        CancelOnFirstSelectExited(eventArgs);
+        CancelShootOnGunReleased();
+        CancelSelectionsOnFirstSelectExit(eventArgs);
         ChangeSelection();
     }
 
-    void CancelOnFirstSelectExited(SelectExitEventArgs args)
+    void CancelSelectionsOnFirstSelectExit(SelectExitEventArgs args)
     {
         if(!GetFirstSelectingInteractor().hasSelection)
             GetInteractionManager().CancelInteractableSelection(args.interactableObject);
