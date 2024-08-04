@@ -224,7 +224,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5149543142101637435, guid: 70add3e156992ba46be563ea4866a113, type: 3}
+  - {fileID: 2100000, guid: c6e4800d4b479c040b832dc3eb3047bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6655,7 +6655,7 @@ Transform:
   m_GameObject: {fileID: 1407894930355212938}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -0.0002, y: 0.0538, z: 0.0056}
+  m_LocalPosition: {x: -0.0002, y: -0.0383, z: -0.0124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12770,7 +12770,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5821057382873867192}
-  - component: {fileID: 1900206585781421234}
   m_Layer: 0
   m_Name: magazine
   m_TagString: Untagged
@@ -12794,27 +12793,6 @@ Transform:
   - {fileID: 6799568662726712641}
   m_Father: {fileID: 8587106136882623617}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1900206585781421234
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2972390512889478566}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3015613390748368398
 GameObject:
   m_ObjectHideFlags: 0
@@ -13108,7 +13086,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5149543142101637435, guid: 70add3e156992ba46be563ea4866a113, type: 3}
+  - {fileID: 2100000, guid: c6e4800d4b479c040b832dc3eb3047bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40199,7 +40177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5149543142101637435, guid: 70add3e156992ba46be563ea4866a113, type: 3}
+  - {fileID: 2100000, guid: c6e4800d4b479c040b832dc3eb3047bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40367,6 +40345,7 @@ GameObject:
   - component: {fileID: 2089866434640340454}
   - component: {fileID: 1839557543802053554}
   - component: {fileID: 7943650649536908505}
+  - component: {fileID: 672025923836886650}
   m_Layer: 0
   m_Name: MagazineReceiver
   m_TagString: Untagged
@@ -40383,7 +40362,7 @@ Transform:
   m_GameObject: {fileID: 7306773754111188595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0124, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0164, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40409,7 +40388,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.03, z: 0.04}
+  m_Size: {x: 0.02, y: 0.04, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1839557543802053554
 MonoBehaviour:
@@ -40425,7 +40404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magazineType: 2
   xRSocketInteractor: {fileID: 7943650649536908505}
-  animator: {fileID: 1900206585781421234}
+  animator: {fileID: 672025923836886650}
+  corssFadeTime: 0.5
 --- !u!114 &7943650649536908505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40486,6 +40466,27 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+--- !u!95 &672025923836886650
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306773754111188595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 101341b72a9291f4c8a4ba4aac000e25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7348320727806182225
 GameObject:
   m_ObjectHideFlags: 0
