@@ -10,6 +10,7 @@ public class TriggerControl : MonoBehaviour
 
     public Action OnTriggerStart;
     public Action OnTriggerEnd;
+    bool readyToShoot = true;
 
     void Start()
     {
@@ -20,9 +21,17 @@ public class TriggerControl : MonoBehaviour
     {
         handFingerAnimator.SetFloat("TriggerValue", value);
         
-        if (value > 0.6)
+        if (value > 0.7)
         {
-            OnTriggerStart?.Invoke();
+            if (readyToShoot)
+            {
+                OnTriggerStart?.Invoke();
+                readyToShoot = false;
+            }
+        }
+        else if(value < 0.4)
+        {
+            readyToShoot = true;
         }
     }
 
