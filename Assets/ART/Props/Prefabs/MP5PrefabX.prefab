@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 94348248449443802}
   - component: {fileID: 8511534495423738965}
   - component: {fileID: 2870788262966097079}
+  - component: {fileID: 4991762356641337813}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -651,6 +652,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4991762356641337813
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143820356228712790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 943f84059e592ef42b8065e484032e4a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2358293047441432524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +2029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnSpeed: 0.1
   shootingMode: {fileID: 8047576390933802154}
+  triggerAnimator: {fileID: 0}
 --- !u!1001 &1247273200387199930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2224,6 +2247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnSpeed: 0.1
   shootingMode: {fileID: 8047576390933802154}
+  triggerAnimator: {fileID: 0}
 --- !u!4 &2019296864410929188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 109434732395451517, guid: 38db09a20dfc79b4dbc451589663073b,
