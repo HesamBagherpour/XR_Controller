@@ -11,9 +11,15 @@ public class BoltControl : MonoBehaviour
     [SerializeField] Transform boltAttachPoint;
     [SerializeField] Animator animator;
     [SerializeField, Range(0, 1)] float returnSpeed = 0.1f;
+    [Header("Sound")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip pullSound;
+    [SerializeField] AudioClip releaseSound;
 
     public Action<bool> OnBoltPull;
     public Action OnReadyToPull;
+
+    private bool _playedPullSound = false;
 
     void OnTriggerStay(Collider other)
     {
@@ -58,6 +64,12 @@ public class BoltControl : MonoBehaviour
         {
             OnReadyToPull?.Invoke();
         }
+
+        if(value > 0.4 && value < 0.6 && !_playedPullSound)
+        {
+            audioSource.PlayOneShot(pullSound);
+            _playedPullSound = true;
+        }
     }
 
     public void Pull(bool value)
@@ -74,13 +86,19 @@ public class BoltControl : MonoBehaviour
     {
         var value = GetAnimatorValue();
         value = value > 1 ? 1 : value;
-        while(value > 0)
+        while (value > 0)
         {
             value -= returnSpeed;
             SetAnimatorValue(value);
             yield return new WaitForEndOfFrame();
         }
         SetAnimatorValue(0);
+
+        if (_playedPullSound)
+        {
+            audioSource.PlayOneShot(releaseSound);
+            _playedPullSound = false;
+        }
     }
 
     float GetAnimatorValue()

@@ -21,7 +21,7 @@ public class TriggerControl : MonoBehaviour
     public void OnActionStay(float value)
     {
         fingerAnimator.SetFloat("TriggerValue", value);
-        triggerAnimator.SetFloat("Value", value);
+        triggerAnimator.SetFloat("Trigger", value);
 
         if (value > 0.7)
         {
