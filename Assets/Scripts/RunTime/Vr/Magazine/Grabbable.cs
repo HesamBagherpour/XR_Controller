@@ -2,11 +2,15 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Grabbable : XRGrabInteractable
 {
+    public bool isHoverable = true;
     public bool isActive = false;
 
     public override bool IsHoverableBy(IXRHoverInteractor interactor)
     {
-        return base.IsHoverableBy(interactor);
+        if(interactor.transform.tag == "interactor")
+            isHoverable = true;
+
+        return base.IsHoverableBy(interactor) && isActive;
     }
 
     public override bool IsSelectableBy(IXRSelectInteractor interactor)

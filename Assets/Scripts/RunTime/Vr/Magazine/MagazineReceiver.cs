@@ -94,12 +94,18 @@ public class MagazineReceiver : MonoBehaviour
         if (value)
         {
             if(gunController.IsGrabbed())
+            {
+                xRSocketInteractor.allowHover = true;
                 xRSocketInteractor.allowSelect = true;
+            }
         }
         else
         {
             if(! xRSocketInteractor.hasSelection)
+            {
+                xRSocketInteractor.allowHover = false;
                 xRSocketInteractor.allowSelect = false;
+            }
         }
     }
 
