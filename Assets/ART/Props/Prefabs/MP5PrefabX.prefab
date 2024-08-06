@@ -1191,7 +1191,7 @@ MonoBehaviour:
   _boltControl: {fileID: 2515367598039366804}
   _magazineReceiver: {fileID: 4217881121798468014}
   _shootingModeControl: {fileID: 8047576390933802154}
-  _durationBetweenShoot: 0.1
+  _durationBetweenShoot: 0.01
   _readyToShoot: 0
   GunTriggered: 0
 --- !u!114 &5870152473220282348
