@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -15,6 +17,7 @@ public class MagazineReceiver : MonoBehaviour
     [SerializeField] MagazineType magazineType;
     [SerializeField] SocketTagChecker xRSocketInteractor;
     [SerializeField] Animator animator;
+    [SerializeField] float corssFadeTime = 0.5f;
 
     MagazineControl magazine;
 
@@ -36,11 +39,19 @@ public class MagazineReceiver : MonoBehaviour
         xRSocketInteractor.hoverExited.RemoveListener(MagazineHoverExit);
     }
 
+    void Init(Transform _magazine)
+    {
+        magazine = _magazine.GetComponent<MagazineControl>();
+    }
+
     void MagazineSelectEnter(SelectEnterEventArgs args)
     {
-        magazine = args.interactableObject.transform.GetComponent<MagazineControl>();
+        Init(args.interactableObject.transform);
         magazine.OnSelectEnter();
         OnMagazineSelectEnter?.Invoke(args.interactableObject.transform);
+
+        if(magazineType == MagazineType.pistolmag)
+            PlayAnimation("magreceive");
     }
 
     void MagazineSelectExit(SelectExitEventArgs args)
@@ -52,12 +63,37 @@ public class MagazineReceiver : MonoBehaviour
 
     void MagazineHoverExit(HoverExitEventArgs args)
     {
-        xRSocketInteractor.allowSelect = true;
+        AllowSelect(true);
     }
 
     public void ForceRelease()
     {
-        xRSocketInteractor.allowSelect = false;
+        if (magazineType == MagazineType.pistolmag)
+            PlayAnimation("magrelease");
+        else
+            AllowSelect(false);
+    }
+
+    void AnimationEvent()
+    {
+        AllowSelect(false);
+        StartCoroutine(AllowSelectCouroutine());
+    }
+
+    IEnumerator AllowSelectCouroutine()
+    {
+        yield return new WaitForSeconds(0.7f);
+        AllowSelect(true);
+    }
+
+    void AllowSelect(bool value)
+    {
+        xRSocketInteractor.allowSelect = value;
+    }
+
+    void PlayAnimation(string animation)
+    {
+        animator.CrossFade(animation, corssFadeTime);
     }
 
     /*void OnTriggerStay(Collider other)

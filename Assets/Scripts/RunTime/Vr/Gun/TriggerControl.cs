@@ -6,41 +6,55 @@ public class TriggerControl : MonoBehaviour
 {
     [SerializeField, Range(0f, 1)] float returnSpeed = 0.05f;
     [SerializeField] ShootingModeControl shootingMode;
-    Animator handFingerAnimator;
+    [SerializeField] Animator triggerAnimator;
+    Animator fingerAnimator;
 
     public Action OnTriggerStart;
     public Action OnTriggerEnd;
+    bool readyToShoot = true;
 
     void Start()
     {
-        handFingerAnimator = GetComponent<Animator>();
+        fingerAnimator = GetComponent<Animator>();
     }
 
     public void OnActionStay(float value)
     {
-        handFingerAnimator.SetFloat("TriggerValue", value);
-        
-        if (value > 0.6)
+        fingerAnimator.SetFloat("TriggerValue", value);
+        triggerAnimator.SetFloat("Value", value);
+
+        if (value > 0.7)
         {
-            OnTriggerStart?.Invoke();
+            if (readyToShoot)
+            {
+                OnTriggerStart?.Invoke();
+                readyToShoot = false;
+            }
+        }
+        else if(value < 0.4)
+        {
+            readyToShoot = true;
         }
     }
 
     public void OnActionCancle()
     {
         OnTriggerEnd?.Invoke();
-        StartCoroutine(ReturnTodefault());
+        StartCoroutine(ReturnToDefault());
     }
 
-    IEnumerator ReturnTodefault()
+    IEnumerator ReturnToDefault()
     {
-        var animationValue = handFingerAnimator.GetFloat("TriggerValue");
+        var animationValue = fingerAnimator.GetFloat("TriggerValue");
         while (animationValue > 0)
         {
             yield return new WaitForEndOfFrame();
             animationValue -= returnSpeed;
+            fingerAnimator.SetFloat("TriggerValue", animationValue);
+            triggerAnimator.SetFloat("Value", animationValue);
         }
-        handFingerAnimator.SetFloat("TriggerValue", 0);
+        fingerAnimator.SetFloat("TriggerValue", 0);
+        triggerAnimator.SetFloat("Value", 0);
     }
 
     public void ChangeShootMode(ChangeModeDirection direction)
