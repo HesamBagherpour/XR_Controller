@@ -92,6 +92,8 @@ public class GunController : MonoBehaviour
         if(gunState != null)
             gunState.Exit();
 
+        magazineReceiver.AllowSelect(state != idle);
+
         gunState = state;
         gunState.init(this, handOnGun);
         gunState.Enter();
@@ -122,6 +124,10 @@ public class GunController : MonoBehaviour
         }
     }
 
+    public bool IsGrabbed()
+    {
+        return gunState != idle;
+    }
     public bool IsInTwoHandGrab()
     {
         return gunState == twoHandGrab;

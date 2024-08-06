@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3801366005352711720}
   - component: {fileID: 421342560677435065}
-  - component: {fileID: 8058217422377147444}
+  - component: {fileID: 8280527863708133853}
   - component: {fileID: 1468141274792687639}
   m_Layer: 0
   m_Name: Mp5Magazine
@@ -178,7 +178,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8058217422377147444
+--- !u!114 &8280527863708133853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1954557869769621056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c96af393a49c2a419dc3715182bd012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -331,6 +331,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  isActive: 0
 --- !u!114 &1468141274792687639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +347,7 @@ MonoBehaviour:
   bullets: 500
   colider: {fileID: 0}
   bulletRefrence: {fileID: 11400000, guid: 5ed25e3dc0de1bb4da2b31c0a313ae22, type: 2}
+  grabInteractable: {fileID: 8280527863708133853}
 --- !u!1 &3284792655301205299
 GameObject:
   m_ObjectHideFlags: 0

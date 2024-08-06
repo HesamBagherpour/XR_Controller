@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MagazineControl : MonoBehaviour
 {
    [SerializeField] private int bullets;
    [SerializeField] private GameObject colider;
    [SerializeField] private BulletScriptableObject bulletRefrence;
+   [SerializeField] private Grabbable grabInteractable;
 
     //[Serializable]
     //public class BulletData
@@ -17,6 +20,8 @@ public class MagazineControl : MonoBehaviour
 
     void Start()
     {
+        grabInteractable.selectEntered.AddListener(SelectEntered);
+        grabInteractable.selectExited.AddListener(SelectExited);
 
 #if UnlimitedAmmo
         bullets = 9999999;
@@ -24,12 +29,35 @@ public class MagazineControl : MonoBehaviour
 
     }
 
-    public void OnSelectEnter()
+    private void OnDestroy()
+    {
+        grabInteractable.selectEntered.RemoveListener(SelectEntered);
+        grabInteractable.selectExited.AddListener(SelectExited);
+    }
+
+    void SelectEntered(SelectEnterEventArgs args)
+    {
+        grabInteractable.isActive = true;
+    }
+    void SelectExited(SelectExitEventArgs args)
+    {
+        StartCoroutine(DelayToDeselect());
+    }
+
+    IEnumerator DelayToDeselect()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        if(! grabInteractable.isSelected)
+            grabInteractable.isActive = false;
+    }
+
+    public void OnEnteredGun()
     {
         ColiderSetActive(false);
     }
 
-    public void OnSelectExit()
+    public void OnExitedGun()
     {
         ColiderSetActive(true);
     }

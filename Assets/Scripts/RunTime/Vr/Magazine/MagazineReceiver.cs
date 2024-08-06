@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -13,6 +12,9 @@ public enum MagazineType
 
 public class MagazineReceiver : MonoBehaviour
 {
+    [Header("Gun Controller")]
+    [SerializeField] GunController gunController;
+
     [Header("Receiver")]
     [SerializeField] MagazineType magazineType;
     [SerializeField] SocketTagChecker xRSocketInteractor;
@@ -47,7 +49,7 @@ public class MagazineReceiver : MonoBehaviour
     void MagazineSelectEnter(SelectEnterEventArgs args)
     {
         Init(args.interactableObject.transform);
-        magazine.OnSelectEnter();
+        magazine.OnEnteredGun();
         OnMagazineSelectEnter?.Invoke(args.interactableObject.transform);
 
         if(magazineType == MagazineType.pistolmag)
@@ -56,7 +58,7 @@ public class MagazineReceiver : MonoBehaviour
 
     void MagazineSelectExit(SelectExitEventArgs args)
     {
-        magazine.OnSelectExit();
+        magazine.OnExitedGun();
         magazine = null;
         OnMagazineSelectExit?.Invoke();
     }
@@ -82,13 +84,23 @@ public class MagazineReceiver : MonoBehaviour
 
     IEnumerator AllowSelectCouroutine()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
+
         AllowSelect(true);
     }
 
-    void AllowSelect(bool value)
+    public void AllowSelect(bool value)
     {
-        xRSocketInteractor.allowSelect = value;
+        if (value)
+        {
+            if(gunController.IsGrabbed())
+                xRSocketInteractor.allowSelect = true;
+        }
+        else
+        {
+            if(! xRSocketInteractor.hasSelection)
+                xRSocketInteractor.allowSelect = false;
+        }
     }
 
     void PlayAnimation(string animation)
