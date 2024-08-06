@@ -21,6 +21,12 @@ public class MagazineReceiver : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] float corssFadeTime = 0.5f;
 
+    [Header("Sound")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip magazineHoverSound;
+    [SerializeField] AudioClip magazineEnterSound;
+    [SerializeField] AudioClip magazineExitSound;
+
     MagazineControl magazine;
 
     public event Action<Transform> OnMagazineSelectEnter;
@@ -30,6 +36,7 @@ public class MagazineReceiver : MonoBehaviour
     {
         xRSocketInteractor.selectEntered.AddListener(MagazineSelectEnter);
         xRSocketInteractor.selectExited.AddListener(MagazineSelectExit);
+        xRSocketInteractor.hoverEntered.AddListener(MagazineHoverEnter);
         xRSocketInteractor.hoverExited.AddListener(MagazineHoverExit);
         xRSocketInteractor.Tag = magazineType.ToString();
     }
@@ -38,6 +45,7 @@ public class MagazineReceiver : MonoBehaviour
     {
         xRSocketInteractor.selectEntered.RemoveListener(MagazineSelectEnter);
         xRSocketInteractor.selectExited.RemoveListener(MagazineSelectExit);
+        xRSocketInteractor.hoverEntered.RemoveListener(MagazineHoverEnter);
         xRSocketInteractor.hoverExited.RemoveListener(MagazineHoverExit);
     }
 
@@ -54,6 +62,8 @@ public class MagazineReceiver : MonoBehaviour
 
         if(magazineType == MagazineType.pistolmag)
             PlayAnimation("magreceive");
+
+        audioSource.PlayOneShot(magazineEnterSound);
     }
 
     void MagazineSelectExit(SelectExitEventArgs args)
@@ -61,6 +71,12 @@ public class MagazineReceiver : MonoBehaviour
         magazine.OnExitedGun();
         magazine = null;
         OnMagazineSelectExit?.Invoke();
+        audioSource.PlayOneShot(magazineExitSound);
+    }
+
+    void MagazineHoverEnter(HoverEnterEventArgs args)
+    {
+        audioSource.PlayOneShot(magazineHoverSound);
     }
 
     void MagazineHoverExit(HoverExitEventArgs args)

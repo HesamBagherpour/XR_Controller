@@ -23,7 +23,8 @@ public enum ChangeModeDirection
 public class ShootingModeControl : MonoBehaviour
 {
     [SerializeField] ModeType type;
-    
+    [SerializeField] AudioSource audioSource;
+
     Animator animator;
     ShootingMode mode;
     int allowedModes;
@@ -48,6 +49,7 @@ public class ShootingModeControl : MonoBehaviour
                 mode = (ShootingMode)modeId;
                 PlayChangingModeAnimation(mode.ToString());
                 OnShootingModeChange?.Invoke(mode);
+                audioSource.Play();
             }
         }
         else if(type == ModeType.pistol)
@@ -55,6 +57,7 @@ public class ShootingModeControl : MonoBehaviour
             mode = mode == ShootingMode.safety? ShootingMode.semi : ShootingMode.safety;
             PlayChangingModeAnimation(mode.ToString());
             OnShootingModeChange?.Invoke(mode);
+            audioSource.Play();
         }
     }
 
