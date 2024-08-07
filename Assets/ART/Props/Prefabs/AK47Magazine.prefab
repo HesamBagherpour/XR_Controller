@@ -124,8 +124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4080051902990415644}
   - component: {fileID: 3233991772332906101}
-  - component: {fileID: 3360012547716216259}
   - component: {fileID: 1349790944997864075}
+  - component: {fileID: 3839623651123647789}
   m_Layer: 0
   m_Name: AK47Magazine
   m_TagString: ak47mag
@@ -178,7 +178,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3360012547716216259
+--- !u!114 &1349790944997864075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,7 +187,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 9019854837417160952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: ce41a85ab2cc7864db015eef60763a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullets: 500
+  colider: {fileID: 0}
+  bulletRefrence: {fileID: 11400000, guid: 5ed25e3dc0de1bb4da2b31c0a313ae22, type: 2}
+  grabInteractable: {fileID: 3839623651123647789}
+--- !u!114 &3839623651123647789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019854837417160952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c96af393a49c2a419dc3715182bd012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -331,21 +347,8 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &1349790944997864075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019854837417160952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce41a85ab2cc7864db015eef60763a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullets: 500
-  colider: {fileID: 0}
-  bulletRefrence: {fileID: 11400000, guid: 5ed25e3dc0de1bb4da2b31c0a313ae22, type: 2}
+  isHoverable: 1
+  isActive: 0
 --- !u!1 &9020708159097818965
 GameObject:
   m_ObjectHideFlags: 0

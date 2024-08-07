@@ -353,6 +353,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  isHoverable: 1
   isActive: 0
 --- !u!114 &5372637643149242734
 MonoBehaviour:
@@ -369,7 +370,7 @@ MonoBehaviour:
   bullets: 100
   colider: {fileID: 1134381233150670669}
   bulletRefrence: {fileID: 11400000, guid: 157c596f368f3c448a4f1d2c4ef40d51, type: 2}
-  grabInteractable: {fileID: 0}
+  grabInteractable: {fileID: 5627569951555822645}
 --- !u!1 &7134037465478586737
 GameObject:
   m_ObjectHideFlags: 0

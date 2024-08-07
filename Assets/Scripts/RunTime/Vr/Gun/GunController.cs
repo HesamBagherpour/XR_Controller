@@ -182,7 +182,7 @@ public class GunController : MonoBehaviour
         if(gunState != idle)
         {
             string animation = gunState == oneHandGrab ? "onehand" : "twohand";
-            recoil.CrossFade(animation,0.2f);
+            recoil.CrossFade(animation,0.15f);
         }
     }
 
