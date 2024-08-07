@@ -54,7 +54,7 @@ public class TriggerControl : MonoBehaviour
             triggerAnimator.SetFloat("Value", animationValue);
         }
         fingerAnimator.SetFloat("TriggerValue", 0);
-        triggerAnimator.SetFloat("Value", 0);
+        triggerAnimator.SetFloat("Trigger", 0);
     }
 
     public void ChangeShootMode(ChangeModeDirection direction)

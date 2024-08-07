@@ -331,6 +331,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  isHoverable: 1
   isActive: 0
 --- !u!114 &1468141274792687639
 MonoBehaviour:

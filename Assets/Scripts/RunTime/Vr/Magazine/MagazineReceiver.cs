@@ -87,14 +87,17 @@ public class MagazineReceiver : MonoBehaviour
     public void ForceRelease()
     {
         if (magazineType == MagazineType.pistolmag)
+        {
             PlayAnimation("magrelease");
+        }
         else
             AllowSelect(false);
     }
 
     void AnimationEvent()
     {
-        AllowSelect(false);
+        xRSocketInteractor.allowHover = false;
+        xRSocketInteractor.allowSelect = false;
         StartCoroutine(AllowSelectCouroutine());
     }
 
