@@ -135,7 +135,8 @@ public class GunController : MonoBehaviour
 
     public void SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode rotationMode)
     {
-        grabTransformer.allowTwoHandedRotation = rotationMode;
+        if(gunType != GunType.Pistol)
+            grabTransformer.allowTwoHandedRotation = rotationMode;
     }
 
     public void SetSecondaryAttachTransform(Transform transform)

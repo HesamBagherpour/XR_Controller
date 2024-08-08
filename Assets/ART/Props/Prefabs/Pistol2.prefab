@@ -18482,7 +18482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PermittedDisplacementAxes: -1
   m_ConstrainedAxisDisplacementMode: 1
-  m_TwoHandedRotationMode: 1
+  m_TwoHandedRotationMode: 0
   m_AllowOneHandedScaling: 1
   m_AllowTwoHandedScaling: 0
   m_OneHandedScaleSpeed: 0.5
