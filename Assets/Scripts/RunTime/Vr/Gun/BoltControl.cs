@@ -19,6 +19,7 @@ public class BoltControl : MonoBehaviour
     public Action<bool> OnBoltPull;
     public Action OnReadyToPull;
 
+    private bool isReturnCoroutineEnded = true;
     private bool _playedPullSound = false;
 
     void OnTriggerStay(Collider other)
@@ -38,12 +39,26 @@ public class BoltControl : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        TriggerExit();
+    }
+
+    void TriggerExit()
+    {
         if(! gunController.IsInTwoHandGrab())
         {
             gunController.AllowTakeMagazine(true);
             gunController.SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode.FirstHandDirectedTowardsSecondHand);
             gunController.SetDefaultSecondaryAttachTransform();
             handOnGun.SetSecondHandToNormal();
+        }
+    }
+
+    public void OnGunStateChnged()
+    {
+        if(! gunController.IsGrabbed())
+        {
+            TriggerExit();
+            StartCoroutine(ReturnToDefault());
         }
     }
 
@@ -91,6 +106,13 @@ public class BoltControl : MonoBehaviour
 
     IEnumerator ReturnToDefault()
     {
+        if(! isReturnCoroutineEnded)
+        {
+            yield break;
+        }
+
+        isReturnCoroutineEnded = false;
+
         var value = GetAnimatorValue();
         value = value > 1 ? 1 : value;
         while (value > 0)
@@ -106,6 +128,8 @@ public class BoltControl : MonoBehaviour
             audioSource.PlayOneShot(releaseSound);
             _playedPullSound = false;
         }
+
+        isReturnCoroutineEnded = true;
     }
 
     float GetAnimatorValue()

@@ -18526,6 +18526,7 @@ MonoBehaviour:
   triggerControlRight: {fileID: 6720099653524237660}
   triggerControlLeft: {fileID: 29378300319501394}
   magazineReceiver: {fileID: 953525059977834695}
+  boltControl: {fileID: 658626651741021390}
   xRGrabInteractable: {fileID: 249143553374126981}
   grabTransformer: {fileID: 1681124679303401122}
   secondAttachColider: {fileID: 7185366573774627967}

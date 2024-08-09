@@ -12,6 +12,7 @@ public class GunController : MonoBehaviour
     [SerializeField] TriggerControl triggerControlRight;
     [SerializeField] TriggerControl triggerControlLeft;
     [SerializeField] MagazineReceiver magazineReceiver;
+    [SerializeField] BoltControl boltControl;
 
     [Header("Xr Components")]
     [SerializeField] XRGrabInteractable xRGrabInteractable;
@@ -122,6 +123,7 @@ public class GunController : MonoBehaviour
         }
 
         magazineReceiver.AllowSocketSelect(gunState != idle);
+        boltControl.OnGunStateChnged();
     }
 
     public bool IsGrabbed()
