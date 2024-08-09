@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 2404984671618610310}
   - component: {fileID: 6707685202316652361}
   - component: {fileID: 3836076837095463850}
-  - component: {fileID: 8661664584164315748}
+  - component: {fileID: 3656291310360854795}
   m_Layer: 0
   m_Name: DirectInteractor
   m_TagString: interactor
@@ -548,8 +548,8 @@ MonoBehaviour:
   activateAction: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   controller: {fileID: 4974521508546911864}
---- !u!135 &8661664584164315748
-SphereCollider:
+--- !u!136 &3656291310360854795
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -566,9 +566,11 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.042
+  m_Height: 0.18
+  m_Direction: 2
+  m_Center: {x: 0.005, y: 0, z: 0.01}
 --- !u!1 &1409989913011749324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3446,7 @@ GameObject:
   - component: {fileID: 5606108090154549833}
   - component: {fileID: 992970860705967887}
   - component: {fileID: 791409502362330339}
-  - component: {fileID: 7221110268935555865}
+  - component: {fileID: 8321602481287248046}
   m_Layer: 0
   m_Name: DirectInteractor
   m_TagString: interactor
@@ -3600,8 +3602,8 @@ MonoBehaviour:
   activateAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   controller: {fileID: 6061026171457161295}
---- !u!135 &7221110268935555865
-SphereCollider:
+--- !u!136 &8321602481287248046
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3618,9 +3620,11 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.042
+  m_Height: 0.18
+  m_Direction: 2
+  m_Center: {x: -0.005, y: 0, z: 0.01}
 --- !u!1 &9218393550223748782
 GameObject:
   m_ObjectHideFlags: 0
