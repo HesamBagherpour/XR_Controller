@@ -354,7 +354,7 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   isHoverable: 1
-  isActive: 0
+  isSelectable: 0
 --- !u!114 &5372637643149242734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullets: 100
   colider: {fileID: 1134381233150670669}
+  magazineType: 2
   bulletRefrence: {fileID: 11400000, guid: 157c596f368f3c448a4f1d2c4ef40d51, type: 2}
   grabInteractable: {fileID: 5627569951555822645}
 --- !u!1 &7134037465478586737

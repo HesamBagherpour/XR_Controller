@@ -121,7 +121,7 @@ public class GunController : MonoBehaviour
                 break;
         }
 
-        magazineReceiver.AllowSelect(gunState != idle);
+        magazineReceiver.AllowSocketSelect(gunState != idle);
     }
 
     public bool IsGrabbed()
@@ -131,6 +131,11 @@ public class GunController : MonoBehaviour
     public bool IsInTwoHandGrab()
     {
         return gunState == twoHandGrab;
+    }
+
+    public void AllowTakeMagazine(bool value)
+    {
+        magazineReceiver.AllowSelectMagazine(value);
     }
 
     public void SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode rotationMode)

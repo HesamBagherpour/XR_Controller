@@ -28,6 +28,7 @@ public class BoltControl : MonoBehaviour
             var interactor = other.GetComponent<XRDirectInteractor>();
             if(interactor.hasSelection == false)
             {
+                gunController.AllowTakeMagazine(false);
                 gunController.SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode.FirstHandOnly);
                 gunController.SetSecondaryAttachTransform(boltAttachPoint);
                 handOnGun.SetSecondHandToBolt();
@@ -39,6 +40,7 @@ public class BoltControl : MonoBehaviour
     {
         if(! gunController.IsInTwoHandGrab())
         {
+            gunController.AllowTakeMagazine(true);
             gunController.SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode.FirstHandDirectedTowardsSecondHand);
             gunController.SetDefaultSecondaryAttachTransform();
             handOnGun.SetSecondHandToNormal();

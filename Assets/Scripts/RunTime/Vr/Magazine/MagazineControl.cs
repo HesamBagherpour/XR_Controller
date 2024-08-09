@@ -6,6 +6,7 @@ public class MagazineControl : MonoBehaviour
 {
    [SerializeField] private int bullets;
    [SerializeField] private GameObject colider;
+   [SerializeField] public MagazineType magazineType;
    [SerializeField] private BulletScriptableObject bulletRefrence;
    [SerializeField] private Grabbable grabInteractable;
 
@@ -37,7 +38,7 @@ public class MagazineControl : MonoBehaviour
 
     void SelectEntered(SelectEnterEventArgs args)
     {
-        grabInteractable.isActive = true;
+        SetGrabActive(true);
     }
     void SelectExited(SelectExitEventArgs args)
     {
@@ -49,23 +50,36 @@ public class MagazineControl : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         if(! grabInteractable.isSelected)
-            grabInteractable.isActive = false;
+            SetGrabActive(false);
+    }
+
+    public void SetGrabActive(bool value)
+    {
+        grabInteractable.isSelectable = value;
+    }
+
+    public void AllowInteract(bool value)
+    {
+        Debug.Log(value);
+        if(magazineType != MagazineType.pistolmag)
+            grabInteractable.isBoltTriggred = !value;
     }
 
     public void OnEnteredGun()
     {
-        ColiderSetActive(false);
+        if(magazineType == MagazineType.pistolmag)
+            ColiderSetActive(false);
     }
 
     public void OnExitedGun()
     {
-        ColiderSetActive(true);
+        if(magazineType == MagazineType.pistolmag)
+            ColiderSetActive(true);
     }
 
     void ColiderSetActive(bool value)
     {
-        if(colider != null)
-            colider.SetActive(value);
+        colider.SetActive(value);
     }
 
     public void DecreaseBullet()
