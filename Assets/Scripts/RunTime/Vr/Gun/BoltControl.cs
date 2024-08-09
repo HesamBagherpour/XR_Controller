@@ -47,6 +47,11 @@ public class BoltControl : MonoBehaviour
 
     public void MoveBolt(float _value)
     {
+        if(! gunController.IsInTwoHandGrab())
+        {
+            return;
+        }
+
         var value = GetAnimatorValue();
 
         if(value + _value >= -0.1f && value + _value <= 1.05)
