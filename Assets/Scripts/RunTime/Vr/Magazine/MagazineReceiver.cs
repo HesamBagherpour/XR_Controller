@@ -112,12 +112,20 @@ public class MagazineReceiver : MonoBehaviour
         if (value)
         {
             if(gunController.IsGrabbed())
+            {
                 AllowSocketInteractWithMagazine(true);
+                magazine?.AllowInteractOnGunStateChange(true);
+            }
         }
         else
         {
             if(! xRSocketInteractor.hasSelection)
+            {
                 AllowSocketInteractWithMagazine(false);
+            }
+
+            magazine?.AllowInteractOnGunStateChange(false);
+            if(magazine == null){ Debug.Log("Magazine Null"); }
         }
     }
 
@@ -129,7 +137,7 @@ public class MagazineReceiver : MonoBehaviour
 
     public void AllowSelectMagazine(bool value)
     {
-        magazine?.AllowInteract(value);
+        magazine?.AllowInteractOnBoltTriggered(value);
     }
 
     void PlayAnimation(string animation)

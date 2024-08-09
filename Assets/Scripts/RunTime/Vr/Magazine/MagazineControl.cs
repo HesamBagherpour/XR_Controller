@@ -58,11 +58,19 @@ public class MagazineControl : MonoBehaviour
         grabInteractable.isSelectable = value;
     }
 
-    public void AllowInteract(bool value)
+    public void AllowInteractOnBoltTriggered(bool value)
     {
-        Debug.Log(value);
         if(magazineType != MagazineType.pistolmag)
             grabInteractable.isBoltTriggred = !value;
+    }
+
+    public void AllowInteractOnGunStateChange(bool value)
+    {
+        if(magazineType != MagazineType.pistolmag)
+        {
+            Debug.Log("Magazine Control Is Gun Grabbed: " + value);
+            grabInteractable.allowGrab = value;
+        }
     }
 
     public void OnEnteredGun()
