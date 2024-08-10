@@ -11,7 +11,7 @@ public class TargetBoard : MonoBehaviour, Idamageable
 
     public virtual void ReceiveDamage(Gun.HitData data)
     {
-        ImpactHandler.GenerateHitImpact(data);
+        //ImpactHandler.GenerateHitImpact(data);
         _currentHealth -= data.DamageAmount;
         if (_UIhealth != null)
             _UIhealth.text = $"{_currentHealth}/{_maxHealth}";
