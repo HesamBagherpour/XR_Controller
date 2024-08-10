@@ -101,6 +101,7 @@ public class BoltControl : MonoBehaviour
 
     public void LeaveBolt()
     {
+        gunController.AllowTakeMagazine(true);
         StartCoroutine(ReturnToDefault());
     }
 
