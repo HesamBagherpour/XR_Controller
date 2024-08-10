@@ -76,7 +76,8 @@ public class PlayerHandController : MonoBehaviour
 
     void OnSelectEntered(SelectEnterEventArgs eventArgs)
     {
-        if(SelectedInteractable().tag == "Gun")
+        string interactableTag = SelectedInteractable().tag;
+        if (interactableTag == "Gun" || interactableTag == "ak47mag")
         {
             SetGunController(SelectedInteractable().GetComponent<GunController>());
             SetDeActiveHandAnimation();
