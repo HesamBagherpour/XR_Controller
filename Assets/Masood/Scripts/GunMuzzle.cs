@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GunMuzzle : MonoBehaviour
 {
-    [SerializeField] private GameObject _muzzleObject;
-    [SerializeField] private float _destroyTime;
+    [SerializeField] private Transform _muzzleFlashesParent;
+    [SerializeField] private float _disableTime;
 
     private Gun _gun;
 
@@ -29,14 +29,16 @@ public class GunMuzzle : MonoBehaviour
         if (!onShoot)
             return;
 
-        _muzzleObject.SetActive(true);
-        StartCoroutine(DisableMuzzle());
+        Transform nextFlash = _muzzleFlashesParent.GetChild(0);
+        nextFlash.gameObject.SetActive(true);
+        nextFlash.transform.SetAsLastSibling();
+        StartCoroutine(DisableMuzzleFlash(nextFlash.gameObject));
     }
 
 
-    private IEnumerator DisableMuzzle()
+    private IEnumerator DisableMuzzleFlash(GameObject flash)
     {
-        yield return new WaitForSeconds(_destroyTime);
-        _muzzleObject.SetActive(false);
+        yield return new WaitForSeconds(_disableTime);
+        flash.SetActive(false);
     }
 }

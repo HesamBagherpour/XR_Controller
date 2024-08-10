@@ -13,6 +13,7 @@ public abstract class Gun : MonoBehaviour
     public LayerMask ValidLayers;
     public GunType GunType;
     public Action<bool> onShoot;
+
     private BulletScriptableObject CurrentBullet;//bullet  in gun
     private bool clipReady;
     private bool ReadyToPull;
@@ -152,6 +153,9 @@ public abstract class Gun : MonoBehaviour
         var damageable = data.collide.GetComponent<Idamageable>();
         if (damageable != null)
             damageable.ReceiveDamage(data);
+
+        if (data.collide.TryGetComponent(out MaterialType matType))
+            matType.ShowImpact(data);
     }
 
 
