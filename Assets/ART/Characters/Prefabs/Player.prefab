@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 2404984671618610310}
   - component: {fileID: 6707685202316652361}
   - component: {fileID: 3836076837095463850}
-  - component: {fileID: 8661664584164315748}
+  - component: {fileID: 2582718785060846313}
   m_Layer: 0
   m_Name: DirectInteractor
   m_TagString: interactor
@@ -548,7 +548,7 @@ MonoBehaviour:
   activateAction: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   controller: {fileID: 4974521508546911864}
---- !u!135 &8661664584164315748
+--- !u!135 &2582718785060846313
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -568,7 +568,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.015}
 --- !u!1 &1409989913011749324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3444,7 @@ GameObject:
   - component: {fileID: 5606108090154549833}
   - component: {fileID: 992970860705967887}
   - component: {fileID: 791409502362330339}
-  - component: {fileID: 7221110268935555865}
+  - component: {fileID: 7113765755227384446}
   m_Layer: 0
   m_Name: DirectInteractor
   m_TagString: interactor
@@ -3600,7 +3600,7 @@ MonoBehaviour:
   activateAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   controller: {fileID: 6061026171457161295}
---- !u!135 &7221110268935555865
+--- !u!135 &7113765755227384446
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3620,7 +3620,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.015}
 --- !u!1 &9218393550223748782
 GameObject:
   m_ObjectHideFlags: 0

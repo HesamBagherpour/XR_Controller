@@ -18,6 +18,7 @@ public class Idle : IGunState
         gunController.BoltColiderSetActive(false);
         gunController.SetDefaultSecondaryAttachTransform();
         gunController.SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode.FirstHandDirectedTowardsSecondHand);
+        gunController.AllowTakeMagazine(true);
         handOnGun.SetSecondHandToNormal();
         handOnGun.SetToNoGrab();
     }

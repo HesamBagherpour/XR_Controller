@@ -19,6 +19,7 @@ public class BoltControl : MonoBehaviour
     public Action<bool> OnBoltPull;
     public Action OnReadyToPull;
 
+    private bool isReturnCoroutineEnded = true;
     private bool _playedPullSound = false;
 
     void OnTriggerStay(Collider other)
@@ -28,6 +29,7 @@ public class BoltControl : MonoBehaviour
             var interactor = other.GetComponent<XRDirectInteractor>();
             if(interactor.hasSelection == false)
             {
+                gunController.AllowTakeMagazine(false);
                 gunController.SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode.FirstHandOnly);
                 gunController.SetSecondaryAttachTransform(boltAttachPoint);
                 handOnGun.SetSecondHandToBolt();
@@ -37,16 +39,36 @@ public class BoltControl : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        TriggerExit();
+    }
+
+    void TriggerExit()
+    {
         if(! gunController.IsInTwoHandGrab())
         {
+            gunController.AllowTakeMagazine(true);
             gunController.SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode.FirstHandDirectedTowardsSecondHand);
             gunController.SetDefaultSecondaryAttachTransform();
             handOnGun.SetSecondHandToNormal();
         }
     }
 
+    public void OnGunStateChnged()
+    {
+        if(! gunController.IsGrabbed())
+        {
+            TriggerExit();
+            StartCoroutine(ReturnToDefault());
+        }
+    }
+
     public void MoveBolt(float _value)
     {
+        if(! gunController.IsInTwoHandGrab())
+        {
+            return;
+        }
+
         var value = GetAnimatorValue();
 
         if(value + _value >= -0.1f && value + _value <= 1.05)
@@ -84,6 +106,13 @@ public class BoltControl : MonoBehaviour
 
     IEnumerator ReturnToDefault()
     {
+        if(! isReturnCoroutineEnded)
+        {
+            yield break;
+        }
+
+        isReturnCoroutineEnded = false;
+
         var value = GetAnimatorValue();
         value = value > 1 ? 1 : value;
         while (value > 0)
@@ -99,6 +128,8 @@ public class BoltControl : MonoBehaviour
             audioSource.PlayOneShot(releaseSound);
             _playedPullSound = false;
         }
+
+        isReturnCoroutineEnded = true;
     }
 
     float GetAnimatorValue()

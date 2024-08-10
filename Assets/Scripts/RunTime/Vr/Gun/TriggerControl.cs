@@ -51,10 +51,10 @@ public class TriggerControl : MonoBehaviour
             yield return new WaitForEndOfFrame();
             animationValue -= returnSpeed;
             fingerAnimator.SetFloat("TriggerValue", animationValue);
-            triggerAnimator.SetFloat("Value", animationValue);
+            triggerAnimator.SetFloat("Trigger", animationValue);
         }
         fingerAnimator.SetFloat("TriggerValue", 0);
-        triggerAnimator.SetFloat("Value", 0);
+        triggerAnimator.SetFloat("Trigger", 0);
     }
 
     public void ChangeShootMode(ChangeModeDirection direction)

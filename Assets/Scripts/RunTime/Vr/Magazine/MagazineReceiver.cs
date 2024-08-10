@@ -81,20 +81,22 @@ public class MagazineReceiver : MonoBehaviour
 
     void MagazineHoverExit(HoverExitEventArgs args)
     {
-        AllowSelect(true);
+        AllowSocketSelect(true);
     }
 
     public void ForceRelease()
     {
         if (magazineType == MagazineType.pistolmag)
+        {
             PlayAnimation("magrelease");
+        }
         else
-            AllowSelect(false);
+            AllowSocketSelect(false);
     }
 
     void AnimationEvent()
     {
-        AllowSelect(false);
+        AllowSocketInteractWithMagazine(false);
         StartCoroutine(AllowSelectCouroutine());
     }
 
@@ -102,27 +104,40 @@ public class MagazineReceiver : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        AllowSelect(true);
+        AllowSocketSelect(true);
     }
 
-    public void AllowSelect(bool value)
+    public void AllowSocketSelect(bool value)
     {
         if (value)
         {
             if(gunController.IsGrabbed())
             {
-                xRSocketInteractor.allowHover = true;
-                xRSocketInteractor.allowSelect = true;
+                AllowSocketInteractWithMagazine(true);
+                magazine?.AllowInteractOnGunStateChange(true);
             }
         }
         else
         {
             if(! xRSocketInteractor.hasSelection)
             {
-                xRSocketInteractor.allowHover = false;
-                xRSocketInteractor.allowSelect = false;
+                AllowSocketInteractWithMagazine(false);
             }
+
+            magazine?.AllowInteractOnGunStateChange(false);
+            if(magazine == null){ Debug.Log("Magazine Null"); }
         }
+    }
+
+    void AllowSocketInteractWithMagazine(bool value)
+    {
+        xRSocketInteractor.allowHover = value;
+        xRSocketInteractor.allowSelect = value;
+    }
+
+    public void AllowSelectMagazine(bool value)
+    {
+        magazine?.AllowInteractOnBoltTriggered(value);
     }
 
     void PlayAnimation(string animation)

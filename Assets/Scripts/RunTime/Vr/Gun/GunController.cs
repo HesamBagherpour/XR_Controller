@@ -12,6 +12,7 @@ public class GunController : MonoBehaviour
     [SerializeField] TriggerControl triggerControlRight;
     [SerializeField] TriggerControl triggerControlLeft;
     [SerializeField] MagazineReceiver magazineReceiver;
+    [SerializeField] BoltControl boltControl;
 
     [Header("Xr Components")]
     [SerializeField] XRGrabInteractable xRGrabInteractable;
@@ -121,7 +122,8 @@ public class GunController : MonoBehaviour
                 break;
         }
 
-        magazineReceiver.AllowSelect(gunState != idle);
+        magazineReceiver.AllowSocketSelect(gunState != idle);
+        boltControl.OnGunStateChnged();
     }
 
     public bool IsGrabbed()
@@ -133,9 +135,15 @@ public class GunController : MonoBehaviour
         return gunState == twoHandGrab;
     }
 
+    public void AllowTakeMagazine(bool value)
+    {
+        magazineReceiver.AllowSelectMagazine(value);
+    }
+
     public void SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode rotationMode)
     {
-        grabTransformer.allowTwoHandedRotation = rotationMode;
+        if(gunType != GunType.Pistol)
+            grabTransformer.allowTwoHandedRotation = rotationMode;
     }
 
     public void SetSecondaryAttachTransform(Transform transform)
