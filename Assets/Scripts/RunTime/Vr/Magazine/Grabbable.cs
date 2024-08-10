@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Grabbable : XRGrabInteractable
@@ -10,6 +11,37 @@ public class Grabbable : XRGrabInteractable
 
     public bool allowGrab = true;
     bool _allowGrab = true;
+
+    public GameObject rightHandObject;
+    public GameObject leftHandObject;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if(rightHandObject && leftHandObject)
+        {
+            selectEntered.AddListener(EnableFirstHand);
+            selectExited.AddListener(DisableFirstHand);
+        }
+    }
+
+    void EnableFirstHand(SelectEnterEventArgs eventArgs)
+    {
+        /*var playerHandController = GetFirstSelectingInteractor().transform.GetComponent<PlayerHandController>();
+        firstSelectingHand = playerHandController;*/
+        var hand = firstInteractorSelecting.transform.GetComponent<PlayerHandController>().Hand;
+        if (hand == PlayerHand.Left)
+            leftHandObject.SetActive(true);
+        else
+            rightHandObject.SetActive(true);
+    }
+
+    void DisableFirstHand(SelectExitEventArgs eventArgs)
+    {
+        leftHandObject.SetActive(false);
+        rightHandObject.SetActive(false);
+    }
 
     public override bool IsHoverableBy(IXRHoverInteractor interactor)
     {
