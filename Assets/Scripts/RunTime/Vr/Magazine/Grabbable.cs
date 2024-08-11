@@ -34,18 +34,12 @@ public class Grabbable : XRGrabInteractable
         if (playerHand.Hand == PlayerHand.Left)
         {
             if (leftHandObject)
-            {
                 leftHandObject.SetActive(true);
-                playerHand.HideDefaultHand();
-            }
         }
         else
         {
             if (rightHandObject)
-            {
                 rightHandObject.SetActive(true);
-                playerHand.HideDefaultHand();
-            }
         }
     }
 

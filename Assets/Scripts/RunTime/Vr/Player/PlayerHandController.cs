@@ -77,7 +77,7 @@ public class PlayerHandController : MonoBehaviour
     void OnSelectEntered(SelectEnterEventArgs eventArgs)
     {
         string interactableTag = SelectedInteractable().tag;
-        if (interactableTag == "Gun")
+        if (interactableTag == "Gun" || interactableTag == "ak47mag" || interactableTag == "mp5mag" || interactableTag == "pistolmag")
         {
             SetGunController(SelectedInteractable().GetComponent<GunController>());
             HideDefaultHand();
