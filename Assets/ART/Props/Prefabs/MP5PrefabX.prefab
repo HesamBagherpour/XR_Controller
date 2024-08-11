@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 2389840028783531128}
   _emptyGunSound: {fileID: 8300000, guid: 6c1f35c17c4e5f5428d048d404708b00, type: 3}
-  _ShootSound: {fileID: 8300000, guid: 8776e8ecc1d090347997b78c0c525867, type: 3}
+  _ShootSound: {fileID: 8300000, guid: 7648e572bd2450c4eb292227d6f4a390, type: 3}
 --- !u!82 &2389840028783531128
 AudioSource:
   m_ObjectHideFlags: 0
