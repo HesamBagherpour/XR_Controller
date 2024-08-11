@@ -30,6 +30,10 @@ public class Grabbable : XRGrabInteractable
     {
         /*var playerHandController = GetFirstSelectingInteractor().transform.GetComponent<PlayerHandController>();
         firstSelectingHand = playerHandController;*/
+        if (eventArgs.interactorObject.transform.tag != "interactor")
+        {
+            return; 
+        }
         var playerHand = firstInteractorSelecting.transform.GetComponent<PlayerHandController>();
         if (playerHand.Hand == PlayerHand.Left)
         {
