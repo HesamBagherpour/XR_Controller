@@ -19,7 +19,7 @@ public class Grabbable : XRGrabInteractable
     {
         base.Awake();
 
-        if(rightHandObject && leftHandObject)
+        if(rightHandObject || leftHandObject)
         {
             selectEntered.AddListener(EnableFirstHand);
             selectExited.AddListener(DisableFirstHand);
@@ -30,11 +30,23 @@ public class Grabbable : XRGrabInteractable
     {
         /*var playerHandController = GetFirstSelectingInteractor().transform.GetComponent<PlayerHandController>();
         firstSelectingHand = playerHandController;*/
-        var hand = firstInteractorSelecting.transform.GetComponent<PlayerHandController>().Hand;
-        if (hand == PlayerHand.Left)
-            leftHandObject.SetActive(true);
+        var playerHand = firstInteractorSelecting.transform.GetComponent<PlayerHandController>();
+        if (playerHand.Hand == PlayerHand.Left)
+        {
+            if (leftHandObject)
+            {
+                leftHandObject.SetActive(true);
+                playerHand.HideDefaultHand();
+            }
+        }
         else
-            rightHandObject.SetActive(true);
+        {
+            if (rightHandObject)
+            {
+                rightHandObject.SetActive(true);
+                playerHand.HideDefaultHand();
+            }
+        }
     }
 
     void DisableFirstHand(SelectExitEventArgs eventArgs)

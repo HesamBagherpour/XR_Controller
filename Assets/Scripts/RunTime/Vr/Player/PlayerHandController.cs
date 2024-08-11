@@ -77,14 +77,19 @@ public class PlayerHandController : MonoBehaviour
     void OnSelectEntered(SelectEnterEventArgs eventArgs)
     {
         string interactableTag = SelectedInteractable().tag;
-        if (interactableTag == "Gun" || interactableTag == "ak47mag")
+        if (interactableTag == "Gun")
         {
             SetGunController(SelectedInteractable().GetComponent<GunController>());
-            SetDeActiveHandAnimation();
-            SetHandActive(false);
+            HideDefaultHand();
         }
         
         OnSelectChange?.Invoke();
+    }
+
+    public void HideDefaultHand()
+    {
+        SetDeActiveHandAnimation();
+        SetHandActive(false);
     }
 
     async void SetHandActive(bool value)
