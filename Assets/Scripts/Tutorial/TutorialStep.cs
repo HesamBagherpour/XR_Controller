@@ -8,34 +8,18 @@ namespace ArioSoren.TutorialKit
     {
         public int Step;
         [SerializeField] private List<GameObject> _highlightObjects;
-        //[SerializeField] private HighlightType _highlightTypeName;
-        [SerializeField] private RectTransform _dialogueFrame;
         [SerializeField] private AudioSource _audioSource;
 
         public HighlightBehavior Behaviour;
-        //public bool Startable;
-        //public string AdjustEventOnShow;
-        //public string AdjustEventOnPass;
-
-        //public string AnalatycsEventOnShow;
-        //public string AnalatycsEventOnPass;
 
         public AudioClip AudioClip;
 
 
-        private void Awake()
-        {
-            //_behaviour = GetComponent<HighlightBehavior>();
-        }
+        
         public void ShowStep()
         {
-            //_behaviour.Init(_highlightObjects);
             if (Behaviour != null)
                 Behaviour.Show();
-            if (_dialogueFrame != null)
-                //{
-                OpenDialogue();
-            //}
             foreach (GameObject go in _highlightObjects)
             {
                 go.SetActive(true);
@@ -55,10 +39,10 @@ namespace ArioSoren.TutorialKit
         {
             if (Behaviour != null)
                 Behaviour.Hide();
-            if (_dialogueFrame != null)
-            {
-                CloseDialogue();
-            }
+            //if (_dialogueFrame != null)
+            //{
+            //    CloseDialogue();
+            //}
 
             foreach (GameObject go in _highlightObjects)
             {
@@ -66,11 +50,11 @@ namespace ArioSoren.TutorialKit
             }
         }
 
-        private void CloseDialogue()
-        {
-            //var seq = DOTween.Sequence();
-            //seq.Append(_dialogueFrame.DOScale(0, 0.03f).From(1));
+        //private void CloseDialogue()
+        //{
+        //    //var seq = DOTween.Sequence();
+        //    //seq.Append(_dialogueFrame.DOScale(0, 0.03f).From(1));
 
-        }
+        //}
     }
 }

@@ -2,12 +2,13 @@ using ArioSoren.TutorialKit;
 //using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GunTutorialHandler : HighlightBehavior
+public class TutorialEventHandler : HighlightBehavior
 {
-    private bool _isShow;
+    private bool _isShow=false;
     //[SerializeField] private ShootingModeControl _shootingModeControl;
     [SerializeField] private GameObject _player;
     [SerializeField] private GunController _gunController;
@@ -20,6 +21,8 @@ public class GunTutorialHandler : HighlightBehavior
     public UnityEvent OnGetFarGun;
     public UnityEvent OnMagazineEnter;
     public UnityEvent OnMagazineEject;
+    public UnityEvent OnStartMovement;
+    public UnityEvent OnStartrotate;
 
 
     private bool IsGunReadyToShoot;
@@ -29,6 +32,8 @@ public class GunTutorialHandler : HighlightBehavior
     private float CurrentValue;
     private bool _allowFadeMaterial;
     private Material HandsMaterial;
+    private playerMovementData _playerMovementData;
+    private playerRotationData _playerRotationData;
 
 
     public override void Hide()
@@ -48,6 +53,18 @@ public class GunTutorialHandler : HighlightBehavior
     // Start is called before the first frame update
     void Start()
     {
+        _playerMovementData = new playerMovementData()
+        {
+            InitialPosition = _player.transform.position,
+            deltaDistance = 0.3f,
+            IsEventCalled = false
+        };
+        _playerRotationData = new playerRotationData()
+        {
+            InitialRotation = _player.transform.rotation,
+            deltaDistance = 20,
+            IsEventCalled = false
+        };
 
     }
 
@@ -82,6 +99,31 @@ public class GunTutorialHandler : HighlightBehavior
 
         if (_allowFadeMaterial && HandsMaterial != null)
             FadeMaterialAnimation(HandsMaterial);
+
+        if ((OnStartMovement != null) && (!_playerMovementData.IsEventCalled))
+        {
+            float distance = Vector3.Distance(_player.transform.position,
+                _playerMovementData.InitialPosition);
+
+            //Debug.Log("distance=" + distance);
+            if (distance > _playerMovementData.deltaDistance)
+            {
+                OnStartMovement?.Invoke();
+                _playerMovementData.IsEventCalled = true;
+            }
+        }   
+        
+        if ((OnStartrotate != null) && (!_playerRotationData.IsEventCalled))
+        {
+            float distance = Quaternion.Angle(_player.transform.rotation,
+                _playerRotationData.InitialRotation);
+            //Debug.Log("distance rotation=" + distance);
+            if (distance > _playerRotationData.deltaDistance)
+            {
+                OnStartrotate?.Invoke();
+                _playerRotationData.IsEventCalled = true;
+            }
+        }
     }
 
 
@@ -111,4 +153,19 @@ public class GunTutorialHandler : HighlightBehavior
         if (CurrentValue < 0)
             alphaInc *= -1;
     }
+
+
+}
+
+public struct playerMovementData
+{
+    public Vector3 InitialPosition;
+    public float deltaDistance;
+    public bool IsEventCalled;
+}
+public struct playerRotationData
+{
+    public quaternion InitialRotation;
+    public float deltaDistance;
+    public bool IsEventCalled;
 }
