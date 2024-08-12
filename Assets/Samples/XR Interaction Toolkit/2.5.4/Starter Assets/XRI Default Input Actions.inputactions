@@ -785,7 +785,7 @@
                 {
                     "name": "Switch Down",
                     "type": "Button",
-                    "id": "2d7a8a67-e46a-4a7c-9852-8167f85ccbbe",
+                    "id": "e82cbc0b-95dc-44bc-9998-4fceff925a2d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -794,7 +794,7 @@
                 {
                     "name": "Switch Up",
                     "type": "Button",
-                    "id": "dbe55b0d-d322-4806-bfc9-4f54d47e37f2",
+                    "id": "af4524c8-fbf1-4e4d-bda0-a4d47490cda8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -969,7 +969,7 @@
                 },
                 {
                     "name": "",
-                    "id": "b45b4587-a0b6-4d4c-88f6-9b9332620109",
+                    "id": "a07fb1e6-759e-4bf6-b045-c4570d40c5fb",
                     "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
@@ -980,7 +980,7 @@
                 },
                 {
                     "name": "",
-                    "id": "74ed9e11-4b14-4436-b8e0-e0fbf4bf582b",
+                    "id": "2d03f2d8-38f7-4ace-ba55-459b5b11d55f",
                     "path": "<XRController>{LeftHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
@@ -1621,7 +1621,7 @@
                 {
                     "name": "Switch Down",
                     "type": "Button",
-                    "id": "5605af03-2405-449e-9f9e-d4e18b3505d8",
+                    "id": "34fa3d06-3cfc-4231-8b55-4a5a9af58707",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1630,7 +1630,7 @@
                 {
                     "name": "Switch Up",
                     "type": "Button",
-                    "id": "fa06cca8-d64c-4d97-9abd-c3dd671eabf9",
+                    "id": "946e4f72-c221-45b1-91c9-06fb0c203f77",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1805,7 +1805,7 @@
                 },
                 {
                     "name": "",
-                    "id": "bda6e48c-8a68-4828-a30b-bbe7244ab2fc",
+                    "id": "3b05e9ec-6a86-435f-ab5a-42f813c15efb",
                     "path": "<XRController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
@@ -1816,7 +1816,7 @@
                 },
                 {
                     "name": "",
-                    "id": "ae679512-7f1e-443f-b133-b3e27b1b7d83",
+                    "id": "195ec03b-5cd5-490c-a65f-268f561f301a",
                     "path": "<XRController>{RightHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
