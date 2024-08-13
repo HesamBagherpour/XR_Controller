@@ -1182,6 +1182,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -1204,6 +1205,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &116423080
@@ -1272,6 +1282,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -1294,6 +1305,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &148625460
@@ -4873,6 +4893,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -4895,6 +4916,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &650459897
@@ -5155,6 +5185,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 0}
   _nearGunDistance: 0
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -5191,6 +5222,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &717670160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5649,6 +5689,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -5671,6 +5712,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &754094489
@@ -6588,6 +6638,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 0}
   _nearGunDistance: 0
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -6622,6 +6673,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &940400689
@@ -16436,6 +16496,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -16458,6 +16519,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1746338291
@@ -16526,6 +16596,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -16548,6 +16619,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1759754578
@@ -17185,6 +17265,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 0}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -17207,6 +17288,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1868237495
@@ -17348,6 +17438,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
+  Gun: {fileID: 2802537975212267264}
   OnGrabGun:
     m_PersistentCalls:
       m_Calls:
@@ -17382,6 +17473,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1879006354
@@ -19817,6 +19917,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c59bcff0f66eb7045833666d2863b345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2802537975212267264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3134960800989584264, guid: a938799ad16f67a4e8d7eb4ef7d77601,
+    type: 3}
+  m_PrefabInstance: {fileID: 2802537975212267261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb9e3f4d5a80e54aa131bb90225477e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4785496752429300087
