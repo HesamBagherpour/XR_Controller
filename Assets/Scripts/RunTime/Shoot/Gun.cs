@@ -13,6 +13,11 @@ public abstract class Gun : MonoBehaviour
     public LayerMask ValidLayers;
     public GunType GunType;
     public Action<bool> onShoot;
+    public Action OnMagazineEneterd;
+    public Action OnMagazineEjected;
+    public Action Onbolted;
+    public Action<ShootingMode> OnShootingModeChanged;
+
 
     private BulletScriptableObject CurrentBullet;//bullet  in gun
     private bool clipReady;
@@ -42,7 +47,8 @@ public abstract class Gun : MonoBehaviour
     {
         Initialize();
         ImpactHandler.Initialize();
-        _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
+        _shootingModeControl.OnShootingModeChange += (mode) => { _shootingMode = mode; };
+        _shootingModeControl.OnShootingModeChange += OnShootingModeChanged;
         _boltControl.OnBoltPull = BoltPuller;
         _boltControl.OnReadyToPull = () => ReadyToPull = true;
         _magazineReceiver.OnMagazineSelectEnter += (t) =>
@@ -52,11 +58,13 @@ public abstract class Gun : MonoBehaviour
             {
                 clipReady = true;
             }
+            OnMagazineEneterd();
         };
         _magazineReceiver.OnMagazineSelectExit += () =>
         {
             clipReady = false;
             _currentMagazine = null;
+            OnMagazineEjected();
         };
     }
 
@@ -72,6 +80,7 @@ public abstract class Gun : MonoBehaviour
         {
             CurrentBullet = _currentMagazine.GetBullet();
             ReadyToPull = false;
+            Onbolted();
         }
     }
 

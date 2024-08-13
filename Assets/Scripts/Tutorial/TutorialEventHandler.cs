@@ -13,6 +13,7 @@ public class TutorialEventHandler : HighlightBehavior
     [SerializeField] private GameObject _player;
     [SerializeField] private GunController _gunController;
     [SerializeField] private float _nearGunDistance;
+    [SerializeField] private Gun Gun;
 
 
     public UnityEvent OnGrabGun;
@@ -23,6 +24,9 @@ public class TutorialEventHandler : HighlightBehavior
     public UnityEvent OnMagazineEject;
     public UnityEvent OnStartMovement;
     public UnityEvent OnStartrotate;
+    public UnityEvent Onbolt;
+    public UnityEvent OnShootingModeChange;
+    public UnityEvent OnShoot;
 
 
     private bool IsGunReadyToShoot;
@@ -47,6 +51,21 @@ public class TutorialEventHandler : HighlightBehavior
         //throw new System.NotImplementedException();
         _isShow = true;
         //_shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
+        if (OnMagazineEnter!=null)
+            Gun.OnMagazineEneterd += () => { OnMagazineEnter.Invoke(); };
+
+        if (OnMagazineEject != null)
+            Gun.OnMagazineEjected += () => { OnMagazineEject.Invoke(); };
+
+        if (Onbolt != null)
+            Gun.Onbolted += () => { Onbolt.Invoke(); };  
+        
+        if (OnShootingModeChange != null)
+            Gun.OnShootingModeChanged += (mode) => { OnShootingModeChange.Invoke(); };
+        
+        if (OnShoot != null)
+            Gun.onShoot += (b) => { OnShoot.Invoke(); };
+
 
     }
 
