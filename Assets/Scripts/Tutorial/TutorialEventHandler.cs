@@ -16,6 +16,7 @@ public class TutorialEventHandler : HighlightBehavior
     [SerializeField] private Gun Gun;
 
 
+    public UnityEvent OnStart;
     public UnityEvent OnGrabGun;
     public UnityEvent OnDropGun;
     public UnityEvent OnGetNearGun;
@@ -27,6 +28,7 @@ public class TutorialEventHandler : HighlightBehavior
     public UnityEvent Onbolt;
     public UnityEvent OnShootingModeChange;
     public UnityEvent OnShoot;
+    public UnityEvent OnEnd;
 
 
     private bool IsGunReadyToShoot;
@@ -44,6 +46,7 @@ public class TutorialEventHandler : HighlightBehavior
     {
         //throw new System.NotImplementedException();
         _isShow = false;
+        OnEnd?.Invoke();
     }
 
     public override void Show()
@@ -52,20 +55,36 @@ public class TutorialEventHandler : HighlightBehavior
         _isShow = true;
         //_shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         if (OnMagazineEnter!=null)
-            Gun.OnMagazineEneterd += () => { OnMagazineEnter.Invoke(); };
+            Gun.OnMagazineEneterd += () => 
+            { 
+                OnMagazineEnter.Invoke();
+            };
 
         if (OnMagazineEject != null)
-            Gun.OnMagazineEjected += () => { OnMagazineEject.Invoke(); };
+            Gun.OnMagazineEjected += () => 
+            {
+                OnMagazineEject.Invoke();
+            };
 
         if (Onbolt != null)
-            Gun.Onbolted += () => { Onbolt.Invoke(); };  
+            Gun.Onbolted += () =>
+            {
+                Onbolt.Invoke();
+            };  
         
         if (OnShootingModeChange != null)
-            Gun.OnShootingModeChanged += (mode) => { OnShootingModeChange.Invoke(); };
+            Gun.OnShootingModeChanged += (mode) =>
+            {
+                OnShootingModeChange.Invoke(); 
+            };
         
         if (OnShoot != null)
-            Gun.onShoot += (b) => { OnShoot.Invoke(); };
+            Gun.onShoot += (b) => 
+            {
+                OnShoot.Invoke();
+            };
 
+        OnStart?.Invoke();
 
     }
 
