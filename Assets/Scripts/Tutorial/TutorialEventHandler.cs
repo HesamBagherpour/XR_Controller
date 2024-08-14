@@ -138,12 +138,12 @@ public class TutorialEventHandler : HighlightBehavior
         if (_allowFadeMaterial && HandsMaterial != null)
             FadeMaterialAnimation(HandsMaterial);
 
-        if ((OnStartMovement != null) && (!_playerMovementData.IsEventCalled))
+        if ((OnStartMovement.GetPersistentEventCount() > 0) && (!_playerMovementData.IsEventCalled))
         {
             float distance = Vector3.Distance(_player.transform.position,
                 _playerMovementData.InitialPosition);
 
-            //Debug.Log("distance=" + distance);
+//            Debug.Log("distance=" + distance);
             if (distance > _playerMovementData.deltaDistance)
             {
                 OnStartMovement?.Invoke();
@@ -151,7 +151,7 @@ public class TutorialEventHandler : HighlightBehavior
             }
         }   
         
-        if ((OnStartrotate != null) && (!_playerRotationData.IsEventCalled))
+        if ((OnStartrotate.GetPersistentEventCount() > 0) && (!_playerRotationData.IsEventCalled))
         {
             float distance = Quaternion.Angle(_player.transform.rotation,
                 _playerRotationData.InitialRotation);
