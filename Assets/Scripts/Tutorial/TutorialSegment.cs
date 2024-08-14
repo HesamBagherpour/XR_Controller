@@ -34,7 +34,7 @@ namespace ArioSoren.TutorialKit
         public void NextStep()
         {
             HideStep(CurrentStep);
-            if (CurrentStep>=tutorialSteps.Count)
+            if (CurrentStep+1>=tutorialSteps.Count)
             {
                 OnFinished?.Invoke();
                 return;
