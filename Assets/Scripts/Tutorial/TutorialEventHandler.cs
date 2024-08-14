@@ -54,31 +54,31 @@ public class TutorialEventHandler : HighlightBehavior
         //throw new System.NotImplementedException();
         _isShow = true;
         //_shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
-        if (OnMagazineEnter!=null)
+        if (OnMagazineEnter.GetPersistentEventCount()>0)
             Gun.OnMagazineEneterd += () => 
             { 
                 OnMagazineEnter.Invoke();
             };
 
-        if (OnMagazineEject != null)
+        if (OnMagazineEject.GetPersistentEventCount() > 0)
             Gun.OnMagazineEjected += () => 
             {
                 OnMagazineEject.Invoke();
             };
 
-        if (Onbolt != null)
+        if (Onbolt.GetPersistentEventCount() > 0)
             Gun.Onbolted += () =>
             {
                 Onbolt.Invoke();
             };  
         
-        if (OnShootingModeChange != null)
+        if (OnShootingModeChange.GetPersistentEventCount() > 0)
             Gun.OnShootingModeChanged += (mode) =>
             {
                 OnShootingModeChange.Invoke(); 
             };
         
-        if (OnShoot != null)
+        if (OnShoot.GetPersistentEventCount() > 0)
             Gun.onShoot += (b) => 
             {
                 OnShoot.Invoke();

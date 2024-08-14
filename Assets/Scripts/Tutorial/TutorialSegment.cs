@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ArioSoren.TutorialKit
 {
@@ -14,6 +15,8 @@ namespace ArioSoren.TutorialKit
         public int CurrentStep = -1;
 
         [SerializeField] private List<TutorialStep> tutorialSteps;
+        public UnityEvent OnStart;
+        public UnityEvent OnFinished;
 
 
         private void Start()
@@ -25,20 +28,32 @@ namespace ArioSoren.TutorialKit
         {
             yield return new WaitForSeconds(FelayOnStart);
             Init();
+            OnStart?.Invoke();
         }
 
-        //public void NextStep()
-        //{
-        //    HideStep(CurrentStep);
-        //    CurrentStep++;
-        //    tutorialSteps[CurrentStep].ShowStep();
-        //    TutorialStateChanged?.Invoke(true, CurrentStep);
-        //    StepStarted?.Invoke(CurrentStep);
-        //}
+        public void NextStep()
+        {
+            HideStep(CurrentStep);
+            if (CurrentStep>=tutorialSteps.Count)
+            {
+                OnFinished?.Invoke();
+                return;
+            }
+            CurrentStep++;
+            Debug.Log("TutorialSegment NextStep " + CurrentStep);
+            tutorialSteps[CurrentStep].ShowStep();
+            TutorialStateChanged?.Invoke(true, CurrentStep);
+            StepStarted?.Invoke(CurrentStep);
+        }
         public void GotoStep(int step)
         {
             Debug.Log("TutorialSegment GotoStep " + step);
             HideStep(step - 1);
+            if (step >= tutorialSteps.Count)
+            {
+                OnFinished?.Invoke();
+                return;
+            }
             CurrentStep = step;
             tutorialSteps[CurrentStep].ShowStep();
             TutorialStateChanged?.Invoke(true, CurrentStep);
