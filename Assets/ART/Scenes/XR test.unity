@@ -1303,7 +1303,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
-  Gun: {fileID: 0}
+  Gun: {fileID: 2802537975212267264}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -5508,7 +5508,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
-  Gun: {fileID: 0}
+  Gun: {fileID: 2802537975212267264}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -5865,7 +5865,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6347,7 +6347,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
-  Gun: {fileID: 0}
+  Gun: {fileID: 2802537975212267264}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -18266,7 +18266,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
-  Gun: {fileID: 0}
+  Gun: {fileID: 2802537975212267264}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -18367,7 +18367,7 @@ MonoBehaviour:
   _highlightObjects:
   - {fileID: 1888604765}
   _audioSource: {fileID: 0}
-  Behaviour: {fileID: 0}
+  Behaviour: {fileID: 1746338294}
   AudioClip: {fileID: 0}
 --- !u!114 &1746338294
 MonoBehaviour:
@@ -18384,7 +18384,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
-  Gun: {fileID: 0}
+  Gun: {fileID: 2802537975212267264}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -19205,7 +19205,7 @@ MonoBehaviour:
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
-  Gun: {fileID: 0}
+  Gun: {fileID: 2802537975212267264}
   OnStart:
     m_PersistentCalls:
       m_Calls:
