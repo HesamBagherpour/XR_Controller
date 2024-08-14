@@ -1133,7 +1133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &110220604
 Transform:
   m_ObjectHideFlags: 0
@@ -4680,7 +4680,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8ac4eebabcc9e4d4cba1fa17a640d483,
         type: 3}
       propertyPath: m_Name
-      value: bretta
+      value: brettaBolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ac4eebabcc9e4d4cba1fa17a640d483,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17430,7 +17435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1858202669
 Transform:
   m_ObjectHideFlags: 0
@@ -17482,7 +17487,19 @@ MonoBehaviour:
   Gun: {fileID: 0}
   OnStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2121546159}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnGrabGun:
     m_PersistentCalls:
       m_Calls: []
@@ -17500,7 +17517,19 @@ MonoBehaviour:
       m_Calls: []
   OnMagazineEject:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2144598654}
+        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
+        m_MethodName: GotoStep
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStartMovement:
     m_PersistentCalls:
       m_Calls: []
@@ -19700,6 +19729,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107431656}
   m_CullTransparentMesh: 1
+--- !u!1 &2121546159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5296789485917891477, guid: 72a2861fcf40d5e478d7d57fee3f9623,
+    type: 3}
+  m_PrefabInstance: {fileID: 754094489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2122911971
 GameObject:
   m_ObjectHideFlags: 0
