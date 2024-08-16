@@ -202,12 +202,12 @@ public class PlayerHandController : MonoBehaviour
             int direction = 0;
             var angle = Quaternion.Angle(Quaternion.LookRotation(distance), SelectedInteractable().rotation);
 
-            if (angle > 120)
+            if (angle > 90)
                 direction = 1;
-            else if (angle < 60)
+            else if (angle < 90)
                 direction = -1;
 
-            handPositionFloat = distance.magnitude * direction * 10;
+            handPositionFloat = distance.magnitude * direction * 12;
             OldHandPosition = controller.localPosition;
             boltControl.MoveBolt(handPositionFloat);
         }
