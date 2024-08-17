@@ -1,0 +1,627 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4037284409734953622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7918551349672751511}
+  - component: {fileID: 1075456123658678052}
+  m_Layer: 0
+  m_Name: InputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7918551349672751511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037284409734953622}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1075456123658678052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037284409734953622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0c0bea503f096408b1344459fb207c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoEnable: 1
+  autoDisable: 1
+  dataList:
+  - actionName: RightTrigger
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 40cb5563-d875-49c6-8d90-ba88dff6b973
+        m_Path: <XRController>{RightHand}/{Trigger}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: RightTrigger
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: RightGrip
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 40cb5563-d875-49c6-8d90-ba88dff6b973
+        m_Path: <XRController>{RightHand}/{Grip}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: RightGrip
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: RightPrimaryButton
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 40cb5563-d875-49c6-8d90-ba88dff6b973
+        m_Path: <XRController>{RightHand}/{PrimaryButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: RightPrimaryButton
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: RightSecondaryButton
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 3827ceb1-2bcd-45d3-ac7a-148a1d0427e3
+        m_Path: <XRController>{RightHand}/{SecondaryButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: RightSecondaryButton
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: RightJoystick
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 67c7dc3b-0a59-4e27-b68b-1f36b6dd8664
+        m_Path: <XRController>{RightHand}/{Primary2DAxis}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: RightJoystick
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: RightControllerPosition
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Vector3
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{RightHand}/devicePosition
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: RightControllerPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: RightControllerRotation
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Quaternion
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{RightHand}/deviceRotation
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: RightControllerRotation
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: RightMenuButton
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{RightHand}/{MenuButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: MetaButton
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftTrigger
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/{Trigger}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftTrigger
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftGrip
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Axis
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/{Grip}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftGrip
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftPrimaryButton
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/{PrimaryButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftPrimaryButton
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftSecondaryButton
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/{SecondaryButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftSecondaryButton
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftJoystick
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/{Primary2DAxis}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftJoystick
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftControllerPosition
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Vector3
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/devicePosition
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftControllerPosition
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftControllerRotation
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: Quaternion
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/deviceRotation
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftControllerRotation
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftControllerRotation
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/deviceRotation
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: LeftControllerRotation
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: LeftMenuButton
+    isActive: 0
+    inputAction:
+      m_Name: Input
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: cc246fc0-409f-444b-99a0-a7bef682a869
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dc40a991-57fe-450c-986d-f00ebaba1165
+        m_Path: <XRController>{LeftHand}/{MenuButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InputTest, Assembly-CSharp
+          m_MethodName: MenuButton
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
