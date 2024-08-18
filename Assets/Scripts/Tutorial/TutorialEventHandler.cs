@@ -76,6 +76,7 @@ public class TutorialEventHandler : HighlightBehavior
             Gun.OnShootingModeChanged += (mode) =>
             {
                 OnShootingModeChange.Invoke(); 
+                Debug.Log("OnShootingModeChange");
             };
         
         if (OnShoot.GetPersistentEventCount() > 0)

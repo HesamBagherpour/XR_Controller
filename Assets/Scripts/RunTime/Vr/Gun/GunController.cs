@@ -168,8 +168,11 @@ public class GunController : MonoBehaviour
 
     public void PrimaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
     {
-        if(firstSelectingHand.Hand == hand)
+        if (firstSelectingHand.Hand == hand)
+        {
+            Debug.Log("fghgfhgfh");
             shootingMode.ChangeMode(direction);
+        }
     }
 
     public void SecondaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)

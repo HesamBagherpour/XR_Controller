@@ -57,6 +57,7 @@ public class ShootingModeControl : MonoBehaviour
             mode = mode == ShootingMode.safety? ShootingMode.semi : ShootingMode.safety;
             PlayChangingModeAnimation(mode.ToString());
             OnShootingModeChange?.Invoke(mode);
+            Debug.Log("Pistol");
             audioSource.Play();
         }
     }
