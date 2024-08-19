@@ -1221,18 +1221,6 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 110220605}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialStep, Assembly-CSharp
-        m_MethodName: HideStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
@@ -1293,7 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 5
+  Step: 4
   _highlightObjects:
   - {fileID: 1759754578}
   _audioSource: {fileID: 0}
@@ -1318,7 +1306,7 @@ MonoBehaviour:
   OnStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 348270583}
+      - m_Target: {fileID: 348270584}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
         m_Mode: 5
@@ -1364,7 +1352,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8612,18 +8600,6 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 646515752}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialStep, Assembly-CSharp
-        m_MethodName: HideStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
@@ -9445,18 +9421,6 @@ MonoBehaviour:
   OnMagazineEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 749229095}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialStep, Assembly-CSharp
-        m_MethodName: HideStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
@@ -18387,12 +18351,12 @@ Transform:
   - {fileID: 754094490}
   - {fileID: 1870752775}
   - {fileID: 1731282391}
+  - {fileID: 116423081}
   - {fileID: 1746338292}
   - {fileID: 110220604}
   - {fileID: 1858202669}
   - {fileID: 749229094}
   - {fileID: 646515751}
-  - {fileID: 116423081}
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312363238
@@ -22952,18 +22916,6 @@ MonoBehaviour:
   OnMagazineEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731282392}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialStep, Assembly-CSharp
-        m_MethodName: HideStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
@@ -23042,7 +22994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 4
+  Step: 5
   _highlightObjects:
   - {fileID: 1888604765}
   _audioSource: {fileID: 0}
@@ -23097,18 +23049,6 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1746338293}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialStep, Assembly-CSharp
-        m_MethodName: HideStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
@@ -23116,7 +23056,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23930,18 +23870,6 @@ MonoBehaviour:
   OnMagazineEject:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1858202670}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialStep, Assembly-CSharp
-        m_MethodName: HideStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
@@ -24119,18 +24047,6 @@ MonoBehaviour:
   OnGrabGun:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1870752776}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialStep, Assembly-CSharp
-        m_MethodName: HideStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
