@@ -14,6 +14,7 @@ public class TutorialEventHandler : HighlightBehavior
     [SerializeField] private GunController _gunController;
     [SerializeField] private float _nearGunDistance;
     [SerializeField] private Gun Gun;
+    [SerializeField] private MagazineControl _magazineControl;
 
 
     public UnityEvent OnStart;
@@ -21,6 +22,8 @@ public class TutorialEventHandler : HighlightBehavior
     public UnityEvent OnDropGun;
     public UnityEvent OnGetNearGun;
     public UnityEvent OnGetFarGun;
+    public UnityEvent OnMagazinePickup;
+    public UnityEvent OnMagazineDrop;
     public UnityEvent OnMagazineEnter;
     public UnityEvent OnMagazineEject;
     public UnityEvent OnStartMovement;
@@ -89,6 +92,12 @@ public class TutorialEventHandler : HighlightBehavior
             };
 
         OnStart?.Invoke();
+
+        if (_magazineControl != null)
+        {
+            _magazineControl.OnMagazinePickup +=()=> OnMagazinePickup?.Invoke();
+            _magazineControl.OnMagazinedrop +=()=> OnMagazineDrop?.Invoke();
+        }
 
     }
 
