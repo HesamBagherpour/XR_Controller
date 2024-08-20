@@ -47,8 +47,12 @@ public abstract class Gun : MonoBehaviour
     {
         Initialize();
         ImpactHandler.Initialize();
-        _shootingModeControl.OnShootingModeChange += (mode) => { _shootingMode = mode; };
-        _shootingModeControl.OnShootingModeChange += OnShootingModeChanged;
+        _shootingModeControl.OnShootingModeChange += (mode) => 
+        {
+            _shootingMode = mode;
+            OnShootingModeChanged(mode);
+        };
+        //_shootingModeControl.OnShootingModeChange += OnShootingModeChanged;
         _boltControl.OnBoltPull = BoltPuller;
         _boltControl.OnReadyToPull = () => ReadyToPull = true;
         _magazineReceiver.OnMagazineSelectEnter += (t) =>

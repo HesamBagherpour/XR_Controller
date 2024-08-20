@@ -168,19 +168,24 @@ public class GunController : MonoBehaviour
 
     public void PrimaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
     {
+        Debug.Log("PrimaryButtonPressed");
         if (firstSelectingHand.Hand == hand)
         {
-            Debug.Log("fghgfhgfh");
+            Debug.Log("shootingMode.ChangeMode");
             shootingMode.ChangeMode(direction);
         }
     }
 
     public void SecondaryButtonPressed(PlayerHand hand, ChangeModeDirection direction)
     {
-        if(gunType == GunType.Rifle)
+        Debug.Log("SecondaryButtonPressed");
+        if (gunType == GunType.Rifle)
         {
-            if(firstSelectingHand.Hand == hand)
+            if (firstSelectingHand.Hand == hand)
+            {
                 shootingMode.ChangeMode(direction);
+                Debug.Log("shootingMode.ChangeMode");
+            }
         }
         else if(gunType == GunType.Pistol)
         {

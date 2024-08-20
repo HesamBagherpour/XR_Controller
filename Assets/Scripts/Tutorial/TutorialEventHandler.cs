@@ -70,14 +70,17 @@ public class TutorialEventHandler : HighlightBehavior
             Gun.Onbolted += () =>
             {
                 Onbolt.Invoke();
-            };  
-        
+            };
+
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
+        {
+            Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
             Gun.OnShootingModeChanged += (mode) =>
             {
                 Debug.Log("OnShootingModeChange");
-                OnShootingModeChange.Invoke(); 
+                OnShootingModeChange.Invoke();
             };
+        }
         
         if (OnShoot.GetPersistentEventCount() > 0)
             Gun.onShoot += (b) => 
