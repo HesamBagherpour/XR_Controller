@@ -97,6 +97,7 @@ public class TutorialEventHandler : HighlightBehavior
         {
             _magazineControl.OnMagazinePickup +=()=> OnMagazinePickup?.Invoke();
             _magazineControl.OnMagazinedrop +=()=> OnMagazineDrop?.Invoke();
+            Debug.Log("Magazine Pickedup");
         }
 
     }

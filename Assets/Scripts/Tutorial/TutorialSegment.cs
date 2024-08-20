@@ -76,7 +76,7 @@ namespace ArioSoren.TutorialKit
                 step.HideStep();
             }
             //NextStep();
-            GotoStep(0);
+            GotoStep(12);
         }
 
 
