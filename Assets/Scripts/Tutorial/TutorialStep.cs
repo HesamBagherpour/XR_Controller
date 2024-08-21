@@ -18,12 +18,13 @@ namespace ArioSoren.TutorialKit
         
         public void ShowStep()
         {
-            if (Behaviour != null)
-                Behaviour.Show();
+            Debug.Log($"Step {Step} Show");
             foreach (GameObject go in _highlightObjects)
             {
                 go.SetActive(true);
             }
+            if (Behaviour != null)
+                Behaviour.Show();
 
             if (AudioClip != null)
                 _audioSource.PlayOneShot(AudioClip);
@@ -37,6 +38,12 @@ namespace ArioSoren.TutorialKit
 
         public void HideStep()
         {
+            Debug.Log($"Step {Step} hide");
+            foreach (GameObject go in _highlightObjects)
+            {
+                go.SetActive(false);
+            }
+
             if (Behaviour != null)
                 Behaviour.Hide();
             //if (_dialogueFrame != null)
@@ -44,10 +51,6 @@ namespace ArioSoren.TutorialKit
             //    CloseDialogue();
             //}
 
-            foreach (GameObject go in _highlightObjects)
-            {
-                go.SetActive(false);
-            }
         }
 
         //private void CloseDialogue()

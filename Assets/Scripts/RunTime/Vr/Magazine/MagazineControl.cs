@@ -25,10 +25,14 @@ public class MagazineControl : MonoBehaviour
 
     void Start()
     {
+        //grabInteractable.selectEntered.RemoveAllListeners();
+        //grabInteractable.selectExited.RemoveAllListeners();
         grabInteractable.selectEntered.AddListener(SelectEntered);
+        if (OnMagazinePickup!=null)
         grabInteractable.selectEntered.AddListener((_)=>OnMagazinePickup?.Invoke());
         grabInteractable.selectExited.AddListener(SelectExited);
-        grabInteractable.selectEntered.AddListener((_) => OnMagazinedrop?.Invoke());
+        if (OnMagazinedrop != null)
+            grabInteractable.selectEntered.AddListener((_) => OnMagazinedrop?.Invoke());
 
 #if UnlimitedAmmo
         bullets = 9999999;

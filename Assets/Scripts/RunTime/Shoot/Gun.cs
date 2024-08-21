@@ -62,13 +62,13 @@ public abstract class Gun : MonoBehaviour
             {
                 clipReady = true;
             }
-            OnMagazineEneterd();
+            OnMagazineEneterd?.Invoke();
         };
         _magazineReceiver.OnMagazineSelectExit += () =>
         {
             clipReady = false;
             _currentMagazine = null;
-            OnMagazineEjected();
+            OnMagazineEjected?.Invoke();
         };
     }
 

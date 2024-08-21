@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class TutorialEventHandler : HighlightBehavior
 {
@@ -49,6 +50,30 @@ public class TutorialEventHandler : HighlightBehavior
     {
         //throw new System.NotImplementedException();
         _isShow = false;
+        //if (OnMagazineEnter.GetPersistentEventCount() > 0)
+        //    Gun.OnMagazineEneterd -= magazineEneterd;
+
+        //if (OnMagazineEject.GetPersistentEventCount() > 0)
+        //    Gun.OnMagazineEjected -= magazineEjected;
+
+        //if (Onbolt.GetPersistentEventCount() > 0)
+        //    Gun.Onbolted -= bolted;
+
+        //if (OnShootingModeChange.GetPersistentEventCount() > 0)
+        //{
+        //    Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
+        //    Gun.OnShootingModeChanged -= ShootingmodeChanged;
+        //}
+
+        //if (OnShoot.GetPersistentEventCount() > 0)
+        //    Gun.onShoot -= Shooted;
+
+        //if (_magazineControl != null)
+        //{
+        //    _magazineControl.OnMagazinePickup -= MagazinePickedUp;
+        //    _magazineControl.OnMagazinedrop -= MagazineDropped;
+        //    //Debug.Log("Magazine Pickedup");
+        //}
         OnEnd?.Invoke();
     }
 
@@ -57,51 +82,76 @@ public class TutorialEventHandler : HighlightBehavior
         //throw new System.NotImplementedException();
         _isShow = true;
         //_shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
-        if (OnMagazineEnter.GetPersistentEventCount()>0)
-            Gun.OnMagazineEneterd += () => 
-            { 
-                OnMagazineEnter.Invoke();
-            };
+        if (OnMagazineEnter.GetPersistentEventCount() > 0)
+            Gun.OnMagazineEneterd += magazineEneterd;
 
         if (OnMagazineEject.GetPersistentEventCount() > 0)
-            Gun.OnMagazineEjected += () => 
-            {
-                OnMagazineEject.Invoke();
-            };
+            Gun.OnMagazineEjected += magazineEjected;
 
         if (Onbolt.GetPersistentEventCount() > 0)
-            Gun.Onbolted += () =>
-            {
-                Onbolt.Invoke();
-            };
+            Gun.Onbolted += bolted;
 
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
             Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
-            Gun.OnShootingModeChanged += (mode) =>
-            {
-                Debug.Log("OnShootingModeChange");
-                OnShootingModeChange.Invoke();
-            };
+            Gun.OnShootingModeChanged += ShootingmodeChanged;
         }
-        
+
         if (OnShoot.GetPersistentEventCount() > 0)
-            Gun.onShoot += (b) => 
-            {
-                OnShoot.Invoke();
-            };
+            Gun.onShoot += Shooted;
 
         OnStart?.Invoke();
 
         if (_magazineControl != null)
         {
-            _magazineControl.OnMagazinePickup +=()=> OnMagazinePickup?.Invoke();
-            _magazineControl.OnMagazinedrop +=()=> OnMagazineDrop?.Invoke();
-            Debug.Log("Magazine Pickedup");
+            _magazineControl.OnMagazinePickup += MagazinePickedUp;
+            _magazineControl.OnMagazinedrop += MagazineDropped;
+            //Debug.Log("Magazine Pickedup");
         }
 
     }
 
+
+    private void magazineEneterd()
+    {
+        Debug.Log("magazineEneterd");
+        OnMagazineEnter.Invoke();
+    }  
+    private void magazineEjected()
+    {
+        Debug.Log("magazineEjected");
+        OnMagazineEject.Invoke();
+    }
+
+    private void bolted()
+    {
+        Debug.Log("bolted");
+        Onbolt.Invoke();
+    }
+
+    private void ShootingmodeChanged(ShootingMode mode)
+    {
+        Debug.Log("ShootingmodeChanged");
+        OnShootingModeChange.Invoke();
+    }
+
+    private void Shooted(bool shoot)
+    {
+        Debug.Log("Shooted");
+        OnShoot.Invoke();
+    }
+
+    private void MagazinePickedUp()
+    {
+        Debug.Log("MagazinePickedUp");
+        OnMagazinePickup?.Invoke();
+    } 
+    
+    private void MagazineDropped()
+    {
+        Debug.Log("MagazineDropped");
+        OnMagazineDrop?.Invoke();
+    }
     // Start is called before the first frame update
     void Start()
     {
