@@ -197,19 +197,20 @@ public class PlayerHandController : MonoBehaviour
     {
         if(boltControl != null && HasSelection())
         {
-            var distance = controller.localPosition - OldHandPosition;
 
+        //Rotation Base Calculation
+        
+            /*var distance = controller.localPosition - OldHandPosition;
             int direction = 0;
             var angle = Quaternion.Angle(Quaternion.LookRotation(distance), SelectedInteractable().rotation);
-
             if (angle > 90)
                 direction = 1;
-            else if (angle < 90)
+            else if (angle <= 90)
                 direction = -1;
-
             handPositionFloat = distance.magnitude * direction * 12;
-            OldHandPosition = controller.localPosition;
-            boltControl.MoveBolt(handPositionFloat);
+            OldHandPosition = controller.localPosition;*/
+
+            boltControl.MoveBolt(handPositionFloat, transform.position);
         }
     }
 }
