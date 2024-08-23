@@ -50,30 +50,30 @@ public class TutorialEventHandler : HighlightBehavior
     {
         //throw new System.NotImplementedException();
         _isShow = false;
-        //if (OnMagazineEnter.GetPersistentEventCount() > 0)
-        //    Gun.OnMagazineEneterd -= magazineEneterd;
+        if (OnMagazineEnter.GetPersistentEventCount() > 0)
+            Gun.OnMagazineEneterd -= magazineEneterd;
 
-        //if (OnMagazineEject.GetPersistentEventCount() > 0)
-        //    Gun.OnMagazineEjected -= magazineEjected;
+        if (OnMagazineEject.GetPersistentEventCount() > 0)
+            Gun.OnMagazineEjected -= magazineEjected;
 
-        //if (Onbolt.GetPersistentEventCount() > 0)
-        //    Gun.Onbolted -= bolted;
+        if (Onbolt.GetPersistentEventCount() > 0)
+            Gun.Onbolted -= bolted;
 
-        //if (OnShootingModeChange.GetPersistentEventCount() > 0)
-        //{
-        //    Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
-        //    Gun.OnShootingModeChanged -= ShootingmodeChanged;
-        //}
+        if (OnShootingModeChange.GetPersistentEventCount() > 0)
+        {
+            Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
+            Gun.OnShootingModeChanged -= ShootingmodeChanged;
+        }
 
-        //if (OnShoot.GetPersistentEventCount() > 0)
-        //    Gun.onShoot -= Shooted;
+        if (OnShoot.GetPersistentEventCount() > 0)
+            Gun.onShoot -= Shooted;
 
-        //if (_magazineControl != null)
-        //{
-        //    _magazineControl.OnMagazinePickup -= MagazinePickedUp;
-        //    _magazineControl.OnMagazinedrop -= MagazineDropped;
-        //    //Debug.Log("Magazine Pickedup");
-        //}
+        if (_magazineControl != null)
+        {
+            _magazineControl.OnMagazinePickup -= MagazinePickedUp;
+            _magazineControl.OnMagazinedrop -= MagazineDropped;
+            //Debug.Log("Magazine Pickedup");
+        }
         OnEnd?.Invoke();
     }
 

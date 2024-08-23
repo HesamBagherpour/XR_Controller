@@ -24938,7 +24938,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745171333}
-  - component: {fileID: 745171334}
   m_Layer: 0
   m_Name: Stage2 - MP5
   m_TagString: Untagged
@@ -24969,23 +24968,6 @@ Transform:
   - {fileID: 298700133}
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &745171334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745171332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Step: 0
-  _highlightObjects: []
-  _audioSource: {fileID: 0}
-  Behaviour: {fileID: 0}
-  AudioClip: {fileID: 0}
 --- !u!1 &746728222
 GameObject:
   m_ObjectHideFlags: 0
@@ -43927,7 +43909,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1233072346}
-  - component: {fileID: 1233072347}
   m_Layer: 0
   m_Name: Stage3 - AK47
   m_TagString: Untagged
@@ -43958,23 +43939,6 @@ Transform:
   - {fileID: 1942048553}
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1233072347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233072345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Step: 0
-  _highlightObjects: []
-  _audioSource: {fileID: 0}
-  Behaviour: {fileID: 0}
-  AudioClip: {fileID: 0}
 --- !u!1 &1233560958
 GameObject:
   m_ObjectHideFlags: 0
@@ -56077,7 +56041,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1642313913}
-  - component: {fileID: 1642313914}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Untagged
@@ -56100,23 +56063,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1642313914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642313912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Step: 0
-  _highlightObjects: []
-  _audioSource: {fileID: 0}
-  Behaviour: {fileID: 0}
-  AudioClip: {fileID: 0}
 --- !u!1 &1642667956
 GameObject:
   m_ObjectHideFlags: 0
@@ -71820,12 +71766,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfebf72233a57d459b2b54bba1c8e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FelayOnStart: 1
+  DelayOnStart: 2
   CurrentStep: -1
   tutorialSteps:
   - {fileID: 940400689}
   - {fileID: 717670160}
   - {fileID: 1870752776}
+  - {fileID: 1731282392}
+  - {fileID: 2091124194}
+  - {fileID: 116423082}
+  - {fileID: 1746338293}
+  - {fileID: 1776863147}
+  - {fileID: 110220605}
+  - {fileID: 1858202670}
+  - {fileID: 749229095}
+  - {fileID: 646515752}
   - {fileID: 1535657664}
   - {fileID: 832854791}
   - {fileID: 837349623}
@@ -71838,6 +71793,19 @@ MonoBehaviour:
   - {fileID: 1244968173}
   - {fileID: 910269837}
   - {fileID: 298700135}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  allsteps:
+  - {fileID: 940400689}
+  - {fileID: 717670160}
+  - {fileID: 1870752776}
   - {fileID: 1731282392}
   - {fileID: 2091124194}
   - {fileID: 116423082}
@@ -71847,12 +71815,21 @@ MonoBehaviour:
   - {fileID: 1858202670}
   - {fileID: 749229095}
   - {fileID: 646515752}
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnFinished:
-    m_PersistentCalls:
-      m_Calls: []
+  - {fileID: 0}
+  - {fileID: 1131594967}
+  - {fileID: 1658545850}
+  - {fileID: 2016078964}
+  - {fileID: 1244968173}
+  - {fileID: 910269837}
+  - {fileID: 298700135}
+  - {fileID: 0}
+  - {fileID: 1535657664}
+  - {fileID: 832854791}
+  - {fileID: 837349623}
+  - {fileID: 321385941}
+  - {fileID: 593372593}
+  - {fileID: 1942048555}
+  - {fileID: 0}
 --- !u!4 &2144598655
 Transform:
   m_ObjectHideFlags: 0

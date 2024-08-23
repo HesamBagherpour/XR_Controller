@@ -57,18 +57,43 @@ public class GunController : MonoBehaviour
         yield return new WaitForSeconds(5);
         GetInteractionManager().SelectEnter(xRDirectInteractor, xRGrabInteractable);
     }*/
-
-    public void AddGunReactionsToTrigger(Action startTrigger,Action endTrigger)
+    Action _startTrigger;
+    Action _endTrigger;
+    public void AddGunReactionsToTrigger(Action startTrigger, Action endTrigger)
     {
-        triggerControlLeft.OnTriggerStart = startTrigger;
-        triggerControlRight.OnTriggerStart = startTrigger;
-        triggerControlLeft.OnTriggerEnd = endTrigger;
-        triggerControlRight.OnTriggerEnd = endTrigger;
+        _startTrigger = startTrigger;
+        _endTrigger = endTrigger;
+        //triggerControlLeft.OnTriggerStart = startTrigger;
+        //triggerControlRight.OnTriggerStart = startTrigger;
+        //triggerControlLeft.OnTriggerEnd = endTrigger;
+        //triggerControlRight.OnTriggerEnd = endTrigger;
+
+        triggerControlLeft.OnTriggerStart = StartTrigger;
+        triggerControlRight.OnTriggerStart = StartTrigger;
+        triggerControlLeft.OnTriggerEnd = EndTrigger;
+        triggerControlRight.OnTriggerEnd = EndTrigger;
     }
+
+    //public void triggerStarted()
+    //{
+    //    startTrigger?.Invoke();
+    //}
+
+    public void StartTrigger()
+    {
+        Debug.Log("startTrigger");
+        _startTrigger?.Invoke();
+    }
+    public void EndTrigger()
+    {
+        Debug.Log("endTrigger");
+        _endTrigger?.Invoke();
+    }
+
 
     public void CancelShootOnGunReleased()
     {
-        if(GetSelectingInteractors().Count <= 0)
+        if (GetSelectingInteractors().Count <= 0)
         {
             GetFirstActiveHand().OnActionCancle();
         }
@@ -84,13 +109,13 @@ public class GunController : MonoBehaviour
     void GetFirstAttachColiders()
     {
         foreach (var colider in xRGrabInteractable.colliders)
-            if(colider != secondAttachColider && colider != boltColider)
+            if (colider != secondAttachColider && colider != boltColider)
                 firstAttachColliders.Add(colider.gameObject);
     }
 
     void MoveToState(IGunState state)
     {
-        if(gunState != null)
+        if (gunState != null)
             gunState.Exit();
 
         gunState = state;
@@ -100,7 +125,7 @@ public class GunController : MonoBehaviour
 
     public bool IsGunReadyToShoot()
     {
-        return gunState!= idle;
+        return gunState != idle;
     }
 
     List<IXRSelectInteractor> GetSelectingInteractors() { return xRGrabInteractable.interactorsSelecting; }
@@ -142,7 +167,7 @@ public class GunController : MonoBehaviour
 
     public void SetTwoHandRotationMode(XRGeneralGrabTransformer.TwoHandedRotationMode rotationMode)
     {
-        if(gunType != GunType.Pistol)
+        if (gunType != GunType.Pistol)
             grabTransformer.allowTwoHandedRotation = rotationMode;
     }
 
@@ -157,12 +182,12 @@ public class GunController : MonoBehaviour
 
     public void TriggerStay(float value, PlayerHand hand)
     {
-        if(firstSelectingHand.Hand == hand)
+        if (firstSelectingHand.Hand == hand)
             gunState.TriggerStay(value, GetFirstActiveHand());
     }
     public void TriggerCancel(PlayerHand hand)
     {
-        if(firstSelectingHand.Hand == hand)
+        if (firstSelectingHand.Hand == hand)
             gunState.TriggerCancel(GetFirstActiveHand());
     }
 
@@ -187,7 +212,7 @@ public class GunController : MonoBehaviour
                 Debug.Log("shootingMode.ChangeMode");
             }
         }
-        else if(gunType == GunType.Pistol)
+        else if (gunType == GunType.Pistol)
         {
             magazineReceiver.ForceRelease();
         }
@@ -195,24 +220,24 @@ public class GunController : MonoBehaviour
 
     public void Recoil()
     {
-        if(gunState != idle)
+        if (gunState != idle)
         {
             string animation = gunState == oneHandGrab ? "onehand" : "twohand";
-            recoil.CrossFade(animation,0.15f);
+            recoil.CrossFade(animation, 0.15f);
         }
     }
 
     internal TriggerControl GetFirstActiveHand()
     {
-        if(triggerControlRight.gameObject.activeSelf)
+        if (triggerControlRight.gameObject.activeSelf)
             return triggerControlRight;
-        else if(triggerControlLeft.gameObject.activeSelf)
+        else if (triggerControlLeft.gameObject.activeSelf)
             return triggerControlLeft;
         else return null;
     }
 
     internal void FirstAttachColidersSetActive(bool value)
-    {    
+    {
         foreach (var colider in firstAttachColliders)
             if (colider.activeSelf != value)
                 colider.SetActive(value);
@@ -253,7 +278,7 @@ public class GunController : MonoBehaviour
 
     void CancelSelectionsOnFirstSelectExit(SelectExitEventArgs args)
     {
-        if(!GetFirstSelectingInteractor().hasSelection)
+        if (!GetFirstSelectingInteractor().hasSelection)
             GetInteractionManager().CancelInteractableSelection(args.interactableObject);
     }
 }

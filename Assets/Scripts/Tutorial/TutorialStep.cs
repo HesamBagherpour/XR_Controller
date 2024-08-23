@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+
 //using DG.Tweening;
 using UnityEngine;
 
@@ -59,5 +61,6 @@ namespace ArioSoren.TutorialKit
         //    //seq.Append(_dialogueFrame.DOScale(0, 0.03f).From(1));
 
         //}
+
     }
 }

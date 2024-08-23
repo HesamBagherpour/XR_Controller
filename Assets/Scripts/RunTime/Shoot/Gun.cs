@@ -49,8 +49,9 @@ public abstract class Gun : MonoBehaviour
         ImpactHandler.Initialize();
         _shootingModeControl.OnShootingModeChange += (mode) => 
         {
+            Debug.Log("Gun OnShootingModeChange to " + mode);
             _shootingMode = mode;
-            OnShootingModeChanged(mode);
+            OnShootingModeChanged?.Invoke(mode);
         };
         //_shootingModeControl.OnShootingModeChange += OnShootingModeChanged;
         _boltControl.OnBoltPull = BoltPuller;
@@ -84,7 +85,7 @@ public abstract class Gun : MonoBehaviour
         {
             CurrentBullet = _currentMagazine.GetBullet();
             ReadyToPull = false;
-            Onbolted();
+            Onbolted?.Invoke();
         }
     }
 
@@ -102,6 +103,7 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
+        Debug.Log("shoot");
         //if (!_gunController.IsGunReadyToShoot())
             //return;
 
