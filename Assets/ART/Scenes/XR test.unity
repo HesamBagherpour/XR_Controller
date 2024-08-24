@@ -11804,7 +11804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 23
+  Step: 24
   _highlightObjects:
   - {fileID: 985829035}
   - {fileID: 1630831798}
@@ -15793,6 +15793,119 @@ Transform:
   - {fileID: 872494871}
   m_Father: {fileID: 743232515}
   m_LocalEulerAnglesHint: {x: 3.3767018, y: -0.2661741, z: 175.48598}
+--- !u!1 &401912009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401912010}
+  - component: {fileID: 401912012}
+  - component: {fileID: 401912011}
+  m_Layer: 0
+  m_Name: AK47-5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &401912010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401912009}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1233072346}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &401912011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401912009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 5526829057820088975}
+  _gunController: {fileID: 1675259113}
+  _nearGunDistance: 0.7
+  Gun: {fileID: 1675259112}
+  _magazineControl: {fileID: 0}
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDropGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetNearGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetFarGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazinePickup:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartMovement:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &401912012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401912009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Step: 17
+  _highlightObjects:
+  - {fileID: 1857883987}
+  _audioSource: {fileID: 0}
+  Behaviour: {fileID: 401912011}
+  AudioClip: {fileID: 0}
 --- !u!1 &404392567
 GameObject:
   m_ObjectHideFlags: 0
@@ -24953,6 +25066,7 @@ Transform:
   - {fileID: 2016078962}
   - {fileID: 1244968171}
   - {fileID: 910269835}
+  - {fileID: 2045984784}
   - {fileID: 298700133}
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43924,6 +44038,7 @@ Transform:
   - {fileID: 837349621}
   - {fileID: 321385939}
   - {fileID: 593372591}
+  - {fileID: 401912010}
   - {fileID: 1942048553}
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65219,7 +65334,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 18
+          m_IntArgument: 19
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -65239,7 +65354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 17
+  Step: 18
   _highlightObjects:
   - {fileID: 148625460}
   - {fileID: 1996000516}
@@ -69023,6 +69138,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044257482}
   m_CullTransparentMesh: 1
+--- !u!1 &2045984783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045984784}
+  - component: {fileID: 2045984786}
+  - component: {fileID: 2045984785}
+  m_Layer: 0
+  m_Name: Mp5-5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045984784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045984783}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745171333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2045984785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045984783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 5526829057820088975}
+  _gunController: {fileID: 1941879221}
+  _nearGunDistance: 0.7
+  Gun: {fileID: 1941879220}
+  _magazineControl: {fileID: 0}
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDropGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetNearGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetFarGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazinePickup:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartMovement:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2045984786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045984783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Step: 23
+  _highlightObjects:
+  - {fileID: 1006174713}
+  _audioSource: {fileID: 0}
+  Behaviour: {fileID: 2045984785}
+  AudioClip: {fileID: 0}
 --- !u!1 &2048322811
 GameObject:
   m_ObjectHideFlags: 0
@@ -71774,12 +72002,14 @@ MonoBehaviour:
   - {fileID: 837349623}
   - {fileID: 321385941}
   - {fileID: 593372593}
+  - {fileID: 401912012}
   - {fileID: 1942048555}
   - {fileID: 1131594967}
   - {fileID: 1658545850}
   - {fileID: 2016078964}
   - {fileID: 1244968173}
   - {fileID: 910269837}
+  - {fileID: 2045984786}
   - {fileID: 298700135}
   OnStart:
     m_PersistentCalls:
