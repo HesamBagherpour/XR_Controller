@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -10,6 +11,9 @@ public class MagazineControl : MonoBehaviour
    [SerializeField] private BulletScriptableObject bulletRefrence;
    [SerializeField] private Grabbable grabInteractable;
 
+    public Action OnMagazinePickup;
+    public Action OnMagazinedrop;
+
     //[Serializable]
     //public class BulletData
     //{
@@ -21,8 +25,14 @@ public class MagazineControl : MonoBehaviour
 
     void Start()
     {
+        //grabInteractable.selectEntered.RemoveAllListeners();
+        //grabInteractable.selectExited.RemoveAllListeners();
         grabInteractable.selectEntered.AddListener(SelectEntered);
+        //if (OnMagazinePickup!=null)
+        //grabInteractable.selectEntered.AddListener((_)=>OnMagazinePickup?.Invoke());
         grabInteractable.selectExited.AddListener(SelectExited);
+        //if (OnMagazinedrop != null)
+        //    grabInteractable.selectEntered.AddListener((_) => OnMagazinedrop?.Invoke());
 
 #if UnlimitedAmmo
         bullets = 9999999;
@@ -32,17 +42,23 @@ public class MagazineControl : MonoBehaviour
 
     private void OnDestroy()
     {
-        grabInteractable.selectEntered.RemoveListener(SelectEntered);
-        grabInteractable.selectExited.AddListener(SelectExited);
+        //grabInteractable.selectEntered.RemoveListener(SelectEntered);
+        grabInteractable.selectEntered.RemoveAllListeners();
+        //grabInteractable.selectExited.RemoveListener(SelectExited);
+        grabInteractable.selectExited.RemoveAllListeners();
     }
 
     void SelectEntered(SelectEnterEventArgs args)
     {
         SetGrabActive(true);
+        if (OnMagazinePickup != null)
+            OnMagazinePickup?.Invoke();
     }
     void SelectExited(SelectExitEventArgs args)
     {
         StartCoroutine(DelayToDeselect());
+        if (OnMagazinedrop != null)
+             OnMagazinedrop?.Invoke();
     }
 
     IEnumerator DelayToDeselect()

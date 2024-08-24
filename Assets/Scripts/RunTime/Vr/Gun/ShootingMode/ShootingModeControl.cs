@@ -40,6 +40,8 @@ public class ShootingModeControl : MonoBehaviour
 
     public void ChangeMode(ChangeModeDirection direction)
     {
+        Debug.Log("ChangeMode");
+
         if(type == ModeType.rifle)
         {
             var modeId = (int)mode + (int)direction;
@@ -48,6 +50,7 @@ public class ShootingModeControl : MonoBehaviour
             {
                 mode = (ShootingMode)modeId;
                 PlayChangingModeAnimation(mode.ToString());
+                Debug.Log("ChangeMode rifle");
                 OnShootingModeChange?.Invoke(mode);
                 audioSource.Play();
             }
@@ -56,7 +59,9 @@ public class ShootingModeControl : MonoBehaviour
         {
             mode = mode == ShootingMode.safety? ShootingMode.semi : ShootingMode.safety;
             PlayChangingModeAnimation(mode.ToString());
+            Debug.Log("ChangeMode pistol");
             OnShootingModeChange?.Invoke(mode);
+            Debug.Log("Pistol");
             audioSource.Play();
         }
     }

@@ -11,7 +11,7 @@ public class TriggerControl : MonoBehaviour
 
     public Action OnTriggerStart;
     public Action OnTriggerEnd;
-    bool readyToShoot = true;
+    public bool readyToShoot = true;
 
     void Start()
     {
@@ -22,19 +22,19 @@ public class TriggerControl : MonoBehaviour
     {
         fingerAnimator.SetFloat("TriggerValue", value);
         triggerAnimator.SetFloat("Trigger", value);
-
-        if (value > 0.7)
-        {
-            if (readyToShoot)
-            {
-                OnTriggerStart?.Invoke();
-                readyToShoot = false;
-            }
-        }
-        else if(value < 0.4)
-        {
-            readyToShoot = true;
-        }
+        OnTriggerStart?.Invoke();
+        //if (value > 0.7)
+        //{
+        //    if (readyToShoot)
+        //    {
+        //        OnTriggerStart?.Invoke();
+        //        readyToShoot = false;
+        //    }
+        //}
+        //else if(value < 0.4)
+        //{
+        //    readyToShoot = true;
+        //}
     }
 
     public void OnActionCancle()

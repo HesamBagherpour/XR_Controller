@@ -13,6 +13,11 @@ public abstract class Gun : MonoBehaviour
     public LayerMask ValidLayers;
     public GunType GunType;
     public Action<bool> onShoot;
+    public Action OnMagazineEneterd;
+    public Action OnMagazineEjected;
+    public Action Onbolted;
+    public Action<ShootingMode> OnShootingModeChanged;
+
 
     private BulletScriptableObject CurrentBullet;//bullet  in gun
     private bool clipReady;
@@ -42,7 +47,13 @@ public abstract class Gun : MonoBehaviour
     {
         Initialize();
         ImpactHandler.Initialize();
-        _shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
+        _shootingModeControl.OnShootingModeChange += (mode) => 
+        {
+            Debug.Log("Gun OnShootingModeChange to " + mode);
+            _shootingMode = mode;
+            OnShootingModeChanged?.Invoke(mode);
+        };
+        //_shootingModeControl.OnShootingModeChange += OnShootingModeChanged;
         _boltControl.OnBoltPull = BoltPuller;
         _boltControl.OnReadyToPull = () => ReadyToPull = true;
         _magazineReceiver.OnMagazineSelectEnter += (t) =>
@@ -52,11 +63,13 @@ public abstract class Gun : MonoBehaviour
             {
                 clipReady = true;
             }
+            OnMagazineEneterd?.Invoke();
         };
         _magazineReceiver.OnMagazineSelectExit += () =>
         {
             clipReady = false;
             _currentMagazine = null;
+            OnMagazineEjected?.Invoke();
         };
     }
 
@@ -72,6 +85,7 @@ public abstract class Gun : MonoBehaviour
         {
             CurrentBullet = _currentMagazine.GetBullet();
             ReadyToPull = false;
+            Onbolted?.Invoke();
         }
     }
 
@@ -89,6 +103,7 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
+        Debug.Log("shoot");
         //if (!_gunController.IsGunReadyToShoot())
             //return;
 

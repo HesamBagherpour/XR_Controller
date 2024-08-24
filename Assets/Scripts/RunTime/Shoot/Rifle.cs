@@ -10,9 +10,17 @@ public class Rifle : Gun
 
     public override void DoAction()
     {
-        //Debug.Log("DoAction");
-        if (!_readyToShoot || _shootingMode == ShootingMode.safety)
+        Debug.Log("DoAction");
+        if (!_readyToShoot)
+        {
+            Debug.Log("not ready to shoot");
             return;
+        }
+        if (_shootingMode == ShootingMode.safety)
+        {
+            Debug.Log("_shootingMode is safety");
+            return;
+        }
 
         if(_currentMagazine != null)
         {
@@ -26,6 +34,8 @@ public class Rifle : Gun
             _readyToShoot = false;
             _lastShootTime = Time.time;
         }
+        else
+            Debug.Log("magazine is null");
     }
 
     protected override void Initialize()
