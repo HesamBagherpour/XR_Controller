@@ -71793,43 +71793,12 @@ MonoBehaviour:
   - {fileID: 1244968173}
   - {fileID: 910269837}
   - {fileID: 298700135}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
   OnFinished:
     m_PersistentCalls:
       m_Calls: []
-  allsteps:
-  - {fileID: 940400689}
-  - {fileID: 717670160}
-  - {fileID: 1870752776}
-  - {fileID: 1731282392}
-  - {fileID: 2091124194}
-  - {fileID: 116423082}
-  - {fileID: 1746338293}
-  - {fileID: 1776863147}
-  - {fileID: 110220605}
-  - {fileID: 1858202670}
-  - {fileID: 749229095}
-  - {fileID: 646515752}
-  - {fileID: 0}
-  - {fileID: 1131594967}
-  - {fileID: 1658545850}
-  - {fileID: 2016078964}
-  - {fileID: 1244968173}
-  - {fileID: 910269837}
-  - {fileID: 298700135}
-  - {fileID: 0}
-  - {fileID: 1535657664}
-  - {fileID: 832854791}
-  - {fileID: 837349623}
-  - {fileID: 321385941}
-  - {fileID: 593372593}
-  - {fileID: 1942048555}
-  - {fileID: 0}
 --- !u!4 &2144598655
 Transform:
   m_ObjectHideFlags: 0
