@@ -7693,6 +7693,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -7969,6 +7972,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -11786,6 +11792,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -11804,7 +11813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 24
+  Step: 25
   _highlightObjects:
   - {fileID: 985829035}
   - {fileID: 1630831798}
@@ -12567,6 +12576,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -15882,6 +15894,21 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2144598654}
+        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
+        m_MethodName: GotoStep
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 18
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -21779,6 +21806,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -23169,6 +23199,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -24284,6 +24317,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -25244,6 +25280,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -30334,6 +30373,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -30601,6 +30643,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -32325,11 +32370,14 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 23
+          m_IntArgument: 24
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -32348,7 +32396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 22
+  Step: 23
   _highlightObjects:
   - {fileID: 248679844}
   _audioSource: {fileID: 0}
@@ -33047,6 +33095,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -41702,7 +41753,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 19
+          m_IntArgument: 20
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -41740,21 +41791,12 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2144598654}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
-        m_MethodName: GotoStep
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 19
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
@@ -41770,7 +41812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 18
+  Step: 19
   _highlightObjects:
   - {fileID: 1165487805}
   - {fileID: 1630831798}
@@ -44799,12 +44841,15 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 22
+          m_IntArgument: 23
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -44825,7 +44870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 21
+  Step: 22
   _highlightObjects:
   - {fileID: 1770122172}
   - {fileID: 1806192380}
@@ -52255,6 +52300,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -56374,7 +56422,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 21
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -56400,6 +56448,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -56418,7 +56469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 19
+  Step: 20
   _highlightObjects:
   - {fileID: 1446066871}
   _audioSource: {fileID: 0}
@@ -58734,6 +58785,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -58954,6 +59008,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -59792,6 +59849,12 @@ MonoBehaviour:
       m_Calls: []
   Onbolt:
     m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2144598654}
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
@@ -59805,9 +59868,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnShootingModeChange:
-    m_PersistentCalls:
-      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -61483,6 +61543,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -61755,6 +61818,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -65324,6 +65390,9 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -68564,7 +68633,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 21
+          m_IntArgument: 22
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -68582,6 +68651,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:
@@ -68602,7 +68674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 20
+  Step: 21
   _highlightObjects:
   - {fileID: 1446066871}
   - {fileID: 783764542}
@@ -69227,6 +69299,21 @@ MonoBehaviour:
   OnShootingModeChange:
     m_PersistentCalls:
       m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2144598654}
+        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
+        m_MethodName: GotoStep
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 25
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -69245,7 +69332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 23
+  Step: 24
   _highlightObjects:
   - {fileID: 1006174713}
   _audioSource: {fileID: 0}
@@ -70419,6 +70506,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
     m_PersistentCalls:
       m_Calls: []
   OnShoot:

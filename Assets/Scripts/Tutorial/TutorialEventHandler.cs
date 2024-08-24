@@ -31,6 +31,7 @@ public class TutorialEventHandler : HighlightBehavior
     public UnityEvent OnStartrotate;
     public UnityEvent Onbolt;
     public UnityEvent OnShootingModeChange;
+    public UnityEvent OnGrabTwoHanded;
     public UnityEvent OnShoot;
     public UnityEvent OnEnd;
 
@@ -50,6 +51,10 @@ public class TutorialEventHandler : HighlightBehavior
     {
         //throw new System.NotImplementedException();
         _isShow = false;
+        if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
+        {
+            _gunController.onTwoHandedGrab -= TwoHandedGrabed;
+        }
         if (OnMagazineEnter.GetPersistentEventCount() > 0)
             Gun.OnMagazineEneterd -= magazineEneterd;
 
@@ -58,7 +63,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (Onbolt.GetPersistentEventCount() > 0)
             Gun.Onbolted -= bolted;
-
+        
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
             Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
@@ -76,11 +81,14 @@ public class TutorialEventHandler : HighlightBehavior
         }
         OnEnd?.Invoke();
     }
-
     public override void Show()
     {
         //throw new System.NotImplementedException();
         _isShow = true;
+        if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
+        {
+            _gunController.onTwoHandedGrab += TwoHandedGrabed;
+        }
         //_shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         if (OnMagazineEnter.GetPersistentEventCount() > 0)
             Gun.OnMagazineEneterd += magazineEneterd;
@@ -90,7 +98,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (Onbolt.GetPersistentEventCount() > 0)
             Gun.Onbolted += bolted;
-
+        
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
             Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
@@ -128,7 +136,11 @@ public class TutorialEventHandler : HighlightBehavior
         Debug.Log("bolted");
         Onbolt.Invoke();
     }
-
+    private void TwoHandedGrabed()
+    {
+        Debug.Log("Two Handed Grab");
+        OnGrabTwoHanded?.Invoke();
+    }
     private void ShootingmodeChanged(ShootingMode mode)
     {
         Debug.Log("ShootingmodeChanged");

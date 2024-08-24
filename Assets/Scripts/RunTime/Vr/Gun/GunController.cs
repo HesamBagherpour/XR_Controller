@@ -38,7 +38,8 @@ public class GunController : MonoBehaviour
     Idle idle = new Idle();
     OneHandGrab oneHandGrab = new OneHandGrab();
     TwoHandGrab twoHandGrab = new TwoHandGrab();
-
+    public Action onTwoHandedGrab;
+    
     PlayerHandController firstSelectingHand;
 
     void Start()
@@ -143,6 +144,8 @@ public class GunController : MonoBehaviour
                 MoveToState(oneHandGrab);
                 break;
             case 2:
+                if (xRGrabInteractable.secondaryAttachTransform == secondAttachPoint)
+                    onTwoHandedGrab?.Invoke();
                 MoveToState(twoHandGrab);
                 break;
         }
