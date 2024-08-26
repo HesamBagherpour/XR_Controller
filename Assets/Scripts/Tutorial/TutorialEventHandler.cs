@@ -6,10 +6,11 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TutorialEventHandler : HighlightBehavior
 {
-    private bool _isShow=false;
+    private bool _isShow = false;
     //[SerializeField] private ShootingModeControl _shootingModeControl;
     [SerializeField] private GameObject _player;
     [SerializeField] private GunController _gunController;
@@ -63,7 +64,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (Onbolt.GetPersistentEventCount() > 0)
             Gun.Onbolted -= bolted;
-        
+
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
             Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
@@ -98,7 +99,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (Onbolt.GetPersistentEventCount() > 0)
             Gun.Onbolted += bolted;
-        
+
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
             Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
@@ -116,7 +117,6 @@ public class TutorialEventHandler : HighlightBehavior
             _magazineControl.OnMagazinedrop += MagazineDropped;
             //Debug.Log("Magazine Pickedup");
         }
-
     }
 
 
@@ -124,7 +124,7 @@ public class TutorialEventHandler : HighlightBehavior
     {
         Debug.Log("magazineEneterd");
         OnMagazineEnter.Invoke();
-    }  
+    }
     private void magazineEjected()
     {
         Debug.Log("magazineEjected");
@@ -157,8 +157,8 @@ public class TutorialEventHandler : HighlightBehavior
     {
         Debug.Log("MagazinePickedUp");
         OnMagazinePickup?.Invoke();
-    } 
-    
+    }
+
     private void MagazineDropped()
     {
         Debug.Log("MagazineDropped");
@@ -219,14 +219,14 @@ public class TutorialEventHandler : HighlightBehavior
             float distance = Vector3.Distance(_player.transform.position,
                 _playerMovementData.InitialPosition);
 
-//            Debug.Log("distance=" + distance);
+            //            Debug.Log("distance=" + distance);
             if (distance > _playerMovementData.deltaDistance)
             {
                 OnStartMovement?.Invoke();
                 _playerMovementData.IsEventCalled = true;
             }
-        }   
-        
+        }
+
         if ((OnStartrotate.GetPersistentEventCount() > 0) && (!_playerRotationData.IsEventCalled))
         {
             float distance = Quaternion.Angle(_player.transform.rotation,

@@ -3,6 +3,7 @@ using System.Linq;
 
 //using DG.Tweening;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace ArioSoren.TutorialKit
 {
@@ -24,6 +25,11 @@ namespace ArioSoren.TutorialKit
             foreach (GameObject go in _highlightObjects)
             {
                 go.SetActive(true);
+                var grabable = go.GetComponent<XRGrabInteractable>();
+                if (grabable != null)
+                {
+                    grabable.enabled = true;
+                }
             }
             if (Behaviour != null)
                 Behaviour.Show();
@@ -44,6 +50,11 @@ namespace ArioSoren.TutorialKit
             foreach (GameObject go in _highlightObjects)
             {
                 go.SetActive(false);
+                var grabable = go.GetComponent<XRGrabInteractable>();
+                if (grabable != null)
+                {
+                    grabable.enabled = false;
+                }
             }
 
             if (Behaviour != null)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace ArioSoren.TutorialKit
 {
@@ -16,6 +17,8 @@ namespace ArioSoren.TutorialKit
         public int CurrentStep = -1;
 
         [SerializeField] private List<TutorialStep> tutorialSteps;
+        [SerializeField] private List<XRGrabInteractable> _grabables;
+
         public UnityEvent OnStart;
         public UnityEvent OnFinished;
 
@@ -23,6 +26,9 @@ namespace ArioSoren.TutorialKit
         private void Start()
         {
             StartCoroutine(DelayStart());
+            //_grabables=GetComponentsInChildren<XRGrabInteractable>().ToList();
+            foreach (var item in _grabables)
+                item.enabled = false;
         }
 
         IEnumerator DelayStart()
@@ -48,6 +54,9 @@ namespace ArioSoren.TutorialKit
         }
         public void GotoStep(int step)
         {
+            if (step - 1 != CurrentStep)
+                return;
+
             Debug.Log("TutorialSegment GotoStep " + step);
             HideStep(step - 1);
             if (step >= tutorialSteps.Count)
