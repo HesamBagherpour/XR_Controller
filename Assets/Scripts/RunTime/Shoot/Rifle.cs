@@ -3,9 +3,9 @@
 public class Rifle : Gun
 {
     [SerializeField] private float _durationBetweenShoot = .2f;
-    [SerializeField] private bool _readyToShoot;
+    private bool _readyToShoot;
     private float _lastShootTime;
-    [SerializeField] private bool GunTriggered;
+    private bool GunTriggered;
     //private int brustshotingCount = 0;
 
     public override void DoAction()

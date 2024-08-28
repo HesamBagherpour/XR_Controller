@@ -7639,6 +7639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 1
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -7922,6 +7923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -11764,6 +11766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -11865,7 +11868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 26
+  Step: 27
   NextStep: -1
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
@@ -12564,6 +12567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -15918,6 +15922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -21844,6 +21849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -23253,6 +23259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 1
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -24090,6 +24097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 1
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -24586,6 +24594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 0}
   _nearGunDistance: 0
@@ -25543,6 +25552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -30670,6 +30680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -30932,6 +30943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -32712,6 +32724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -32801,8 +32814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 24
-  NextStep: 25
+  Step: 25
+  NextStep: 26
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 248679844}
@@ -33448,6 +33461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 0}
   _nearGunDistance: 0.7
@@ -40211,6 +40225,174 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1049802238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049802239}
+  - component: {fileID: 1049802241}
+  - component: {fileID: 1049802240}
+  m_Layer: 0
+  m_Name: AK47-7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1049802239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049802238}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1233072346}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1049802240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049802238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowShoot: 1
+  _player: {fileID: 5526829057820088975}
+  _gunController: {fileID: 1675259113}
+  _nearGunDistance: 0.7
+  Gun: {fileID: 1675259112}
+  _magazineControl: {fileID: 0}
+  OnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1996000517}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: handOnTriggerAk47_R
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGrabGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDropGun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049802240}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGetNearGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetFarGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazinePickup:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartMovement:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1675259124}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1386719883}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1049802241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049802238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Step: 20
+  NextStep: 21
+  _tutorialSegment: {fileID: 0}
+  _highlightObjects:
+  - {fileID: 148625460}
+  - {fileID: 1996000516}
+  _audioSource: {fileID: 0}
+  Behaviour: {fileID: 1049802240}
+  AudioClip: {fileID: 0}
 --- !u!1 &1050608993
 GameObject:
   m_ObjectHideFlags: 0
@@ -42132,6 +42314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -42269,8 +42452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 20
-  NextStep: 21
+  Step: 21
+  NextStep: 22
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1165487805}
@@ -44541,6 +44724,7 @@ Transform:
   - {fileID: 593372591}
   - {fileID: 401912010}
   - {fileID: 1942048553}
+  - {fileID: 1049802239}
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1233560958
@@ -45240,6 +45424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -45341,8 +45526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 23
-  NextStep: 24
+  Step: 24
+  NextStep: 25
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1770122172}
@@ -52694,6 +52879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -56928,6 +57114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -57017,8 +57204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 21
-  NextStep: 22
+  Step: 22
+  NextStep: 23
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1446066871}
@@ -59281,6 +59468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -59530,6 +59718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -60387,6 +60576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -62045,6 +62235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 1
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -62372,6 +62563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -66002,6 +66194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 1
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -66102,7 +66295,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1386719883}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -66114,7 +66307,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1942048555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69291,6 +69484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -69392,8 +69586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 22
-  NextStep: 23
+  Step: 23
+  NextStep: 24
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1446066871}
@@ -69975,6 +70169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -70064,8 +70259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 25
-  NextStep: 26
+  Step: 26
+  NextStep: 27
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1006174713}
@@ -71174,6 +71369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -72861,6 +73057,7 @@ MonoBehaviour:
   - {fileID: 593372593}
   - {fileID: 401912012}
   - {fileID: 1942048555}
+  - {fileID: 1049802241}
   - {fileID: 1131594967}
   - {fileID: 1658545850}
   - {fileID: 2016078964}

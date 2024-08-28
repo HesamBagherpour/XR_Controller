@@ -17,6 +17,7 @@ public abstract class Gun : MonoBehaviour
     public Action OnMagazineEjected;
     public Action Onbolted;
     public Action<ShootingMode> OnShootingModeChanged;
+    public bool AllowShoot;
 
 
     private BulletScriptableObject CurrentBullet;//bullet  in gun
@@ -106,6 +107,7 @@ public abstract class Gun : MonoBehaviour
         //Debug.Log("shoot");
         //if (!_gunController.IsGunReadyToShoot())
             //return;
+            if (!AllowShoot) return;
 
         if (CurrentBullet == null)
         {
@@ -173,6 +175,10 @@ public abstract class Gun : MonoBehaviour
             matType.ShowImpact(data);
     }
 
+    public void SetAllowShoot(bool allow)
+    {
+        AllowShoot=allow;
+    }
 
     public class HitData
     {

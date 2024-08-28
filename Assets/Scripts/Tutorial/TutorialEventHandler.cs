@@ -1,25 +1,17 @@
 using ArioSoren.TutorialKit;
-using System;
-
-//using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class TutorialEventHandler : HighlightBehavior
 {
-    private bool _isShow = false;
-    //[SerializeField] private ShootingModeControl _shootingModeControl;
+    public bool AllowShoot;
     [SerializeField] private GameObject _player;
     [SerializeField] private GunController _gunController;
     [SerializeField] private float _nearGunDistance;
     [SerializeField] private Gun Gun;
     [SerializeField] private MagazineControl _magazineControl;
-    //public Action OnStepEnd;
 
     public UnityEvent OnStart;
     public UnityEvent OnGrabGun;
@@ -48,11 +40,11 @@ public class TutorialEventHandler : HighlightBehavior
     private Material HandsMaterial;
     private playerMovementData _playerMovementData;
     private playerRotationData _playerRotationData;
+    private bool _isShow = false;
 
 
     public override void Hide()
     {
-        //throw new System.NotImplementedException();
         _isShow = false;
         if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
         {
@@ -80,19 +72,18 @@ public class TutorialEventHandler : HighlightBehavior
         {
             _magazineControl.OnMagazinePickup -= MagazinePickedUp;
             _magazineControl.OnMagazinedrop -= MagazineDropped;
-            //Debug.Log("Magazine Pickedup");
         }
         OnEnd?.Invoke();
     }
     public override void Show()
     {
-        //throw new System.NotImplementedException();
+        if (Gun != null)
+            Gun.SetAllowShoot(AllowShoot);
         _isShow = true;
         if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
         {
             _gunController.onTwoHandedGrab += TwoHandedGrabed;
         }
-        //_shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         if (OnMagazineEnter.GetPersistentEventCount() > 0)
             Gun.OnMagazineEneterd += magazineEneterd;
 
@@ -117,7 +108,6 @@ public class TutorialEventHandler : HighlightBehavior
         {
             _magazineControl.OnMagazinePickup += MagazinePickedUp;
             _magazineControl.OnMagazinedrop += MagazineDropped;
-            //Debug.Log("Magazine Pickedup");
         }
     }
 
