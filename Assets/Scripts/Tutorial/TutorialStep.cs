@@ -9,7 +9,9 @@ namespace ArioSoren.TutorialKit
 {
     public class TutorialStep : MonoBehaviour
     {
-        public int Step;
+        [ReadOnly]public int Step;
+        public int NextStep;
+        [HideInInspector] public TutorialSegment _tutorialSegment;
         [SerializeField] private List<GameObject> _highlightObjects;
         [SerializeField] private AudioSource _audioSource;
 
@@ -18,7 +20,7 @@ namespace ArioSoren.TutorialKit
         public AudioClip AudioClip;
 
 
-        
+
         public void ShowStep()
         {
             Debug.Log($"Step {Step} Show");
@@ -36,6 +38,8 @@ namespace ArioSoren.TutorialKit
 
             if (AudioClip != null)
                 _audioSource.PlayOneShot(AudioClip);
+            Behaviour.OnEndStep = () => _tutorialSegment.GotoStep(NextStep);
+
         }
 
         private void OpenDialogue()

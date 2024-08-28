@@ -10,10 +10,10 @@ public class Rifle : Gun
 
     public override void DoAction()
     {
-        Debug.Log("DoAction");
+        //Debug.Log("DoAction");
         if (!_readyToShoot)
         {
-            Debug.Log("not ready to shoot");
+            //Debug.Log("not ready to shoot");
             return;
         }
         if (_shootingMode == ShootingMode.safety)

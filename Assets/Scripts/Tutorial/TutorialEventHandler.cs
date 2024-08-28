@@ -1,4 +1,6 @@
 using ArioSoren.TutorialKit;
+using System;
+
 //using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +19,7 @@ public class TutorialEventHandler : HighlightBehavior
     [SerializeField] private float _nearGunDistance;
     [SerializeField] private Gun Gun;
     [SerializeField] private MagazineControl _magazineControl;
-
+    //public Action OnStepEnd;
 
     public UnityEvent OnStart;
     public UnityEvent OnGrabGun;
@@ -268,7 +270,10 @@ public class TutorialEventHandler : HighlightBehavior
             alphaInc *= -1;
     }
 
-
+    public void EndStep()
+    {
+        OnEndStep?.Invoke();
+    }
 }
 
 public struct playerMovementData

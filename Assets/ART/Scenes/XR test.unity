@@ -7619,6 +7619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 8
+  NextStep: 9
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1134020703}
   - {fileID: 348270583}
@@ -7715,6 +7717,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 110220606}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7888,6 +7902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 5
+  NextStep: 6
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1759754578}
   - {fileID: 97597594}
@@ -7963,6 +7979,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 116423083}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11837,7 +11865,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 25
+  Step: 26
+  NextStep: -1
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 985829035}
   - {fileID: 1630831798}
@@ -12598,6 +12628,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 321385940}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 16
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnShootingModeChange:
     m_PersistentCalls:
@@ -12623,7 +12665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 15
+  Step: 16
+  NextStep: 17
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1817591326}
   - {fileID: 798838744}
@@ -15932,6 +15976,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 401912011}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 18
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnShoot:
     m_PersistentCalls:
@@ -15951,7 +16007,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 17
+  Step: 18
+  NextStep: 19
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1857883987}
   _audioSource: {fileID: 0}
@@ -21841,6 +21899,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 593372592}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnGrabTwoHanded:
     m_PersistentCalls:
@@ -21863,7 +21933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 16
+  Step: 17
+  NextStep: 18
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 271166351}
   _audioSource: {fileID: 0}
@@ -23161,6 +23233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 11
+  NextStep: 12
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1118048806}
   - {fileID: 348270583}
@@ -23264,6 +23338,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 646515753}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 12
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnEnd:
     m_PersistentCalls:
@@ -23279,7 +23365,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1461597026}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -23291,7 +23377,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 2121546161}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -23303,7 +23389,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!1 &650459897
 GameObject:
   m_ObjectHideFlags: 0
@@ -23959,6 +24045,185 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1549272880}
   m_LocalEulerAnglesHint: {x: 0.000015170555, y: -138.31865, z: -180}
+--- !u!1 &692397531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692397532}
+  - component: {fileID: 692397534}
+  - component: {fileID: 692397533}
+  m_Layer: 0
+  m_Name: PistolEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &692397532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692397531}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1275752039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &692397533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692397531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 5526829057820088975}
+  _gunController: {fileID: 2802537975212267263}
+  _nearGunDistance: 0.7
+  Gun: {fileID: 2802537975212267264}
+  _magazineControl: {fileID: 0}
+  OnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 348270584}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: shootingBretta
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGrabGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDropGun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 692397533}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGetNearGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetFarGun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazinePickup:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMagazineEject:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartMovement:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartrotate:
+    m_PersistentCalls:
+      m_Calls: []
+  Onbolt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootingModeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabTwoHanded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2802537975212267270}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1461597026}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2121546161}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &692397534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692397531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Step: 12
+  NextStep: 13
+  _tutorialSegment: {fileID: 0}
+  _highlightObjects:
+  - {fileID: 1118048806}
+  - {fileID: 348270583}
+  _audioSource: {fileID: 0}
+  Behaviour: {fileID: 692397533}
+  AudioClip: {fileID: 0}
 --- !u!1 &694468763
 GameObject:
   m_ObjectHideFlags: 0
@@ -24370,6 +24635,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 717670159}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   Onbolt:
     m_PersistentCalls:
@@ -24399,6 +24676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 1
+  NextStep: 2
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 511833483}
   _audioSource: {fileID: 2144598656}
@@ -25244,6 +25523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 10
+  NextStep: 11
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 657842452}
   - {fileID: 25897501}
@@ -25331,6 +25612,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 11
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 749229096}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -30400,18 +30693,6 @@ MonoBehaviour:
   OnMagazinePickup:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2144598654}
-        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
-        m_MethodName: GotoStep
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 14
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1877359082}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
@@ -30423,6 +30704,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: magazineAk47_RAction_001
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2144598654}
+        m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
+        m_MethodName: GotoStep
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 832854790}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnMagazineDrop:
     m_PersistentCalls:
@@ -30466,7 +30771,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 13
+  Step: 14
+  NextStep: 15
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 384862028}
   _audioSource: {fileID: 0}
@@ -30701,6 +31008,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 837349622}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnMagazineEject:
     m_PersistentCalls:
@@ -30738,7 +31057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 14
+  Step: 15
+  NextStep: 16
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 384862028}
   - {fileID: 1877359081}
@@ -32446,6 +32767,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 910269836}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 24
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnGrabTwoHanded:
     m_PersistentCalls:
@@ -32468,7 +32801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 23
+  Step: 24
+  NextStep: 25
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 248679844}
   _audioSource: {fileID: 0}
@@ -33159,6 +33494,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 940400688}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnStartrotate:
     m_PersistentCalls:
@@ -33191,6 +33538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 0
+  NextStep: 1
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 851305969}
   _audioSource: {fileID: 2144598656}
@@ -41853,6 +42202,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1131594966}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 20
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnDropGun:
     m_PersistentCalls:
@@ -41908,7 +42269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 19
+  Step: 20
+  NextStep: 21
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1165487805}
   - {fileID: 1630831798}
@@ -44941,6 +45304,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1244968172}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 23
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnShootingModeChange:
     m_PersistentCalls:
@@ -44966,7 +45341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 22
+  Step: 23
+  NextStep: 24
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1770122172}
   - {fileID: 1806192380}
@@ -45632,6 +46009,7 @@ Transform:
   - {fileID: 1858202669}
   - {fileID: 749229094}
   - {fileID: 646515751}
+  - {fileID: 692397532}
   m_Father: {fileID: 2144598655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282818601
@@ -52410,6 +52788,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1535657663}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnDropGun:
     m_PersistentCalls:
@@ -52465,7 +52855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 12
+  Step: 13
+  NextStep: 14
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 2128276024}
   - {fileID: 1996000516}
@@ -56570,6 +56962,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1658545849}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 21
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnMagazineDrop:
     m_PersistentCalls:
@@ -56613,7 +57017,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 20
+  Step: 21
+  NextStep: 22
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1446066871}
   _audioSource: {fileID: 0}
@@ -58855,6 +59261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 3
+  NextStep: 4
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1670513876}
   - {fileID: 15957892}
@@ -58912,6 +59320,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1731282393}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -59091,6 +59511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 6
+  NextStep: 7
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1888604765}
   _audioSource: {fileID: 0}
@@ -59156,6 +59578,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1746338294}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -60023,6 +60457,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1776863146}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnShoot:
     m_PersistentCalls:
@@ -60043,6 +60489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 7
+  NextStep: 8
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1999716676}
   _audioSource: {fileID: 0}
@@ -61577,6 +62025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 9
+  NextStep: 10
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 2036531004}
   - {fileID: 25897501}
@@ -61679,6 +62129,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1858202671}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -61890,6 +62352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 2
+  NextStep: 3
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 471594965}
   - {fileID: 348270583}
@@ -61959,6 +62423,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ArioSoren.TutorialKit.TutorialSegment, Assembly-CSharp
         m_MethodName: GotoStep
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1870752777}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -65599,6 +66075,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1942048554}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 19
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnEnd:
     m_PersistentCalls:
@@ -65639,7 +66127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 18
+  Step: 19
+  NextStep: 20
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 148625460}
   - {fileID: 1996000516}
@@ -68853,6 +69343,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 2016078963}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 22
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnMagazineEject:
     m_PersistentCalls:
@@ -68890,7 +69392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 21
+  Step: 22
+  NextStep: 23
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1446066871}
   - {fileID: 783764542}
@@ -69529,6 +70033,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 2045984785}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 25
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnShoot:
     m_PersistentCalls:
@@ -69548,7 +70064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2f65a6811a4e4f83eb13a26a20416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Step: 24
+  Step: 25
+  NextStep: 26
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1006174713}
   _audioSource: {fileID: 0}
@@ -70708,6 +71226,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 2091124193}
+        m_TargetAssemblyTypeName: TutorialEventHandler, Assembly-CSharp
+        m_MethodName: EndStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnMagazineEject:
     m_PersistentCalls:
@@ -70746,6 +71276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Step: 4
+  NextStep: 5
+  _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1670513876}
   - {fileID: 25897501}
@@ -72302,6 +72834,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DelayOnStart: 2
   CurrentStep: -1
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinished:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialSteps:
   - {fileID: 940400689}
   - {fileID: 717670160}
@@ -72315,6 +72853,7 @@ MonoBehaviour:
   - {fileID: 1858202670}
   - {fileID: 749229095}
   - {fileID: 646515752}
+  - {fileID: 692397534}
   - {fileID: 1535657664}
   - {fileID: 832854791}
   - {fileID: 837349623}
@@ -72337,12 +72876,7 @@ MonoBehaviour:
   - {fileID: 439234309}
   - {fileID: 1675259124}
   - {fileID: 1386719883}
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnFinished:
-    m_PersistentCalls:
-      m_Calls: []
+  _delayBeforeNextStep: 1.5
 --- !u!4 &2144598655
 Transform:
   m_ObjectHideFlags: 0

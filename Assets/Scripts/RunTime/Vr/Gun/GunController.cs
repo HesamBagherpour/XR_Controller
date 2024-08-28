@@ -82,12 +82,12 @@ public class GunController : MonoBehaviour
 
     public void StartTrigger()
     {
-        Debug.Log("startTrigger");
+        //Debug.Log("startTrigger");
         _startTrigger?.Invoke();
     }
     public void EndTrigger()
     {
-        Debug.Log("endTrigger");
+        //Debug.Log("endTrigger");
         _endTrigger?.Invoke();
     }
 
@@ -138,14 +138,20 @@ public class GunController : MonoBehaviour
         switch (GetSelectingInteractors().Count)
         {
             case 0:
+                Debug.Log("ChangeSelection to 1");
                 MoveToState(idle);
                 break;
             case 1:
+                Debug.Log("ChangeSelection to 1");
                 MoveToState(oneHandGrab);
                 break;
             case 2:
+                Debug.Log("ChangeSelection to 2");
                 if (xRGrabInteractable.secondaryAttachTransform == secondAttachPoint)
+                {
+                    Debug.Log("secondaryAttachTransform == secondAttachPoint");
                     onTwoHandedGrab?.Invoke();
+                }
                 MoveToState(twoHandGrab);
                 break;
         }
