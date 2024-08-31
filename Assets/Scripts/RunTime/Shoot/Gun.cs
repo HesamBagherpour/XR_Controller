@@ -17,6 +17,7 @@ public abstract class Gun : MonoBehaviour
     public Action OnMagazineEjected;
     public Action Onbolted;
     public Action<ShootingMode> OnShootingModeChanged;
+    public bool AllowShoot;
 
 
     private BulletScriptableObject CurrentBullet;//bullet  in gun
@@ -103,9 +104,10 @@ public abstract class Gun : MonoBehaviour
 
     protected void Shoot()
     {
-        Debug.Log("shoot");
+        //Debug.Log("shoot");
         //if (!_gunController.IsGunReadyToShoot())
             //return;
+            if (!AllowShoot) return;
 
         if (CurrentBullet == null)
         {
@@ -164,7 +166,7 @@ public abstract class Gun : MonoBehaviour
     //} 
     protected virtual void OnRaycastHit(HitData data)
     {
-        Debug.Log(data.collide.name);
+        //Debug.Log(data.collide.name);
         var damageable = data.collide.GetComponent<Idamageable>();
         if (damageable != null)
             damageable.ReceiveDamage(data);
@@ -173,6 +175,10 @@ public abstract class Gun : MonoBehaviour
             matType.ShowImpact(data);
     }
 
+    public void SetAllowShoot(bool allow)
+    {
+        AllowShoot=allow;
+    }
 
     public class HitData
     {

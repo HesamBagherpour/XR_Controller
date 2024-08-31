@@ -1,22 +1,17 @@
 using ArioSoren.TutorialKit;
-//using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
+
 
 public class TutorialEventHandler : HighlightBehavior
 {
-    private bool _isShow=false;
-    //[SerializeField] private ShootingModeControl _shootingModeControl;
+    public bool AllowShoot;
     [SerializeField] private GameObject _player;
     [SerializeField] private GunController _gunController;
     [SerializeField] private float _nearGunDistance;
     [SerializeField] private Gun Gun;
     [SerializeField] private MagazineControl _magazineControl;
-
 
     public UnityEvent OnStart;
     public UnityEvent OnGrabGun;
@@ -45,11 +40,11 @@ public class TutorialEventHandler : HighlightBehavior
     private Material HandsMaterial;
     private playerMovementData _playerMovementData;
     private playerRotationData _playerRotationData;
+    private bool _isShow = false;
 
 
     public override void Hide()
     {
-        //throw new System.NotImplementedException();
         _isShow = false;
         if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
         {
@@ -63,7 +58,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (Onbolt.GetPersistentEventCount() > 0)
             Gun.Onbolted -= bolted;
-        
+
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
             Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
@@ -77,19 +72,18 @@ public class TutorialEventHandler : HighlightBehavior
         {
             _magazineControl.OnMagazinePickup -= MagazinePickedUp;
             _magazineControl.OnMagazinedrop -= MagazineDropped;
-            //Debug.Log("Magazine Pickedup");
         }
         OnEnd?.Invoke();
     }
     public override void Show()
     {
-        //throw new System.NotImplementedException();
+        if (Gun != null)
+            Gun.SetAllowShoot(AllowShoot);
         _isShow = true;
         if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
         {
             _gunController.onTwoHandedGrab += TwoHandedGrabed;
         }
-        //_shootingModeControl.OnShootingModeChange = (mode) => { _shootingMode = mode; };
         if (OnMagazineEnter.GetPersistentEventCount() > 0)
             Gun.OnMagazineEneterd += magazineEneterd;
 
@@ -98,7 +92,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (Onbolt.GetPersistentEventCount() > 0)
             Gun.Onbolted += bolted;
-        
+
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
             Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
@@ -114,9 +108,7 @@ public class TutorialEventHandler : HighlightBehavior
         {
             _magazineControl.OnMagazinePickup += MagazinePickedUp;
             _magazineControl.OnMagazinedrop += MagazineDropped;
-            //Debug.Log("Magazine Pickedup");
         }
-
     }
 
 
@@ -124,7 +116,7 @@ public class TutorialEventHandler : HighlightBehavior
     {
         Debug.Log("magazineEneterd");
         OnMagazineEnter.Invoke();
-    }  
+    }
     private void magazineEjected()
     {
         Debug.Log("magazineEjected");
@@ -157,8 +149,8 @@ public class TutorialEventHandler : HighlightBehavior
     {
         Debug.Log("MagazinePickedUp");
         OnMagazinePickup?.Invoke();
-    } 
-    
+    }
+
     private void MagazineDropped()
     {
         Debug.Log("MagazineDropped");
@@ -219,14 +211,14 @@ public class TutorialEventHandler : HighlightBehavior
             float distance = Vector3.Distance(_player.transform.position,
                 _playerMovementData.InitialPosition);
 
-//            Debug.Log("distance=" + distance);
+            //            Debug.Log("distance=" + distance);
             if (distance > _playerMovementData.deltaDistance)
             {
                 OnStartMovement?.Invoke();
                 _playerMovementData.IsEventCalled = true;
             }
-        }   
-        
+        }
+
         if ((OnStartrotate.GetPersistentEventCount() > 0) && (!_playerRotationData.IsEventCalled))
         {
             float distance = Quaternion.Angle(_player.transform.rotation,
@@ -268,7 +260,10 @@ public class TutorialEventHandler : HighlightBehavior
             alphaInc *= -1;
     }
 
-
+    public void EndStep()
+    {
+        OnEndStep?.Invoke();
+    }
 }
 
 public struct playerMovementData

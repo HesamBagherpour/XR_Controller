@@ -3,12 +3,15 @@ using System.Linq;
 
 //using DG.Tweening;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace ArioSoren.TutorialKit
 {
     public class TutorialStep : MonoBehaviour
     {
-        public int Step;
+        [ReadOnly]public int Step;
+        public int NextStep;
+        [HideInInspector] public TutorialSegment _tutorialSegment;
         [SerializeField] private List<GameObject> _highlightObjects;
         [SerializeField] private AudioSource _audioSource;
 
@@ -17,19 +20,26 @@ namespace ArioSoren.TutorialKit
         public AudioClip AudioClip;
 
 
-        
+
         public void ShowStep()
         {
             Debug.Log($"Step {Step} Show");
             foreach (GameObject go in _highlightObjects)
             {
                 go.SetActive(true);
+                var grabable = go.GetComponent<XRGrabInteractable>();
+                if (grabable != null)
+                {
+                    grabable.enabled = true;
+                }
             }
             if (Behaviour != null)
                 Behaviour.Show();
 
             if (AudioClip != null)
                 _audioSource.PlayOneShot(AudioClip);
+            Behaviour.OnEndStep = () => _tutorialSegment.GotoStep(NextStep);
+
         }
 
         private void OpenDialogue()
@@ -44,6 +54,11 @@ namespace ArioSoren.TutorialKit
             foreach (GameObject go in _highlightObjects)
             {
                 go.SetActive(false);
+                var grabable = go.GetComponent<XRGrabInteractable>();
+                if (grabable != null)
+                {
+                    grabable.enabled = false;
+                }
             }
 
             if (Behaviour != null)

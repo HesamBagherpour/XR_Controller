@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ArioSoren.TutorialKit
@@ -16,6 +17,7 @@ namespace ArioSoren.TutorialKit
 
         public abstract void Show();
         public abstract void Hide();
+        public Action OnEndStep;
 
 
     }
