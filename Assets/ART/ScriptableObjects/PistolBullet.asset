@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PistolBullet
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 0}
-  Damage: 10
+  Damage: 1
   MaxDistance: 100
   PhysicForceOnHit: 100
   GunType: 1

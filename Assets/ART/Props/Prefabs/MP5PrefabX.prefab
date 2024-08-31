@@ -691,7 +691,8 @@ MonoBehaviour:
   gunController: {fileID: 3154441761192445357}
   boltAttachPoint: {fileID: 1813306318297918103}
   points: {fileID: 3107485694132767601}
-  animator: {fileID: 55747450892070204}
+  boltAnimator: {fileID: 55747450892070204}
+  bulletAnimator: {fileID: 0}
   moveSpeed: 0.2
   returnSpeed: 0.1
   audioSource: {fileID: 3772870365812795852}
@@ -1100,14 +1101,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   GunType: 2
-  _shooptStartPosition: {fileID: 2028966757506787435}
+  _shootStartPosition: {fileID: 2028966757506787435}
   _currentMagazine: {fileID: 0}
   _gunController: {fileID: 3154441761192445357}
   _shootingMode: 0
   _boltControl: {fileID: 544881316410911662}
   _magazineReceiver: {fileID: 1196799135140424629}
   _shootingModeControl: {fileID: 252134664483474725}
-  _durationBetweenShoot: 0.08
+  _durationBetweenShoot: 0.1
   _readyToShoot: 0
   GunTriggered: 0
 --- !u!114 &3006403185678593715

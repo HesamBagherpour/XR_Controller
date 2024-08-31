@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "XR_Controller.sln"
+    "dotnet.defaultSolution": "XR_Controller.sln",
+    "dotnet.preferCSharpExtension": true
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Transformers;
@@ -10,7 +11,8 @@ public class BoltControl : MonoBehaviour
     [SerializeField] GunController gunController;
     [SerializeField] Transform boltAttachPoint;
     [SerializeField] Transform points;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator boltAnimator;
+    [SerializeField] Animator bulletAnimator;
     [SerializeField, Range(0, 1)] float moveSpeed = 0.2f;
     [SerializeField, Range(0, 1)] float returnSpeed = 0.1f;
     [Header("Sound")]
@@ -90,15 +92,15 @@ public class BoltControl : MonoBehaviour
             CalibratePoints(handPos);
             isFirstSelect = true;
         }
-        var distnce = ((handPos - front.position).magnitude - (handPos - back.position).magnitude) * moveSpeed * 25;
+        var distance = ((handPos - front.position).magnitude - (handPos - back.position).magnitude) * moveSpeed * 25;
         var value = GetAnimatorValue();
 
-        if(value + distnce < -0.05f)
+        if(value + distance < -0.05f)
             value = 0;
-        else if(value + distnce > 1.05 )
+        else if(value + distance > 1.05 )
             value = 1;
-        else if(value + distnce >= -0.05f && value + distnce <= 1.05)
-            value += distnce;
+        else if(value + distance >= -0.05f && value + distance <= 1.05)
+            value += distance;
 
         SetAnimatorValue(value);
         CalibratePoints(handPos);
@@ -161,10 +163,18 @@ public class BoltControl : MonoBehaviour
 
     float GetAnimatorValue()
     {
-        return animator.GetFloat("Blend");
+        return boltAnimator.GetFloat("Blend");
     }
     void SetAnimatorValue(float value)
     {
-        animator.SetFloat("Blend", value);
+        boltAnimator.SetFloat("Blend", value);
+
+        if(bulletAnimator != null)
+        {
+            if (value < 0.9f)
+                bulletAnimator.SetFloat("Position", value);
+            else if(value > 0.9f)
+                bulletAnimator.Play("DropBullet");
+        }
     }
 }

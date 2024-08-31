@@ -25,7 +25,6 @@ public class PlayerHandController : MonoBehaviour
     Vector3 OldHandPosition;
     float handPositionFloat;
 
-    //PlayerHandAnimation handAnimation;
     GunController gunController;
     BoltControl boltControl;
 
