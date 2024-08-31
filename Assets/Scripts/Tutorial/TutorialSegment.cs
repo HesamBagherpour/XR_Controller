@@ -52,23 +52,14 @@ namespace ArioSoren.TutorialKit
             //TutorialStateChanged?.Invoke(true, CurrentStep);
             //StepStarted?.Invoke(CurrentStep);
         }
-
         public void GotoStep(int step)
         {
             if (step < 0)
                 OnFinished?.Invoke();
             if (step - 1 != CurrentStep)
-            {
-                if (CurrentStep != tutorialSteps.Count - 1)// if it is final step, do nothing else return
-                {
-                    return;
-                    
-                }
-                
-            }
+                return;
 
-
-        Debug.Log("TutorialSegment GotoStep " + step);
+            Debug.Log("TutorialSegment GotoStep " + step);
             HideStep(step - 1);
             if (step >= tutorialSteps.Count)
             {
