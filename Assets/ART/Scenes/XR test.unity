@@ -15945,7 +15945,7 @@ GameObject:
   - component: {fileID: 388370513}
   - component: {fileID: 388370512}
   m_Layer: 0
-  m_Name: Mp5-8
+  m_Name: End Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74839,7 +74839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfebf72233a57d459b2b54bba1c8e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DelayOnStart: 0.5
+  DelayOnStart: 0
   CurrentStep: -1
   OnStart:
     m_PersistentCalls:
@@ -74887,7 +74887,7 @@ MonoBehaviour:
   - {fileID: 439234309}
   - {fileID: 1675259124}
   - {fileID: 1386719883}
-  _delayBeforeNextStep: 0.5
+  _delayBeforeNextStep: 0
 --- !u!4 &2144598655
 Transform:
   m_ObjectHideFlags: 0
