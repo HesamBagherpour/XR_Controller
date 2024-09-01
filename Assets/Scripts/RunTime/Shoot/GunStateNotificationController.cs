@@ -16,14 +16,14 @@ public class GunStateNotificationController : MonoBehaviour
             }
 
     public void UpdateGunStateNotification(CantShootState state)
-    {
+    {        
         _view.SetNotificationText(_notificationData.Find(x=>x.state==state).NotificationText);
     }
 
 
 }
 
-public enum CantShootState { None, Mode,NoMagazine,NoBullet,Forbiden}
+public enum CantShootState { None, Mode,NoMagazine,NoBullet,Forbiden,NeedTpPull}
 
 [Serializable]
 public class GunStateNotificationData

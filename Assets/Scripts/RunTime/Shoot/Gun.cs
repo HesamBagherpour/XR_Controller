@@ -130,20 +130,20 @@ public abstract class Gun : MonoBehaviour
         if (CurrentBullet == null)
         {
             Debug.LogWarning("CurrentBullet == null");
-            SetShootState(CantShootState.NoBullet);
+            //SetShootState(CantShootState.NoBullet);
             onShoot?.Invoke(false);
             return;
         }
 
 
-        if (!clipReady)
-            Debug.LogWarning("clip not ready");
+        //if (!clipReady)
+        //    Debug.LogWarning("clip not ready");
 
-        if (_currentMagazine == null)
-        {
-            Debug.LogWarning("clip is null");
+        //if (_currentMagazine == null)
+        //{
+        //    Debug.LogWarning("clip is null");
            
-        }
+        //}
 
         RaycastHit hit;
         if (Physics.Raycast(_shooptStartPosition.transform.position, //+ UnityEngine.Random.onUnitSphere * 0.1f,
@@ -166,6 +166,41 @@ public abstract class Gun : MonoBehaviour
         _gunController.Recoil();  
 
         CurrentBullet = clipReady ? _currentMagazine?.GetBullet() : null;
+    }
+
+    public void CheckShootState()
+    {
+        if (!AllowShoot)
+        {
+            SetShootState(CantShootState.Forbiden);
+            return;
+        }
+
+        //ReadyToPull = true
+
+        if (_shootingMode == ShootingMode.safety)
+        {
+            SetShootState(CantShootState.Mode);
+            return;
+        }
+
+        if (_currentMagazine == null)
+        {
+            SetShootState(CantShootState.NoMagazine);
+            return;
+        }
+
+        if (ReadyToPull)
+        {
+            SetShootState(CantShootState.NeedTpPull);
+            return;
+        }
+
+        if((_currentMagazine == null) && (!_currentMagazine.HasBullet()))
+        {
+            SetShootState(CantShootState.NoBullet);
+            return;
+        }
     }
 
     private float GetDistanceFactor(Vector3 startPoint, Vector3 endPoint)

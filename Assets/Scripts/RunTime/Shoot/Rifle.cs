@@ -40,22 +40,7 @@ public class Rifle : Gun
     }
 
 
-    public void CheckShootState()
-    {
-        if (_shootingMode == ShootingMode.safety)
-            SetShootState(CantShootState.Mode);
 
-        if (_currentMagazine == null)
-        {
-            SetShootState(CantShootState.NoMagazine);            
-        }
-        else if (!_currentMagazine.HasBullet())
-        {
-            Debug.Log("Rifle magazine is empty");
-            SetShootState(CantShootState.NoBullet);
-            return;
-        }
-    }
     protected override void Initialize()
     {
         GunType = GunType.Rifle;

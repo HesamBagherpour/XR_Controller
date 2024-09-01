@@ -2,6 +2,7 @@
 {
     public override void DoAction()
     {
+        CheckShootState();
         if ( _shootingMode == ShootingMode.safety)
             return;
 
