@@ -40,6 +40,18 @@ public abstract class Gun : MonoBehaviour
     protected abstract void TriggerEnded();
     public abstract void DoAction();
 
+    [SerializeField] private GunStateNotificationController _gunStateNotificationCOntroller;
+    public void SetShootState(CantShootState state)
+    {
+        if (_gunStateNotificationCOntroller == null)
+            _gunStateNotificationCOntroller = FindObjectOfType<GunStateNotificationController>();
+
+        if (_gunStateNotificationCOntroller == null)
+            return;
+
+        _gunStateNotificationCOntroller.UpdateGunStateNotification(state);
+    }
+
     private void Awake()
     {
         PlayerControls = new PlayerInputActions();
@@ -72,6 +84,8 @@ public abstract class Gun : MonoBehaviour
             _currentMagazine = null;
             OnMagazineEjected?.Invoke();
         };
+
+
     }
 
     private void BoltPuller(bool pull)
@@ -106,14 +120,29 @@ public abstract class Gun : MonoBehaviour
     {
         //Debug.Log("shoot");
         //if (!_gunController.IsGunReadyToShoot())
-            //return;
-            if (!AllowShoot) return;
+        //return;
+        if (!AllowShoot)
+        {
+            SetShootState(CantShootState.Forbiden);
+            return;
+        }
 
         if (CurrentBullet == null)
         {
             Debug.LogWarning("CurrentBullet == null");
+            SetShootState(CantShootState.NoBullet);
             onShoot?.Invoke(false);
             return;
+        }
+
+
+        if (!clipReady)
+            Debug.LogWarning("clip not ready");
+
+        if (_currentMagazine == null)
+        {
+            Debug.LogWarning("clip is null");
+           
         }
 
         RaycastHit hit;
@@ -134,13 +163,7 @@ public abstract class Gun : MonoBehaviour
             OnRaycastHit(hitData);
         }
         onShoot?.Invoke(true);
-        _gunController.Recoil();
-
-        if (!clipReady)
-            Debug.LogWarning("clip not ready");
-
-        if (_currentMagazine == null)
-            Debug.LogWarning("clip is null");
+        _gunController.Recoil();  
 
         CurrentBullet = clipReady ? _currentMagazine?.GetBullet() : null;
     }

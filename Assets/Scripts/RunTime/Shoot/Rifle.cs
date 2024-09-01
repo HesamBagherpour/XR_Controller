@@ -10,6 +10,7 @@ public class Rifle : Gun
 
     public override void DoAction()
     {
+        CheckShootState();
         //Debug.Log("DoAction");
         if (!_readyToShoot)
         {
@@ -22,7 +23,7 @@ public class Rifle : Gun
             return;
         }
 
-        if(_currentMagazine != null)
+        if (_currentMagazine != null)
         {
             if (!_currentMagazine.HasBullet())
             {
@@ -30,7 +31,7 @@ public class Rifle : Gun
                 return;
             }
             Shoot();
-        //brustshotingCount++;
+            //brustshotingCount++;
             _readyToShoot = false;
             _lastShootTime = Time.time;
         }
@@ -38,6 +39,23 @@ public class Rifle : Gun
             Debug.Log("magazine is null");
     }
 
+
+    public void CheckShootState()
+    {
+        if (_shootingMode == ShootingMode.safety)
+            SetShootState(CantShootState.Mode);
+
+        if (_currentMagazine == null)
+        {
+            SetShootState(CantShootState.NoMagazine);            
+        }
+        else if (!_currentMagazine.HasBullet())
+        {
+            Debug.Log("Rifle magazine is empty");
+            SetShootState(CantShootState.NoBullet);
+            return;
+        }
+    }
     protected override void Initialize()
     {
         GunType = GunType.Rifle;
@@ -52,7 +70,7 @@ public class Rifle : Gun
         //    DoAction();
         //}
 
-        if (GunTriggered) 
+        if (GunTriggered)
             DoAction();
 
         if (_shootingMode == ShootingMode.fullAuto)
