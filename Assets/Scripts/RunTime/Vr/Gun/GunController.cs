@@ -6,6 +6,9 @@ using UnityEngine.XR.Interaction.Toolkit.Transformers;
 
 public class GunController : MonoBehaviour
 {
+    public enum GrabGunState { Idle, OneHand, TwoHand, none };
+
+
     [Header("Gun Components")]
     [SerializeField] HandsOnGunControl handOnGun;
     [SerializeField] ShootingModeControl shootingMode;
@@ -32,6 +35,9 @@ public class GunController : MonoBehaviour
     [Header("GunType")]
     [SerializeField] GunType gunType;
 
+    
+    private GrabGunState GrabGunCurrentState;
+
     //[SerializeField] XRDirectInteractor xRDirectInteractor;
 
     IGunState gunState;
@@ -39,7 +45,7 @@ public class GunController : MonoBehaviour
     OneHandGrab oneHandGrab = new OneHandGrab();
     TwoHandGrab twoHandGrab = new TwoHandGrab();
     public Action onTwoHandedGrab;
-    
+
     PlayerHandController firstSelectingHand;
 
     void Start()
@@ -133,24 +139,31 @@ public class GunController : MonoBehaviour
     IXRSelectInteractor GetFirstSelectingInteractor() { return xRGrabInteractable.firstInteractorSelecting; }
     XRInteractionManager GetInteractionManager() { return xRGrabInteractable.interactionManager; }
 
+
+    
+    public GrabGunState GetCurrentGrabGunState() => GrabGunCurrentState;
+
     void ChangeSelection()
     {
         switch (GetSelectingInteractors().Count)
         {
             case 0:
-                Debug.Log("ChangeSelection to 1");
+                //Debug.Log("ChangeSelection to 1");
                 MoveToState(idle);
+                GrabGunCurrentState = GrabGunState.Idle;
                 break;
             case 1:
-                Debug.Log("ChangeSelection to 1");
+                //Debug.Log("ChangeSelection to 1");
                 MoveToState(oneHandGrab);
+                GrabGunCurrentState = GrabGunState.OneHand;
                 break;
             case 2:
-                Debug.Log("ChangeSelection to 2");
+                //Debug.Log("ChangeSelection to 2");
                 if (xRGrabInteractable.secondaryAttachTransform == secondAttachPoint)
                 {
-                    Debug.Log("secondaryAttachTransform == secondAttachPoint");
+                    //Debug.Log("secondaryAttachTransform == secondAttachPoint");
                     onTwoHandedGrab?.Invoke();
+                    GrabGunCurrentState = GrabGunState.TwoHand;
                 }
                 MoveToState(twoHandGrab);
                 break;

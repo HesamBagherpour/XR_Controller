@@ -1,4 +1,6 @@
 using ArioSoren.TutorialKit;
+using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -61,7 +63,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
-            Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
+            ////Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
             Gun.OnShootingModeChanged -= ShootingmodeChanged;
         }
 
@@ -83,6 +85,8 @@ public class TutorialEventHandler : HighlightBehavior
         if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
         {
             _gunController.onTwoHandedGrab += TwoHandedGrabed;
+            if (_gunController.GetCurrentGrabGunState() == GunController.GrabGunState.TwoHand)
+                TwoHandedGrabed();
         }
         if (OnMagazineEnter.GetPersistentEventCount() > 0)
             Gun.OnMagazineEneterd += magazineEneterd;
@@ -95,7 +99,7 @@ public class TutorialEventHandler : HighlightBehavior
 
         if (OnShootingModeChange.GetPersistentEventCount() > 0)
         {
-            Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
+            //Debug.Log("waiting for TutorialEventHandler OnShootingModeChange");
             Gun.OnShootingModeChanged += ShootingmodeChanged;
         }
 
@@ -114,46 +118,46 @@ public class TutorialEventHandler : HighlightBehavior
 
     private void magazineEneterd()
     {
-        Debug.Log("magazineEneterd");
+        //Debug.Log("magazineEneterd");
         OnMagazineEnter.Invoke();
     }
     private void magazineEjected()
     {
-        Debug.Log("magazineEjected");
+        //Debug.Log("magazineEjected");
         OnMagazineEject.Invoke();
     }
 
     private void bolted()
     {
-        Debug.Log("bolted");
+        //Debug.Log("bolted");
         Onbolt.Invoke();
     }
     private void TwoHandedGrabed()
     {
-        Debug.Log("Two Handed Grab");
+        //Debug.Log("Two Handed Grab");
         OnGrabTwoHanded?.Invoke();
     }
     private void ShootingmodeChanged(ShootingMode mode)
     {
-        Debug.Log("ShootingmodeChanged");
+        //Debug.Log("ShootingmodeChanged");
         OnShootingModeChange.Invoke();
     }
 
     private void Shooted(bool shoot)
     {
-        Debug.Log("Shooted");
+        //Debug.Log("Shooted");
         OnShoot.Invoke();
     }
 
     private void MagazinePickedUp()
     {
-        Debug.Log("MagazinePickedUp");
+        //Debug.Log("MagazinePickedUp");
         OnMagazinePickup?.Invoke();
     }
 
     private void MagazineDropped()
     {
-        Debug.Log("MagazineDropped");
+        //Debug.Log("MagazineDropped");
         OnMagazineDrop?.Invoke();
     }
     // Start is called before the first frame update
@@ -263,6 +267,17 @@ public class TutorialEventHandler : HighlightBehavior
     public void EndStep()
     {
         OnEndStep?.Invoke();
+    }
+
+    public void EndStepWithDelay(float delay)
+    {
+        StartCoroutine(CallFuncWithDelay(delay, EndStep));
+    }
+
+    IEnumerator CallFuncWithDelay(float delay, Action func)
+    {
+        yield return new WaitForSeconds(delay);
+        func?.Invoke();
     }
 }
 
