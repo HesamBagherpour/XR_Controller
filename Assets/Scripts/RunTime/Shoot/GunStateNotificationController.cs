@@ -23,7 +23,7 @@ public class GunStateNotificationController : MonoBehaviour
 
 }
 
-public enum CantShootState { None, Mode,NoMagazine,NoBullet,Forbiden,NeedTpPull}
+public enum CantShootState { None, Mode,NoMagazine,NoBullet,Forbiden}
 
 [Serializable]
 public class GunStateNotificationData

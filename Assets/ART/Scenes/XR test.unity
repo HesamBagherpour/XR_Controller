@@ -12104,7 +12104,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 439234309}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -12116,7 +12116,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &298700135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16056,7 +16056,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 439234309}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -16068,7 +16068,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &388370513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16086,7 +16086,6 @@ MonoBehaviour:
   _tutorialSegment: {fileID: 0}
   _highlightObjects:
   - {fileID: 1204536742}
-  - {fileID: 1630831798}
   _audioSource: {fileID: 0}
   Behaviour: {fileID: 388370512}
   AudioClip: {fileID: 0}
@@ -25251,8 +25250,6 @@ MonoBehaviour:
       Magazine
   - state: 4
     NotificationText: You Cannot Shoot Now.
-  - state: 5
-    NotificationText: Pull the bolt back using your offhand grip.
 --- !u!1 &721812548
 GameObject:
   m_ObjectHideFlags: 0
@@ -44047,7 +44044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1449f886af680429201748cfc21d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllowShoot: 1
+  AllowShoot: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -56164,7 +56161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1615334786
 RectTransform:
   m_ObjectHideFlags: 0

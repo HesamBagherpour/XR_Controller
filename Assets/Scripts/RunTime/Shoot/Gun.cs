@@ -190,11 +190,11 @@ public abstract class Gun : MonoBehaviour
             return;
         }
 
-        if (ReadyToPull)
-        {
-            SetShootState(CantShootState.NeedTpPull);
-            return;
-        }
+        //if (ReadyToPull)
+        //{
+        //    SetShootState(CantShootState.NeedTpPull);
+        //    return;
+        //}
 
         if((_currentMagazine == null) && (!_currentMagazine.HasBullet()))
         {
