@@ -31,7 +31,6 @@ public class MagazineReceiver : MonoBehaviour
 
     public event Action<Transform> OnMagazineSelectEnter;
     public event Action OnMagazineSelectExit;
-
     void Start()
     {
         xRSocketInteractor.selectEntered.AddListener(MagazineSelectEnter);
@@ -86,6 +85,11 @@ public class MagazineReceiver : MonoBehaviour
 
     public void ForceRelease()
     {
+        if (!magazine.allowDropMagazine)
+        {
+            magazine.CheckMagazineState();
+            return;
+        }
         if (magazineType == MagazineType.pistolmag)
         {
             PlayAnimation("magrelease");

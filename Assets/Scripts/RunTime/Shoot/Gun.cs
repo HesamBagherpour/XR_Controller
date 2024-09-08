@@ -1,4 +1,6 @@
 using System;
+using RunTime.Shoot;
+using RunTime.Shoot.Enums;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,6 +54,7 @@ public abstract class Gun : MonoBehaviour
         _gunStateNotificationCOntroller.UpdateGunStateNotification(state);
     }
 
+   
     private void Awake()
     {
         PlayerControls = new PlayerInputActions();
@@ -72,6 +75,7 @@ public abstract class Gun : MonoBehaviour
         _magazineReceiver.OnMagazineSelectEnter += (t) =>
         {
             _currentMagazine = t.GetComponent<MagazineControl>();
+            
             if (_currentMagazine != null)
             {
                 clipReady = true;
@@ -83,6 +87,8 @@ public abstract class Gun : MonoBehaviour
             clipReady = false;
             _currentMagazine = null;
             OnMagazineEjected?.Invoke();
+           // _currentMagazine.OnMagazinedropCheck -= OnDropMagazine;
+
         };
 
 

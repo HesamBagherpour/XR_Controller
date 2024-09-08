@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class TutorialEventHandler : HighlightBehavior
 {
     public bool AllowShoot;
+    public bool allowDropMagazine;
     [SerializeField] private GameObject _player;
     [SerializeField] private GunController _gunController;
     [SerializeField] private float _nearGunDistance;
@@ -80,7 +81,10 @@ public class TutorialEventHandler : HighlightBehavior
     public override void Show()
     {
         if (Gun != null)
+        {
             Gun.SetAllowShoot(AllowShoot);
+            _magazineControl.SetAllowMagazineDrop(allowDropMagazine);
+        }
         _isShow = true;
         if (OnGrabTwoHanded.GetPersistentEventCount() > 0)
         {

@@ -11,6 +11,7 @@ public class Rifle : Gun
     public override void DoAction()
     {
         CheckShootState();
+
         //Debug.Log("DoAction");
         if (!_readyToShoot)
         {

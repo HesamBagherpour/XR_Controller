@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
+using RunTime.Shoot;
+using RunTime.Shoot.Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class MagazineControl : MonoBehaviour
@@ -10,6 +13,8 @@ public class MagazineControl : MonoBehaviour
    [SerializeField] public MagazineType magazineType;
    [SerializeField] private BulletScriptableObject bulletRefrence;
    [SerializeField] private Grabbable grabInteractable;
+   [SerializeField] private MagazineStateNotificationController _magazineStateNotificationController;
+   public bool allowDropMagazine;
 
     public Action OnMagazinePickup;
     public Action OnMagazinedrop;
@@ -56,11 +61,30 @@ public class MagazineControl : MonoBehaviour
     }
     void SelectExited(SelectExitEventArgs args)
     {
+        //CheckMagazineState();
+        
         StartCoroutine(DelayToDeselect());
         if (OnMagazinedrop != null)
              OnMagazinedrop?.Invoke();
     }
+    public void SetMagazineState(CantDropState state)
+    {
+        if (_magazineStateNotificationController == null)
+            _magazineStateNotificationController = FindObjectOfType<MagazineStateNotificationController>();
 
+        if (_magazineStateNotificationController == null)
+            return;
+
+        _magazineStateNotificationController.UpdateMagazineStateNotification(state);
+    }
+    public void CheckMagazineState()
+    {
+        SetMagazineState(CantDropState.Lock);
+    }
+    public void SetAllowMagazineDrop(bool allow)
+    {
+        allowDropMagazine = allow;
+    }
     IEnumerator DelayToDeselect()
     {
         yield return new WaitForSeconds(0.1f);

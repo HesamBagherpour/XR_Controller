@@ -307,10 +307,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10038812}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3}
+  m_LocalScale: {x: 0.0002, y: 0.0002, z: 0.0002}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 427724700}
   - {fileID: 755310405}
@@ -342,13 +342,14 @@ RectTransform:
   - {fileID: 148625461}
   - {fileID: 1890166074}
   - {fileID: 717873855}
-  m_Father: {fileID: 2144598655}
+  - {fileID: 1132585837}
+  m_Father: {fileID: 5526829057820088977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.1, y: 0.03}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10038814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &10038816
 Canvas:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ Canvas:
   m_GameObject: {fileID: 10038812}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -410,7 +411,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &10119784
 GameObject:
@@ -4715,11 +4716,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 2121546162}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -7801,11 +7803,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 1
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1461597025}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -8085,11 +8088,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1461597025}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -12004,11 +12008,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 1
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
   Gun: {fileID: 1941879220}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 439234308}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -12829,11 +12834,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
   Gun: {fileID: 1675259112}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1386719882}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -13326,6 +13332,8 @@ MonoBehaviour:
   magazineType: 0
   bulletRefrence: {fileID: 11400000, guid: 5ed25e3dc0de1bb4da2b31c0a313ae22, type: 2}
   grabInteractable: {fileID: 329627608}
+  _magazineStateNotificationController: {fileID: 0}
+  allowDropMagazine: 0
 --- !u!54 &329627610
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15992,6 +16000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 1
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -16327,11 +16336,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
   Gun: {fileID: 1675259112}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1386719882}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -22254,11 +22264,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
   Gun: {fileID: 1675259112}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1386719882}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -23664,11 +23675,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 1
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 2121546162}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -24594,11 +24606,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 2121546162}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -25091,6 +25104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 0}
   _nearGunDistance: 0
@@ -25199,7 +25213,7 @@ GameObject:
   - component: {fileID: 717873855}
   - component: {fileID: 717873856}
   m_Layer: 0
-  m_Name: Notification
+  m_Name: Notification Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26189,11 +26203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 2121546162}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -31451,6 +31466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -31714,6 +31730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
@@ -33495,11 +33512,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
   Gun: {fileID: 1941879220}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 439234308}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -34232,6 +34250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 0}
   _nearGunDistance: 0.7
@@ -41251,11 +41270,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
   Gun: {fileID: 1675259112}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1386719882}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -43340,11 +43360,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
   Gun: {fileID: 1941879220}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 439234308}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -43486,6 +43507,61 @@ MonoBehaviour:
   _audioSource: {fileID: 0}
   Behaviour: {fileID: 1131594966}
   AudioClip: {fileID: 0}
+--- !u!1 &1132585836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132585837}
+  - component: {fileID: 1132585838}
+  m_Layer: 0
+  m_Name: Notification Drop Magazine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1132585837
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132585836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1996094712}
+  m_Father: {fileID: 10038813}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1132585838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132585836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde646d3dc0f49d4a6a4a217b91b5f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 1996094716}
+  _notificationData:
+  - state: 0
+    NotificationText: You Can't Drop Magazine at This State!
+  - state: 2
+    NotificationText: You Can't Drop Magazine at This State!
 --- !u!1 &1133754023
 GameObject:
   m_ObjectHideFlags: 0
@@ -43568,6 +43644,8 @@ MonoBehaviour:
   magazineType: 2
   bulletRefrence: {fileID: 11400000, guid: 157c596f368f3c448a4f1d2c4ef40d51, type: 2}
   grabInteractable: {fileID: 1133754027}
+  _magazineStateNotificationController: {fileID: 0}
+  allowDropMagazine: 0
 --- !u!114 &1133754027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44045,11 +44123,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
   Gun: {fileID: 1941879220}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 439234308}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -46663,11 +46742,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
   Gun: {fileID: 1941879220}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 439234308}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -52839,6 +52919,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5372637643149242734, guid: 72a2861fcf40d5e478d7d57fee3f9623,
+        type: 3}
+      propertyPath: _magazineStateNotificationCOntroller
+      value: 
+      objectReference: {fileID: 1132585838}
+    - target: {fileID: 5372637643149242734, guid: 72a2861fcf40d5e478d7d57fee3f9623,
+        type: 3}
+      propertyPath: _magazineStateNotificationController
+      value: 
+      objectReference: {fileID: 1132585838}
     - target: {fileID: 5627569951555822645, guid: 72a2861fcf40d5e478d7d57fee3f9623,
         type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.size
@@ -53834,6 +53924,8 @@ MonoBehaviour:
   magazineType: 1
   bulletRefrence: {fileID: 11400000, guid: 5ed25e3dc0de1bb4da2b31c0a313ae22, type: 2}
   grabInteractable: {fileID: 1529386569}
+  _magazineStateNotificationController: {fileID: 0}
+  allowDropMagazine: 0
 --- !u!114 &1529386569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54195,11 +54287,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
   Gun: {fileID: 1675259112}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1386719882}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -58582,6 +58675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -61012,6 +61106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -61262,11 +61357,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1461597025}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -62120,11 +62216,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1461597025}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -63913,11 +64010,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 1
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1461597025}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -64317,11 +64415,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
   Gun: {fileID: 2802537975212267264}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1461597025}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -67993,11 +68092,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 1
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1675259113}
   _nearGunDistance: 0.7
   Gun: {fileID: 1675259112}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 1386719882}
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -70842,6 +70942,98 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1996094711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1996094712}
+  - component: {fileID: 1996094715}
+  - component: {fileID: 1996094714}
+  - component: {fileID: 1996094716}
+  m_Layer: 0
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1996094712
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996094711}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2124822998}
+  m_Father: {fileID: 1132585837}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 454}
+  m_SizeDelta: {x: 692.15, y: 235.85327}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1996094714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996094711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1996094715
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996094711}
+  m_CullTransparentMesh: 1
+--- !u!114 &1996094716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996094711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684e48a66b054ab19841123ad1721585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NotificationText: {fileID: 2124822999}
+  HideDelay: 0
+  MaxHideDelay: 4
 --- !u!1 &1999716676
 GameObject:
   m_ObjectHideFlags: 0
@@ -71474,6 +71666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
@@ -72159,11 +72352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 1941879221}
   _nearGunDistance: 0.7
   Gun: {fileID: 1941879220}
-  _magazineControl: {fileID: 0}
+  _magazineControl: {fileID: 439234308}
   OnStart:
     m_PersistentCalls:
       m_Calls: []
@@ -73493,6 +73687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowShoot: 0
+  allowDropMagazine: 0
   _player: {fileID: 5526829057820088975}
   _gunController: {fileID: 2802537975212267263}
   _nearGunDistance: 0.7
@@ -74385,6 +74580,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c96af393a49c2a419dc3715182bd012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2121546162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5372637643149242734, guid: 72a2861fcf40d5e478d7d57fee3f9623,
+    type: 3}
+  m_PrefabInstance: {fileID: 754094489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121546159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce41a85ab2cc7864db015eef60763a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2122911971
 GameObject:
   m_ObjectHideFlags: 0
@@ -74694,6 +74901,140 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2124822997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124822998}
+  - component: {fileID: 2124823000}
+  - component: {fileID: 2124822999}
+  m_Layer: 0
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2124822998
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124822997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1996094712}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2124822999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124822997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: You Can't Drop Magazine at This State!
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 69
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 15.94
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2124823000
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124822997}
+  m_CullTransparentMesh: 1
 --- !u!1 &2124897838
 GameObject:
   m_ObjectHideFlags: 0
@@ -75213,7 +75554,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 10038813}
   - {fileID: 818948392}
   - {fileID: 1275752039}
   - {fileID: 745171333}
@@ -75567,6 +75907,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 264732a6c63e0754c8c19d46b3fb24ff, type: 2}
+    - target: {fileID: 3678811750128169287, guid: eb3e169a6a888bd4ea1cf78337884797,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287640918058608646, guid: eb3e169a6a888bd4ea1cf78337884797,
+        type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5052020414056971179, guid: eb3e169a6a888bd4ea1cf78337884797,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -75624,12 +75974,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6392167675403432888, guid: eb3e169a6a888bd4ea1cf78337884797,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 10038813}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3e169a6a888bd4ea1cf78337884797, type: 3}
 --- !u!1 &5526829057820088975 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8160225988417196018, guid: eb3e169a6a888bd4ea1cf78337884797,
+    type: 3}
+  m_PrefabInstance: {fileID: 5526829057820088974}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5526829057820088977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6392167675403432888, guid: eb3e169a6a888bd4ea1cf78337884797,
     type: 3}
   m_PrefabInstance: {fileID: 5526829057820088974}
   m_PrefabAsset: {fileID: 0}
