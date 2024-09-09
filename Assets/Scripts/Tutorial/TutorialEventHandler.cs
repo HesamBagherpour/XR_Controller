@@ -83,6 +83,10 @@ public class TutorialEventHandler : HighlightBehavior
         if (Gun != null)
         {
             Gun.SetAllowShoot(AllowShoot);
+        }
+
+        if (_magazineControl != null)
+        {
             _magazineControl.SetAllowMagazineDrop(allowDropMagazine);
         }
         _isShow = true;
@@ -170,7 +174,7 @@ public class TutorialEventHandler : HighlightBehavior
         _playerMovementData = new playerMovementData()
         {
             InitialPosition = _player.transform.position,
-            deltaDistance = 0.3f,
+            deltaDistance = 1f,
             IsEventCalled = false
         };
         _playerRotationData = new playerRotationData()
@@ -182,6 +186,10 @@ public class TutorialEventHandler : HighlightBehavior
 
     }
 
+    private void Delay()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {

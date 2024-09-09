@@ -25,10 +25,10 @@
         DoAction();
     }
 
-    //private void Fire_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    //{
-    //    DoAction();
-    //}
+    private void Fire_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        DoAction();
+    }
 
 }
 

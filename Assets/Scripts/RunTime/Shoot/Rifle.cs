@@ -44,7 +44,7 @@ public class Rifle : Gun
 
     protected override void Initialize()
     {
-        GunType = GunType.Rifle;
+       // GunType = GunType.Rifle;
         _gunController.AddGunReactionsToTrigger(TriggerStarted, TriggerEnded);
         //Fire.performed += Fire_performed;
     }
