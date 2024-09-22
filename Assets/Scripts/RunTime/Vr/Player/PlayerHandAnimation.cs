@@ -8,7 +8,6 @@ public class PlayerHandAnimation : MonoBehaviour
     [SerializeField] InputActionReference activateAction;
     [SerializeField] Transform controller;
     [SerializeField] PlayerHandController playerHand;
-    [SerializeField] GameObject character;
 
     HandsAnimation handsAnimation;
     Animator handDeformAnimator;
@@ -25,8 +24,6 @@ public class PlayerHandAnimation : MonoBehaviour
         handDeformAnimator = handGameObject.GetComponent<Animator>();
         directInteractorAnimator = GetComponent<Animator>();
 
-        if(character != null)
-            handsAnimation = character.GetComponent<HandsAnimation>();
         //handGameObject = transform.GetChild(0).gameObject;
         //animator= handGameObject.GetComponent<Animator>();
 
@@ -37,23 +34,38 @@ public class PlayerHandAnimation : MonoBehaviour
         activateAction.action.canceled += OnPinchRelease;
     }
 
+    public void SetHandsAnimation(HandsAnimation _handsAnimation)
+    {
+        handsAnimation = _handsAnimation;
+    }
+
     void OnGripping(InputAction.CallbackContext obj)
     {
-        if(character != null)
-            handsAnimation.Grab(playerHand.Hand, obj.ReadValue<float>());
+        var value = obj.ReadValue<float>();
+        Grip(value);
+        RemoteCharacterGrip(value);
+    }
 
+    void Grip(float value)
+    {
         if(isActive == true)
-            handDeformAnimator.SetFloat("Grip", obj.ReadValue<float>());
+        handDeformAnimator.SetFloat("Grip", value);
+    }
+    void RemoteCharacterGrip(float value)
+    {
+        if(handsAnimation != null)
+            handsAnimation.Grab(playerHand.Hand, value);
     }
 
     void OnGripRelease(InputAction.CallbackContext obj)
     {
         GripRelease();
+        RemoteCharacterGripRelease();
     }
 
     void OnPinching(InputAction.CallbackContext obj)
     {
-        if(character != null)
+        if(handsAnimation != null)
             handsAnimation.Pinch(playerHand.Hand, obj.ReadValue<float>());
 
         if(isActive == true)
@@ -63,21 +75,27 @@ public class PlayerHandAnimation : MonoBehaviour
     void OnPinchRelease(InputAction.CallbackContext obj)
     {
         PinchRelease();
+        RemoteCharacterPinchRelease();
     }
 
     void GripRelease()
     {
-        if(character != null)
-            handsAnimation.Grab(playerHand.Hand, 0f);
-
         handDeformAnimator.SetFloat("Grip", 0f);
     }
     void PinchRelease()
     {
-        if(character != null)
-            handsAnimation.Pinch(playerHand.Hand, 0f);
-
         handDeformAnimator.SetFloat("Pinch", 0f);
+    }
+
+    void RemoteCharacterGripRelease()
+    {
+        if(handsAnimation != null)
+            handsAnimation.Grab(playerHand.Hand, 0f);
+    }
+    void RemoteCharacterPinchRelease()
+    {
+        if(handsAnimation != null)
+            handsAnimation.Pinch(playerHand.Hand, 0f);
     }
 
     public void Active()

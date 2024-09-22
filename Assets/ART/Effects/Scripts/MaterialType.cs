@@ -18,7 +18,8 @@ public class MaterialType : MonoBehaviour {
         Concrete,
         Dirt,
         Glass,
-        Water
+        Water,
+        Blood
 	}
 
     public void ShowImpact(HitData data)

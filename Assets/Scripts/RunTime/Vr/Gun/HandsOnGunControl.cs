@@ -28,10 +28,12 @@ public class HandsOnGunControl : MonoBehaviour
 
     public void SetSecondHandToNormal()
     {
+        Debug.Log("Set To Normal");
         SetHands(secondHands, secondHand_Left, secondHand_Right);
     }
     public void SetSecondHandToBolt()
     {
+        Debug.Log("Set To Bolt");
         SetHands(secondHands, boltHand_Left, boltHand_Right);
     }
 

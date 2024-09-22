@@ -15,6 +15,7 @@ TagManager:
   - ak47mag
   - mp5mag
   - pistolmag
+  - HandOffset
   layers:
   - Default
   - TransparentFX

@@ -22,8 +22,9 @@ public class PlayerHandController : MonoBehaviour
     PlayerHandAnimation handAnimation;
 
     XRDirectInteractor interactor;
-    Vector3 OldHandPosition;
-    float handPositionFloat;
+
+    //Vector3 OldHandPosition;
+    //float handPositionFloat;
 
     GunController gunController;
     BoltControl boltControl;
@@ -38,7 +39,7 @@ public class PlayerHandController : MonoBehaviour
         interactor.selectEntered.AddListener(OnSelectEntered);
         interactor.selectExited.AddListener(OnSelectExited);
 
-        selectInput.action.started += TakeAction;
+        //selectInput.action.started += TakeAction;
         selectInput.action.canceled += ReleaseAction;
         gripInput.action.performed += TriggerStay;
         gripInput.action.canceled += TriggerCancel;
@@ -52,7 +53,7 @@ public class PlayerHandController : MonoBehaviour
         interactor.selectEntered.RemoveListener(OnSelectEntered);
         interactor.selectExited.RemoveListener(OnSelectExited);
 
-        selectInput.action.started -= TakeAction;
+        //selectInput.action.started -= TakeAction;
         selectInput.action.canceled -= ReleaseAction;
         gripInput.action.performed -= TriggerStay;
         gripInput.action.canceled -= TriggerCancel;
@@ -144,10 +145,10 @@ public class PlayerHandController : MonoBehaviour
         boltControl = _boltControl;
     }
 
-    void TakeAction(InputAction.CallbackContext callback)
+    /*void TakeAction(InputAction.CallbackContext callback)
     {
         OldHandPosition = controller.localPosition;
-    }
+    }*/
 
     void ReleaseAction(InputAction.CallbackContext callback)
     {
@@ -178,7 +179,6 @@ public class PlayerHandController : MonoBehaviour
     {
         if(GetGunController() != null)
         {
-            //GetGunController().ChangeShootingMode(hand, ChangeModeDirection.down);
             GetGunController().PrimaryButtonPressed(hand, ChangeModeDirection.down);
         }
     }
@@ -187,7 +187,6 @@ public class PlayerHandController : MonoBehaviour
     {
         if(GetGunController() != null)
         {
-            //GetGunController().ChangeShootingMode(hand, ChangeModeDirection.up);
             GetGunController().SecondaryButtonPressed(hand, ChangeModeDirection.up);
         }
     }
@@ -209,7 +208,7 @@ public class PlayerHandController : MonoBehaviour
             handPositionFloat = distance.magnitude * direction * 12;
             OldHandPosition = controller.localPosition;*/
 
-            boltControl.MoveBolt(handPositionFloat, transform.position);
+            boltControl.MoveBolt(transform.position);
         }
     }
 }

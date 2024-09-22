@@ -550,7 +550,6 @@ MonoBehaviour:
     type: 3}
   controller: {fileID: 4974521508546911864}
   playerHand: {fileID: 6707685202316652361}
-  character: {fileID: 0}
 --- !u!135 &2582718785060846313
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1907,8 +1906,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6181963609949999306}
   m_Layer: 0
-  m_Name: Left Controller
-  m_TagString: Left
+  m_Name: Left Controller Offset
+  m_TagString: HandOffset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1921,13 +1920,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4859285265226752224}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.46390373, y: 0.46390373, z: 0.5336603, w: 0.5336603}
+  m_LocalPosition: {x: 0, y: 0, z: -0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4974521508546911864}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 82, z: 90}
 --- !u!1 &5255715591720014380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,6 +2030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5052020414056971179}
+  - component: {fileID: 7881171731939123768}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2057,6 +2057,22 @@ Transform:
   - {fileID: 8858971916311974187}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7881171731939123768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673434056379330781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d43cb6132eb53049b1a355478a4d817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 6392167675403432888}
+  leftHand: {fileID: 4974521508546911864}
+  rightHand: {fileID: 6061026171457161295}
+  character: {fileID: 0}
 --- !u!1 &6260376371324158635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,8 +2208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7820703724586734977}
   m_Layer: 0
-  m_Name: Right Controller
-  m_TagString: Right
+  m_Name: Right Controller Offset
+  m_TagString: HandOffset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2206,13 +2222,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7428199223612082612}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.46390373, y: -0.46390373, z: -0.5336603, w: 0.5336603}
+  m_LocalPosition: {x: 0, y: 0, z: -0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6061026171457161295}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: -82, z: -90}
 --- !u!1 &7472631218759317113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,7 +2274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 8917017116142567115}
-  m_MoveSpeed: 1.5
+  m_MoveSpeed: 5
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
@@ -3667,7 +3683,6 @@ MonoBehaviour:
     type: 3}
   controller: {fileID: 6061026171457161295}
   playerHand: {fileID: 992970860705967887}
-  character: {fileID: 0}
 --- !u!135 &7113765755227384446
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3775,7 +3790,7 @@ PrefabInstance:
     - target: {fileID: 8065188552600285332, guid: 927232924abbe7749aba0b85a30aa1db,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8065188552600285332, guid: 927232924abbe7749aba0b85a30aa1db,
         type: 3}
@@ -3929,7 +3944,7 @@ PrefabInstance:
     - target: {fileID: 8249230696956201412, guid: eb778dafc62c34d42ba231befaedfcdf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8249230696956201412, guid: eb778dafc62c34d42ba231befaedfcdf,
         type: 3}

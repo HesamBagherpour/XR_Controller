@@ -80,7 +80,7 @@ public class BoltControl : MonoBehaviour
         points.position = handPos;
     }
 
-    public void MoveBolt(float _value , Vector3 handPos)
+    public void MoveBolt(Vector3 handPos)
     {
         if(! gunController.IsInTwoHandGrab())
             return;
@@ -92,6 +92,7 @@ public class BoltControl : MonoBehaviour
             CalibratePoints(handPos);
             isFirstSelect = true;
         }
+
         var distance = ((handPos - front.position).magnitude - (handPos - back.position).magnitude) * moveSpeed * 25;
         var value = GetAnimatorValue();
 

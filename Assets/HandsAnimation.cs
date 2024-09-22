@@ -26,6 +26,7 @@ public class HandsAnimation : MonoBehaviour
 
     void ChangeValue(String name, float value)
     {
-        animator.SetFloat(name, value);
+        if(animator != null)
+            animator.SetFloat(name, value);
     }
 }
